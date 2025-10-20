@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>File Transfer on Blog Lập Trình - 2180607911 - Nguyễn Thanh Phương - 21DTHD3</title><link>https://phuongit1306.github.io/BlogLTMMT/tags/file-transfer/</link><description>Recent content in File Transfer on Blog Lập Trình - 2180607911 - Nguyễn Thanh Phương - 21DTHD3</description><generator>Hugo -- 0.151.2</generator><language>vi</language><lastBuildDate>Tue, 14 Oct 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://phuongit1306.github.io/BlogLTMMT/tags/file-transfer/index.xml" rel="self" type="application/rss+xml"/><item><title>Bài 8 - Gửi và nhận file qua mạng trong Java (File Transfer)</title><link>https://phuongit1306.github.io/BlogLTMMT/blog/bai8-gui-va-nhan-file-qua-mang-trong-java/</link><pubDate>Tue, 14 Oct 2025 00:00:00 +0000</pubDate><guid>https://phuongit1306.github.io/BlogLTMMT/blog/bai8-gui-va-nhan-file-qua-mang-trong-java/</guid><description>&lt;ul&gt;
+&lt;li&gt;Trong các bài trước, ta đã học cách gửi và nhận &lt;strong&gt;chuỗi văn bản&lt;/strong&gt; giữa Client và Server.&lt;/li&gt;
+&lt;li&gt;Ở bài này, chúng ta sẽ tiến thêm một bước để &lt;strong&gt;truyền tải file (ảnh, PDF, nhạc, video, …)&lt;/strong&gt; giữa hai máy tính qua &lt;strong&gt;Socket TCP&lt;/strong&gt; 📁&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h2 id="-1-nguyên-lý-hoạt-động"&gt;🧠 1. Nguyên lý hoạt động&lt;/h2&gt;
+&lt;h3 id="-luồng-dữ-liệu"&gt;🔄 Luồng dữ liệu&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;Client&lt;/strong&gt; mở một file cần gửi → đọc dữ liệu thành byte[]&lt;/li&gt;
+&lt;li&gt;Gửi dữ liệu này qua &lt;strong&gt;Socket OutputStream&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Server&lt;/strong&gt; nhận dữ liệu qua &lt;strong&gt;InputStream&lt;/strong&gt; và ghi vào file đích&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;📸 &lt;em&gt;Sơ đồ hoạt động:&lt;/em&gt;
+&lt;img alt="Java File Transfer Diagram" loading="lazy" src="../images/java-file-transfer-diagram.png"&gt;&lt;/p&gt;</description></item></channel></rss>
