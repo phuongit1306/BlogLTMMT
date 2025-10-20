@@ -1,36 +1,20 @@
-# ================================
-# Hugo build output
-# ================================
-resources/
-hugo_stats.json
+# Build and Release Folders
+bin/
+bin-debug/
+bin-release/
+[Oo]bj/ # FlashDevelop obj
+[Bb]in/ # FlashDevelop bin
 
-# ================================
-# OS-generated files
-# ================================
-.DS_Store
-Thumbs.db
+# Other files and folders
+.settings/
 
-# ================================
-# IDE / Editor folders
-# ================================
-.vscode/
-.idea/
+# Executables
+*.swf
+*.air
+*.ipa
+*.apk
 
-# ================================
-# Node & package management
-# ================================
-node_modules/
-package-lock.json
-npm-debug.log*
+# Hugo
+public/
 
-# ================================
-# Hugo module cache
-# ================================
-/_modules/
-
-# ================================
-# Temporary build or backup files
-# ================================
-*.bak
-*.tmp
-*.swp
+# Backup Files
