@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="en" dir="auto">
 
-<head><meta charset="utf-8">
+<head><script src="/BlogLTMMT/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=BlogLTMMT/livereload" data-no-instant defer></script><meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<meta name="robots" content="index, follow">
+<meta name="robots" content="noindex, nofollow">
 <title>Bài 9 - Lập trình mạng trong Java với RMI (Remote Method Invocation) | Blog Lập Trình - 2180607911 - Nguyễn Thanh Phương - 21DTHD3</title>
 <meta name="keywords" content="Java, RMI, Distributed Systems, Networking">
 <meta name="description" content="
@@ -15,16 +15,16 @@ Khi lập trình mạng, ngoài việc truyền dữ liệu giữa Client và Se
 🧠 1. Giới thiệu về RMI
 RMI (Remote Method Invocation) là cơ chế cho phép một chương trình Java gọi phương thức của đối tượng trên máy khác qua mạng, giống như gọi hàm cục bộ.">
 <meta name="author" content="Nguyễn Thanh Phương">
-<link rel="canonical" href="https://phuongit1306.github.io/BlogLTMMT/blog/bai9-lap-trinh-mang-voi-rmi-trong-java/">
+<link rel="canonical" href="http://localhost:1313/BlogLTMMT/blog/bai9-lap-trinh-mang-voi-rmi-trong-java/">
 <link crossorigin="anonymous" href="/BlogLTMMT/assets/css/stylesheet.a482bf00fa5c046040ef7973ad5fdf5657890cacb596c93f1382f664ca542074.css" integrity="sha256-pIK/APpcBGBA73lzrV/fVleJDKy1lsk/E4L2ZMpUIHQ=" rel="preload stylesheet" as="style">
-<link rel="icon" href="https://phuongit1306.github.io/BlogLTMMT/favicon.ico">
-<link rel="icon" type="image/png" sizes="16x16" href="https://phuongit1306.github.io/BlogLTMMT/favicon-16x16.png">
-<link rel="icon" type="image/png" sizes="32x32" href="https://phuongit1306.github.io/BlogLTMMT/favicon-32x32.png">
-<link rel="apple-touch-icon" href="https://phuongit1306.github.io/BlogLTMMT/apple-touch-icon.png">
-<link rel="mask-icon" href="https://phuongit1306.github.io/BlogLTMMT/safari-pinned-tab.svg">
+<link rel="icon" href="http://localhost:1313/BlogLTMMT/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/BlogLTMMT/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/BlogLTMMT/favicon-32x32.png">
+<link rel="apple-touch-icon" href="http://localhost:1313/BlogLTMMT/apple-touch-icon.png">
+<link rel="mask-icon" href="http://localhost:1313/BlogLTMMT/safari-pinned-tab.svg">
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
-<link rel="alternate" hreflang="en" href="https://phuongit1306.github.io/BlogLTMMT/blog/bai9-lap-trinh-mang-voi-rmi-trong-java/">
+<link rel="alternate" hreflang="en" href="http://localhost:1313/BlogLTMMT/blog/bai9-lap-trinh-mang-voi-rmi-trong-java/">
 <noscript>
     <style>
         #theme-toggle,
@@ -61,84 +61,7 @@ RMI (Remote Method Invocation) là cơ chế cho phép một chương trình Jav
         }
 
     </style>
-</noscript><meta property="og:url" content="https://phuongit1306.github.io/BlogLTMMT/blog/bai9-lap-trinh-mang-voi-rmi-trong-java/">
-  <meta property="og:site_name" content="Blog Lập Trình - 2180607911 - Nguyễn Thanh Phương - 21DTHD3">
-  <meta property="og:title" content="Bài 9 - Lập trình mạng trong Java với RMI (Remote Method Invocation)">
-  <meta property="og:description" content=" Khi lập trình mạng, ngoài việc truyền dữ liệu giữa Client và Server, đôi khi bạn muốn gọi trực tiếp một hàm trên máy khác như thể nó nằm trong cùng chương trình.
-👉 Đó chính là lúc RMI (Remote Method Invocation) phát huy sức mạnh! 🧠 1. Giới thiệu về RMI RMI (Remote Method Invocation) là cơ chế cho phép một chương trình Java gọi phương thức của đối tượng trên máy khác qua mạng, giống như gọi hàm cục bộ.">
-  <meta property="og:locale" content="vi">
-  <meta property="og:type" content="article">
-    <meta property="article:section" content="blog">
-    <meta property="article:published_time" content="2025-10-15T00:00:00+00:00">
-    <meta property="article:modified_time" content="2025-10-15T00:00:00+00:00">
-    <meta property="article:tag" content="Java">
-    <meta property="article:tag" content="RMI">
-    <meta property="article:tag" content="Distributed Systems">
-    <meta property="article:tag" content="Networking">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Bài 9 - Lập trình mạng trong Java với RMI (Remote Method Invocation)">
-<meta name="twitter:description" content="
-Khi lập trình mạng, ngoài việc truyền dữ liệu giữa Client và Server, đôi khi bạn muốn gọi trực tiếp một hàm trên máy khác như thể nó nằm trong cùng chương trình.
-👉 Đó chính là lúc RMI (Remote Method Invocation) phát huy sức mạnh!
-
-
-🧠 1. Giới thiệu về RMI
-RMI (Remote Method Invocation) là cơ chế cho phép một chương trình Java gọi phương thức của đối tượng trên máy khác qua mạng, giống như gọi hàm cục bộ.">
-
-
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "BreadcrumbList",
-  "itemListElement": [
-    {
-      "@type": "ListItem",
-      "position":  1 ,
-      "name": "Blog - Lập trình mạng máy tính",
-      "item": "https://phuongit1306.github.io/BlogLTMMT/blog/"
-    }, 
-    {
-      "@type": "ListItem",
-      "position":  2 ,
-      "name": "Bài 9 - Lập trình mạng trong Java với RMI (Remote Method Invocation)",
-      "item": "https://phuongit1306.github.io/BlogLTMMT/blog/bai9-lap-trinh-mang-voi-rmi-trong-java/"
-    }
-  ]
-}
-</script>
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "BlogPosting",
-  "headline": "Bài 9 - Lập trình mạng trong Java với RMI (Remote Method Invocation)",
-  "name": "Bài 9 - Lập trình mạng trong Java với RMI (Remote Method Invocation)",
-  "description": " Khi lập trình mạng, ngoài việc truyền dữ liệu giữa Client và Server, đôi khi bạn muốn gọi trực tiếp một hàm trên máy khác như thể nó nằm trong cùng chương trình.\n👉 Đó chính là lúc RMI (Remote Method Invocation) phát huy sức mạnh! 🧠 1. Giới thiệu về RMI RMI (Remote Method Invocation) là cơ chế cho phép một chương trình Java gọi phương thức của đối tượng trên máy khác qua mạng, giống như gọi hàm cục bộ.\n",
-  "keywords": [
-    "Java", "RMI", "Distributed Systems", "Networking"
-  ],
-  "articleBody": " Khi lập trình mạng, ngoài việc truyền dữ liệu giữa Client và Server, đôi khi bạn muốn gọi trực tiếp một hàm trên máy khác như thể nó nằm trong cùng chương trình.\n👉 Đó chính là lúc RMI (Remote Method Invocation) phát huy sức mạnh! 🧠 1. Giới thiệu về RMI RMI (Remote Method Invocation) là cơ chế cho phép một chương trình Java gọi phương thức của đối tượng trên máy khác qua mạng, giống như gọi hàm cục bộ.\n📸 Minh họa kiến trúc RMI: 💡 Ưu điểm của RMI: Trừu tượng hóa toàn bộ giao tiếp mạng. Dễ dàng chia sẻ logic giữa Client – Server. Tích hợp tốt với Java Object Serialization. ⚙️ 2. Cấu trúc chương trình RMI 📁 RMIExample/\n┣ 📄 Hello.java ← Giao diện Remote\n┣ 📄 HelloImpl.java ← Cài đặt giao diện\n┣ 📄 Server.java ← Khởi chạy RMI Server\n┣ 📄 Client.java ← Gọi phương thức từ xa\n🧩 3. Tạo giao diện Remote (Hello.java) import java.rmi.Remote; import java.rmi.RemoteException; public interface Hello extends Remote { String sayHello(String name) throws RemoteException; } 🧠 Mọi interface RMI đều phải:\nKế thừa java.rmi.Remote Mỗi phương thức ném ra RemoteException ⚙️ 4. Cài đặt giao diện (HelloImpl.java) import java.rmi.server.UnicastRemoteObject; import java.rmi.RemoteException; public class HelloImpl extends UnicastRemoteObject implements Hello { protected HelloImpl() throws RemoteException { super(); } @Override public String sayHello(String name) throws RemoteException { return \"Xin chào, \" + name + \"! 👋 Chúc bạn một ngày tốt lành!\"; } } 🖥️ 5. Tạo Server (Server.java) import java.rmi.registry.LocateRegistry; import java.rmi.registry.Registry; public class Server { public static void main(String[] args) { try { Hello helloObj = new HelloImpl(); // Tạo registry tại port 1099 Registry registry = LocateRegistry.createRegistry(1099); registry.rebind(\"HelloService\", helloObj); System.out.println(\"🚀 Server đã khởi động và chờ client gọi phương thức...\"); } catch (Exception e) { e.printStackTrace(); } } } 📌 Registry hoạt động như “danh bạ” lưu trữ các đối tượng có thể gọi từ xa.\n💻 6. Tạo Client (Client.java) import java.rmi.registry.LocateRegistry; import java.rmi.registry.Registry; public class Client { public static void main(String[] args) { try { // Kết nối đến registry tại localhost:1099 Registry registry = LocateRegistry.getRegistry(\"localhost\", 1099); // Lấy đối tượng từ xa Hello hello = (Hello) registry.lookup(\"HelloService\"); // Gọi phương thức từ xa String response = hello.sayHello(\"Phương\"); System.out.println(\"📩 Phản hồi từ Server: \" + response); } catch (Exception e) { e.printStackTrace(); } } } ⚙️ 7. Cách chạy chương trình 🧱 Bước 1: Biên dịch tất cả file javac *.java 🧰 Bước 2: Khởi động RMI Registry Trong terminal: rmiregistry (Giữ cửa sổ này mở!)\n🚀 Bước 3: Chạy Server java Server 💻 Bước 4: Chạy Client java Client Kết quả hiển thị: 📩 Phản hồi từ Server: Xin chào, Phương! 👋 Chúc bạn một ngày tốt lành! 🧠 8. Giải thích quy trình hoạt động Bước Mô tả 1️⃣ Client gọi phương thức sayHello() 2️⃣ Stub chuyển yêu cầu thành gói dữ liệu gửi qua mạng 3️⃣ Skeleton phía Server nhận và gọi hàm thật 4️⃣ Kết quả trả ngược lại qua Stub 5️⃣ Client nhận kết quả như gọi hàm cục bộ 💡 9. Mở rộng \u0026 Ứng dụng Ứng dụng Mô tả 💬 Chat RMI Mỗi client có thể gửi/nhận tin nhắn từ server 🗂 Quản lý cơ sở dữ liệu Server thực thi câu lệnh SQL từ Client 🎮 Multiplayer Game Các người chơi gọi hàm cập nhật trạng thái chung ☁️ Dịch vụ phân tán Xây dựng microservice đơn giản giữa nhiều máy Java 🧩 10. Ưu điểm \u0026 Nhược điểm của RMI Ưu điểm Nhược điểm Dễ sử dụng, hướng đối tượng Chỉ hỗ trợ Java ↔ Java Giao tiếp tự nhiên qua hàm Cần thiết lập bảo mật RMI khi triển khai thật Phù hợp với hệ thống nội bộ Không phổ biến bằng REST/Socket trong môi trường đa ngôn ngữ 🏁 11. Tổng kết Sau bài này, bạn đã học được:\nCách sử dụng RMI để gọi hàm từ xa giữa hai chương trình Java.\nHiểu quy trình hoạt động của Stub \u0026 Skeleton trong truyền dữ liệu.\nCó nền tảng để phát triển ứng dụng phân tán hoặc microservice bằng Java.\n📘 Tổng kết chuỗi “Lập trình mạng trong Java” Bài Chủ đề 1️⃣ Giới thiệu về Java 2️⃣ Kết nối mạng với Socket 3️⃣ Lập trình đa luồng 4️⃣ Client – Server cơ bản 5️⃣ Chat nhiều người 6️⃣ Multithreading nâng cao 7️⃣ Truyền dữ liệu có cấu trúc 8️⃣ Gửi và nhận file 9️⃣ RMI – Gọi hàm từ xa ✅ ✍️ Tác giả: Nguyễn Thanh Phương\n📅 Cập nhật: October 20, 2025\n",
-  "wordCount" : "763",
-  "inLanguage": "en",
-  "datePublished": "2025-10-15T00:00:00Z",
-  "dateModified": "2025-10-15T00:00:00Z",
-  "author":{
-    "@type": "Person",
-    "name": "Nguyễn Thanh Phương"
-  },
-  "mainEntityOfPage": {
-    "@type": "WebPage",
-    "@id": "https://phuongit1306.github.io/BlogLTMMT/blog/bai9-lap-trinh-mang-voi-rmi-trong-java/"
-  },
-  "publisher": {
-    "@type": "Organization",
-    "name": "Blog Lập Trình - 2180607911 - Nguyễn Thanh Phương - 21DTHD3",
-    "logo": {
-      "@type": "ImageObject",
-      "url": "https://phuongit1306.github.io/BlogLTMMT/favicon.ico"
-    }
-  }
-}
-</script>
+</noscript>
 </head>
 
 <body class="" id="top">
@@ -156,7 +79,7 @@ RMI (Remote Method Invocation) là cơ chế cho phép một chương trình Jav
 <header class="header">
     <nav class="nav">
         <div class="logo">
-            <a href="https://phuongit1306.github.io/BlogLTMMT/" accesskey="h" title="Blog Lập Trình - 2180607911 - Nguyễn Thanh Phương - 21DTHD3 (Alt + H)">Blog Lập Trình - 2180607911 - Nguyễn Thanh Phương - 21DTHD3</a>
+            <a href="http://localhost:1313/BlogLTMMT/" accesskey="h" title="Blog Lập Trình - 2180607911 - Nguyễn Thanh Phương - 21DTHD3 (Alt + H)">Blog Lập Trình - 2180607911 - Nguyễn Thanh Phương - 21DTHD3</a>
             <div class="logo-switches">
                 <button id="theme-toggle" accesskey="t" title="(Alt + T)" aria-label="Toggle theme">
                     <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
@@ -182,17 +105,17 @@ RMI (Remote Method Invocation) là cơ chế cho phép một chương trình Jav
         </div>
         <ul id="menu">
             <li>
-                <a href="https://phuongit1306.github.io/BlogLTMMT/" title="Home">
+                <a href="http://localhost:1313/BlogLTMMT/" title="Home">
                     <span>Home</span>
                 </a>
             </li>
             <li>
-                <a href="https://phuongit1306.github.io/BlogLTMMT/blog" title="📝">
+                <a href="http://localhost:1313/BlogLTMMT/blog" title="📝">
                     <span>📝</span>
                 </a>
             </li>
             <li>
-                <a href="https://phuongit1306.github.io/BlogLTMMT/about" title="📩">
+                <a href="http://localhost:1313/BlogLTMMT/about" title="📩">
                     <span>📩</span>
                 </a>
             </li>
@@ -203,7 +126,7 @@ RMI (Remote Method Invocation) là cơ chế cho phép một chương trình Jav
 
 <article class="post-single">
   <header class="post-header">
-    <div class="breadcrumbs"><a href="https://phuongit1306.github.io/BlogLTMMT/">Home</a>&nbsp;»&nbsp;<a href="https://phuongit1306.github.io/BlogLTMMT/blog/">Blog - Lập trình mạng máy tính</a></div>
+    <div class="breadcrumbs"><a href="http://localhost:1313/BlogLTMMT/">Home</a>&nbsp;»&nbsp;<a href="http://localhost:1313/BlogLTMMT/blog/">Blog - Lập trình mạng máy tính</a></div>
     <h1 class="post-title entry-hint-parent">
       Bài 9 - Lập trình mạng trong Java với RMI (Remote Method Invocation)
     </h1>
@@ -481,13 +404,13 @@ RMI (Remote Method Invocation) là cơ chế cho phép một chương trình Jav
 
   <footer class="post-footer">
     <ul class="post-tags">
-      <li><a href="https://phuongit1306.github.io/BlogLTMMT/tags/java/">Java</a></li>
-      <li><a href="https://phuongit1306.github.io/BlogLTMMT/tags/rmi/">RMI</a></li>
-      <li><a href="https://phuongit1306.github.io/BlogLTMMT/tags/distributed-systems/">Distributed Systems</a></li>
-      <li><a href="https://phuongit1306.github.io/BlogLTMMT/tags/networking/">Networking</a></li>
+      <li><a href="http://localhost:1313/BlogLTMMT/tags/java/">Java</a></li>
+      <li><a href="http://localhost:1313/BlogLTMMT/tags/rmi/">RMI</a></li>
+      <li><a href="http://localhost:1313/BlogLTMMT/tags/distributed-systems/">Distributed Systems</a></li>
+      <li><a href="http://localhost:1313/BlogLTMMT/tags/networking/">Networking</a></li>
     </ul>
 <nav class="paginav">
-  <a class="next" href="https://phuongit1306.github.io/BlogLTMMT/blog/bai8-gui-va-nhan-file-qua-mang-trong-java/">
+  <a class="next" href="http://localhost:1313/BlogLTMMT/blog/bai8-gui-va-nhan-file-qua-mang-trong-java/">
     <span class="title">Next »</span>
     <br>
     <span>Bài 8 - Gửi và nhận file qua mạng trong Java (File Transfer)</span>
@@ -499,7 +422,7 @@ RMI (Remote Method Invocation) là cơ chế cho phép một chương trình Jav
     </main>
     
 <footer class="footer">
-        <span>&copy; 2025 <a href="https://phuongit1306.github.io/BlogLTMMT/">Blog Lập Trình - 2180607911 - Nguyễn Thanh Phương - 21DTHD3</a></span> · 
+        <span>&copy; 2025 <a href="http://localhost:1313/BlogLTMMT/">Blog Lập Trình - 2180607911 - Nguyễn Thanh Phương - 21DTHD3</a></span> · 
 
     <span>
         Powered by

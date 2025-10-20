@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="en" dir="auto">
 
-<head><meta charset="utf-8">
+<head><script src="/BlogLTMMT/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=BlogLTMMT/livereload" data-no-instant defer></script><meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<meta name="robots" content="index, follow">
+<meta name="robots" content="noindex, nofollow">
 <title>Bài 7 - Lập trình mạng với UDP trong Java | Blog Lập Trình - 2180607911 - Nguyễn Thanh Phương - 21DTHD3</title>
 <meta name="keywords" content="Java, UDP, Datagram, Networking">
 <meta name="description" content="
@@ -43,16 +43,16 @@ Tuy nhiên, trong nhiều ứng dụng như trò chơi trực tuyến, stream vi
 📸 Minh họa hoạt động UDP:
 ">
 <meta name="author" content="Nguyễn Thanh Phương">
-<link rel="canonical" href="https://phuongit1306.github.io/BlogLTMMT/blog/bai7-lap-trinh-mang-voi-udp-trong-java/">
+<link rel="canonical" href="http://localhost:1313/BlogLTMMT/blog/bai7-lap-trinh-mang-voi-udp-trong-java/">
 <link crossorigin="anonymous" href="/BlogLTMMT/assets/css/stylesheet.a482bf00fa5c046040ef7973ad5fdf5657890cacb596c93f1382f664ca542074.css" integrity="sha256-pIK/APpcBGBA73lzrV/fVleJDKy1lsk/E4L2ZMpUIHQ=" rel="preload stylesheet" as="style">
-<link rel="icon" href="https://phuongit1306.github.io/BlogLTMMT/favicon.ico">
-<link rel="icon" type="image/png" sizes="16x16" href="https://phuongit1306.github.io/BlogLTMMT/favicon-16x16.png">
-<link rel="icon" type="image/png" sizes="32x32" href="https://phuongit1306.github.io/BlogLTMMT/favicon-32x32.png">
-<link rel="apple-touch-icon" href="https://phuongit1306.github.io/BlogLTMMT/apple-touch-icon.png">
-<link rel="mask-icon" href="https://phuongit1306.github.io/BlogLTMMT/safari-pinned-tab.svg">
+<link rel="icon" href="http://localhost:1313/BlogLTMMT/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/BlogLTMMT/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/BlogLTMMT/favicon-32x32.png">
+<link rel="apple-touch-icon" href="http://localhost:1313/BlogLTMMT/apple-touch-icon.png">
+<link rel="mask-icon" href="http://localhost:1313/BlogLTMMT/safari-pinned-tab.svg">
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
-<link rel="alternate" hreflang="en" href="https://phuongit1306.github.io/BlogLTMMT/blog/bai7-lap-trinh-mang-voi-udp-trong-java/">
+<link rel="alternate" hreflang="en" href="http://localhost:1313/BlogLTMMT/blog/bai7-lap-trinh-mang-voi-udp-trong-java/">
 <noscript>
     <style>
         #theme-toggle,
@@ -89,112 +89,7 @@ Tuy nhiên, trong nhiều ứng dụng như trò chơi trực tuyến, stream vi
         }
 
     </style>
-</noscript><meta property="og:url" content="https://phuongit1306.github.io/BlogLTMMT/blog/bai7-lap-trinh-mang-voi-udp-trong-java/">
-  <meta property="og:site_name" content="Blog Lập Trình - 2180607911 - Nguyễn Thanh Phương - 21DTHD3">
-  <meta property="og:title" content="Bài 7 - Lập trình mạng với UDP trong Java">
-  <meta property="og:description" content=" Trong các bài trước, chúng ta đã làm quen với Socket TCP, giúp tạo kết nối ổn định giữa Client và Server. Tuy nhiên, trong nhiều ứng dụng như trò chơi trực tuyến, stream video/audio, ta cần tốc độ cao hơn, dù có thể mất một ít dữ liệu. Đó chính là lúc giao thức UDP (User Datagram Protocol) được sử dụng ⚡
-🧠 1. Tổng quan về UDP Đặc điểm Mô tả Không kết nối (Connectionless) Không cần thiết lập kết nối giữa client &amp; server Nhanh hơn TCP Không có xác nhận gói tin nên tốc độ cao hơn Không đảm bảo dữ liệu đến Gói tin có thể bị mất, trễ hoặc đến sai thứ tự Ứng dụng phổ biến Video call, voice chat, game online, livestream 📸 Minh họa hoạt động UDP: ">
-  <meta property="og:locale" content="vi">
-  <meta property="og:type" content="article">
-    <meta property="article:section" content="blog">
-    <meta property="article:published_time" content="2025-10-11T00:00:00+00:00">
-    <meta property="article:modified_time" content="2025-10-11T00:00:00+00:00">
-    <meta property="article:tag" content="Java">
-    <meta property="article:tag" content="UDP">
-    <meta property="article:tag" content="Datagram">
-    <meta property="article:tag" content="Networking">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Bài 7 - Lập trình mạng với UDP trong Java">
-<meta name="twitter:description" content="
-Trong các bài trước, chúng ta đã làm quen với Socket TCP, giúp tạo kết nối ổn định giữa Client và Server.
-Tuy nhiên, trong nhiều ứng dụng như trò chơi trực tuyến, stream video/audio, ta cần tốc độ cao hơn, dù có thể mất một ít dữ liệu.
-
-Đó chính là lúc giao thức UDP (User Datagram Protocol) được sử dụng ⚡
-
-🧠 1. Tổng quan về UDP
-
-  
-      
-          Đặc điểm
-          Mô tả
-      
-  
-  
-      
-          Không kết nối (Connectionless)
-          Không cần thiết lập kết nối giữa client &amp; server
-      
-      
-          Nhanh hơn TCP
-          Không có xác nhận gói tin nên tốc độ cao hơn
-      
-      
-          Không đảm bảo dữ liệu đến
-          Gói tin có thể bị mất, trễ hoặc đến sai thứ tự
-      
-      
-          Ứng dụng phổ biến
-          Video call, voice chat, game online, livestream
-      
-  
-
-📸 Minh họa hoạt động UDP:
-">
-
-
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "BreadcrumbList",
-  "itemListElement": [
-    {
-      "@type": "ListItem",
-      "position":  1 ,
-      "name": "Blog - Lập trình mạng máy tính",
-      "item": "https://phuongit1306.github.io/BlogLTMMT/blog/"
-    }, 
-    {
-      "@type": "ListItem",
-      "position":  2 ,
-      "name": "Bài 7 - Lập trình mạng với UDP trong Java",
-      "item": "https://phuongit1306.github.io/BlogLTMMT/blog/bai7-lap-trinh-mang-voi-udp-trong-java/"
-    }
-  ]
-}
-</script>
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "BlogPosting",
-  "headline": "Bài 7 - Lập trình mạng với UDP trong Java",
-  "name": "Bài 7 - Lập trình mạng với UDP trong Java",
-  "description": " Trong các bài trước, chúng ta đã làm quen với Socket TCP, giúp tạo kết nối ổn định giữa Client và Server. Tuy nhiên, trong nhiều ứng dụng như trò chơi trực tuyến, stream video/audio, ta cần tốc độ cao hơn, dù có thể mất một ít dữ liệu. Đó chính là lúc giao thức UDP (User Datagram Protocol) được sử dụng ⚡\n🧠 1. Tổng quan về UDP Đặc điểm Mô tả Không kết nối (Connectionless) Không cần thiết lập kết nối giữa client \u0026amp; server Nhanh hơn TCP Không có xác nhận gói tin nên tốc độ cao hơn Không đảm bảo dữ liệu đến Gói tin có thể bị mất, trễ hoặc đến sai thứ tự Ứng dụng phổ biến Video call, voice chat, game online, livestream 📸 Minh họa hoạt động UDP: ",
-  "keywords": [
-    "Java", "UDP", "Datagram", "Networking"
-  ],
-  "articleBody": " Trong các bài trước, chúng ta đã làm quen với Socket TCP, giúp tạo kết nối ổn định giữa Client và Server. Tuy nhiên, trong nhiều ứng dụng như trò chơi trực tuyến, stream video/audio, ta cần tốc độ cao hơn, dù có thể mất một ít dữ liệu. Đó chính là lúc giao thức UDP (User Datagram Protocol) được sử dụng ⚡\n🧠 1. Tổng quan về UDP Đặc điểm Mô tả Không kết nối (Connectionless) Không cần thiết lập kết nối giữa client \u0026 server Nhanh hơn TCP Không có xác nhận gói tin nên tốc độ cao hơn Không đảm bảo dữ liệu đến Gói tin có thể bị mất, trễ hoặc đến sai thứ tự Ứng dụng phổ biến Video call, voice chat, game online, livestream 📸 Minh họa hoạt động UDP: 🧩 2. Các lớp chính trong Java UDP Lớp Mô tả DatagramSocket Dùng để gửi hoặc nhận gói tin UDP DatagramPacket Đại diện cho một gói dữ liệu được gửi/nhận InetAddress Đại diện cho địa chỉ IP của máy chủ hoặc client 💻 3. Mã nguồn ví dụ: Gửi \u0026 nhận dữ liệu UDP Dưới đây là ví dụ về Server và Client giao tiếp qua UDP.\n🖥️ UDPServer.java import java.net.*; public class UDPServer { public static void main(String[] args) { try { DatagramSocket socket = new DatagramSocket(9876); byte[] receiveData = new byte[1024]; byte[] sendData; System.out.println(\"💬 UDP Server đang chờ gói tin...\"); while (true) { // Nhận dữ liệu từ Client DatagramPacket receivePacket = new DatagramPacket(receiveData, receiveData.length); socket.receive(receivePacket); String message = new String(receivePacket.getData(), 0, receivePacket.getLength()); System.out.println(\"📩 Nhận từ Client: \" + message); // Gửi phản hồi lại cho Client InetAddress clientAddress = receivePacket.getAddress(); int clientPort = receivePacket.getPort(); String response = \"Server nhận được: \" + message; sendData = response.getBytes(); DatagramPacket sendPacket = new DatagramPacket(sendData, sendData.length, clientAddress, clientPort); socket.send(sendPacket); } } catch (Exception e) { e.printStackTrace(); } } } 💻 UDPClient.java import java.net.*; import java.util.Scanner; public class UDPClient { public static void main(String[] args) { try { DatagramSocket socket = new DatagramSocket(); InetAddress serverAddress = InetAddress.getByName(\"localhost\"); Scanner scanner = new Scanner(System.in); while (true) { System.out.print(\"Nhập tin nhắn gửi đến server: \"); String message = scanner.nextLine(); byte[] sendData = message.getBytes(); DatagramPacket sendPacket = new DatagramPacket(sendData, sendData.length, serverAddress, 9876); socket.send(sendPacket); // Nhận phản hồi từ server byte[] receiveData = new byte[1024]; DatagramPacket receivePacket = new DatagramPacket(receiveData, receiveData.length); socket.receive(receivePacket); String response = new String(receivePacket.getData(), 0, receivePacket.getLength()); System.out.println(\"💻 Phản hồi từ server: \" + response); } } catch (Exception e) { e.printStackTrace(); } } } ⚙️ 4. Cách chạy chương trình Bước 1 – Chạy Server: javac UDPServer.java java UDPServer Bước 2 – Chạy Client: javac UDPClient.java java UDPClient 📟 Kết quả ví dụ: 💬 UDP Server đang chờ gói tin... 📩 Nhận từ Client: Xin chào Server! Và ở phía Client: Nhập tin nhắn gửi đến server: Xin chào Server! 💻 Phản hồi từ server: Server nhận được: Xin chào Server! 🔍 5. So sánh TCP và UDP Tiêu chí TCP UDP Kết nối Có kết nối (connection-based) Không kết nối Đảm bảo dữ liệu Có (retransmit nếu lỗi) Không đảm bảo Tốc độ Chậm hơn Nhanh hơn Ứng dụng Web, email, FTP Game, video call, streaming 🪄 6. Mở rộng thêm Tính năng Gợi ý 🌐 Gửi file qua UDP Chia file thành nhiều gói nhỏ rồi gửi tuần tự 🧠 Reliable UDP Tự xây cơ chế kiểm tra gói mất và gửi lại 🕹️ Game Multiplayer Dùng UDP để gửi dữ liệu vị trí người chơi trong thời gian thực 🔒 Bảo mật Mã hóa gói tin bằng AES trước khi gửi 🏁 7. Kết luận UDP nhanh, nhẹ, phù hợp cho các ứng dụng yêu cầu tốc độ cao hơn độ chính xác tuyệt đối.\nTuy nhiên, cần tự xử lý lỗi và kiểm tra dữ liệu nếu muốn đảm bảo an toàn.\nJava hỗ trợ UDP cực kỳ dễ dàng thông qua DatagramSocket và DatagramPacket.\n✍️ Tác giả: Nguyễn Thanh Phương\n📅 Cập nhật: October 20, 2025\n",
-  "wordCount" : "663",
-  "inLanguage": "en",
-  "datePublished": "2025-10-11T00:00:00Z",
-  "dateModified": "2025-10-11T00:00:00Z",
-  "author":{
-    "@type": "Person",
-    "name": "Nguyễn Thanh Phương"
-  },
-  "mainEntityOfPage": {
-    "@type": "WebPage",
-    "@id": "https://phuongit1306.github.io/BlogLTMMT/blog/bai7-lap-trinh-mang-voi-udp-trong-java/"
-  },
-  "publisher": {
-    "@type": "Organization",
-    "name": "Blog Lập Trình - 2180607911 - Nguyễn Thanh Phương - 21DTHD3",
-    "logo": {
-      "@type": "ImageObject",
-      "url": "https://phuongit1306.github.io/BlogLTMMT/favicon.ico"
-    }
-  }
-}
-</script>
+</noscript>
 </head>
 
 <body class="" id="top">
@@ -212,7 +107,7 @@ Tuy nhiên, trong nhiều ứng dụng như trò chơi trực tuyến, stream vi
 <header class="header">
     <nav class="nav">
         <div class="logo">
-            <a href="https://phuongit1306.github.io/BlogLTMMT/" accesskey="h" title="Blog Lập Trình - 2180607911 - Nguyễn Thanh Phương - 21DTHD3 (Alt + H)">Blog Lập Trình - 2180607911 - Nguyễn Thanh Phương - 21DTHD3</a>
+            <a href="http://localhost:1313/BlogLTMMT/" accesskey="h" title="Blog Lập Trình - 2180607911 - Nguyễn Thanh Phương - 21DTHD3 (Alt + H)">Blog Lập Trình - 2180607911 - Nguyễn Thanh Phương - 21DTHD3</a>
             <div class="logo-switches">
                 <button id="theme-toggle" accesskey="t" title="(Alt + T)" aria-label="Toggle theme">
                     <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
@@ -238,17 +133,17 @@ Tuy nhiên, trong nhiều ứng dụng như trò chơi trực tuyến, stream vi
         </div>
         <ul id="menu">
             <li>
-                <a href="https://phuongit1306.github.io/BlogLTMMT/" title="Home">
+                <a href="http://localhost:1313/BlogLTMMT/" title="Home">
                     <span>Home</span>
                 </a>
             </li>
             <li>
-                <a href="https://phuongit1306.github.io/BlogLTMMT/blog" title="📝">
+                <a href="http://localhost:1313/BlogLTMMT/blog" title="📝">
                     <span>📝</span>
                 </a>
             </li>
             <li>
-                <a href="https://phuongit1306.github.io/BlogLTMMT/about" title="📩">
+                <a href="http://localhost:1313/BlogLTMMT/about" title="📩">
                     <span>📩</span>
                 </a>
             </li>
@@ -259,7 +154,7 @@ Tuy nhiên, trong nhiều ứng dụng như trò chơi trực tuyến, stream vi
 
 <article class="post-single">
   <header class="post-header">
-    <div class="breadcrumbs"><a href="https://phuongit1306.github.io/BlogLTMMT/">Home</a>&nbsp;»&nbsp;<a href="https://phuongit1306.github.io/BlogLTMMT/blog/">Blog - Lập trình mạng máy tính</a></div>
+    <div class="breadcrumbs"><a href="http://localhost:1313/BlogLTMMT/">Home</a>&nbsp;»&nbsp;<a href="http://localhost:1313/BlogLTMMT/blog/">Blog - Lập trình mạng máy tính</a></div>
     <h1 class="post-title entry-hint-parent">
       Bài 7 - Lập trình mạng với UDP trong Java
     </h1>
@@ -495,18 +390,18 @@ Tuy nhiên, trong nhiều ứng dụng như trò chơi trực tuyến, stream vi
 
   <footer class="post-footer">
     <ul class="post-tags">
-      <li><a href="https://phuongit1306.github.io/BlogLTMMT/tags/java/">Java</a></li>
-      <li><a href="https://phuongit1306.github.io/BlogLTMMT/tags/udp/">UDP</a></li>
-      <li><a href="https://phuongit1306.github.io/BlogLTMMT/tags/datagram/">Datagram</a></li>
-      <li><a href="https://phuongit1306.github.io/BlogLTMMT/tags/networking/">Networking</a></li>
+      <li><a href="http://localhost:1313/BlogLTMMT/tags/java/">Java</a></li>
+      <li><a href="http://localhost:1313/BlogLTMMT/tags/udp/">UDP</a></li>
+      <li><a href="http://localhost:1313/BlogLTMMT/tags/datagram/">Datagram</a></li>
+      <li><a href="http://localhost:1313/BlogLTMMT/tags/networking/">Networking</a></li>
     </ul>
 <nav class="paginav">
-  <a class="prev" href="https://phuongit1306.github.io/BlogLTMMT/blog/bai8-gui-va-nhan-file-qua-mang-trong-java/">
+  <a class="prev" href="http://localhost:1313/BlogLTMMT/blog/bai8-gui-va-nhan-file-qua-mang-trong-java/">
     <span class="title">« Prev</span>
     <br>
     <span>Bài 8 - Gửi và nhận file qua mạng trong Java (File Transfer)</span>
   </a>
-  <a class="next" href="https://phuongit1306.github.io/BlogLTMMT/blog/bai6-xay-dung-chat-server-nhieu-nguoi-dung/">
+  <a class="next" href="http://localhost:1313/BlogLTMMT/blog/bai6-xay-dung-chat-server-nhieu-nguoi-dung/">
     <span class="title">Next »</span>
     <br>
     <span>Bài 6 - Xây dựng Chat Server nhiều người dùng (Multi-Client Chat)</span>
@@ -518,7 +413,7 @@ Tuy nhiên, trong nhiều ứng dụng như trò chơi trực tuyến, stream vi
     </main>
     
 <footer class="footer">
-        <span>&copy; 2025 <a href="https://phuongit1306.github.io/BlogLTMMT/">Blog Lập Trình - 2180607911 - Nguyễn Thanh Phương - 21DTHD3</a></span> · 
+        <span>&copy; 2025 <a href="http://localhost:1313/BlogLTMMT/">Blog Lập Trình - 2180607911 - Nguyễn Thanh Phương - 21DTHD3</a></span> · 
 
     <span>
         Powered by

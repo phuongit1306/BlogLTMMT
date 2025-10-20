@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Chat on Blog Lập Trình - 2180607911 - Nguyễn Thanh Phương - 21DTHD3</title>
-    <link>https://phuongit1306.github.io/BlogLTMMT/tags/chat/</link>
+    <link>http://localhost:1313/BlogLTMMT/tags/chat/</link>
     <description>Recent content in Chat on Blog Lập Trình - 2180607911 - Nguyễn Thanh Phương - 21DTHD3</description>
     <generator>Hugo -- 0.151.2</generator>
     <language>vi</language>
     <lastBuildDate>Fri, 10 Oct 2025 00:00:00 +0000</lastBuildDate>
-    <atom:link href="https://phuongit1306.github.io/BlogLTMMT/tags/chat/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/BlogLTMMT/tags/chat/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Bài 6 - Xây dựng Chat Server nhiều người dùng (Multi-Client Chat)</title>
-      <link>https://phuongit1306.github.io/BlogLTMMT/blog/bai6-xay-dung-chat-server-nhieu-nguoi-dung/</link>
+      <link>http://localhost:1313/BlogLTMMT/blog/bai6-xay-dung-chat-server-nhieu-nguoi-dung/</link>
       <pubDate>Fri, 10 Oct 2025 00:00:00 +0000</pubDate>
-      <guid>https://phuongit1306.github.io/BlogLTMMT/blog/bai6-xay-dung-chat-server-nhieu-nguoi-dung/</guid>
+      <guid>http://localhost:1313/BlogLTMMT/blog/bai6-xay-dung-chat-server-nhieu-nguoi-dung/</guid>
       <description>&lt;ul&gt;
 &lt;li&gt;Sau khi đã tạo thành công &lt;strong&gt;chat hai chiều giữa 1 client và 1 server&lt;/strong&gt; ở bài trước, chúng ta sẽ tiếp tục phát triển thành &lt;strong&gt;chat nhiều người dùng cùng lúc&lt;/strong&gt;.&lt;/li&gt;
 &lt;li&gt;Ứng dụng này giúp &lt;strong&gt;nhiều client có thể trò chuyện trong cùng một phòng chat&lt;/strong&gt; giống như Messenger group hoặc Discord 🔥&lt;/li&gt;
@@ -47,9 +47,9 @@
     </item>
     <item>
       <title>Bài 5 - Giao tiếp hai chiều trong Java bằng Socket (Chat Realtime)</title>
-      <link>https://phuongit1306.github.io/BlogLTMMT/blog/bai5-giao-tiep-hai-chieu-trong-java/</link>
+      <link>http://localhost:1313/BlogLTMMT/blog/bai5-giao-tiep-hai-chieu-trong-java/</link>
       <pubDate>Thu, 09 Oct 2025 00:00:00 +0000</pubDate>
-      <guid>https://phuongit1306.github.io/BlogLTMMT/blog/bai5-giao-tiep-hai-chieu-trong-java/</guid>
+      <guid>http://localhost:1313/BlogLTMMT/blog/bai5-giao-tiep-hai-chieu-trong-java/</guid>
       <description>&lt;p&gt;Trong các bài trước, ta đã học cách:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;Kết nối Client ↔ Server bằng Socket.&lt;/li&gt;

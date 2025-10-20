@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>UDP on Blog Lập Trình - 2180607911 - Nguyễn Thanh Phương - 21DTHD3</title>
-    <link>https://phuongit1306.github.io/BlogLTMMT/tags/udp/</link>
+    <link>http://localhost:1313/BlogLTMMT/tags/udp/</link>
     <description>Recent content in UDP on Blog Lập Trình - 2180607911 - Nguyễn Thanh Phương - 21DTHD3</description>
     <generator>Hugo -- 0.151.2</generator>
     <language>vi</language>
     <lastBuildDate>Sat, 11 Oct 2025 00:00:00 +0000</lastBuildDate>
-    <atom:link href="https://phuongit1306.github.io/BlogLTMMT/tags/udp/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/BlogLTMMT/tags/udp/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Bài 7 - Lập trình mạng với UDP trong Java</title>
-      <link>https://phuongit1306.github.io/BlogLTMMT/blog/bai7-lap-trinh-mang-voi-udp-trong-java/</link>
+      <link>http://localhost:1313/BlogLTMMT/blog/bai7-lap-trinh-mang-voi-udp-trong-java/</link>
       <pubDate>Sat, 11 Oct 2025 00:00:00 +0000</pubDate>
-      <guid>https://phuongit1306.github.io/BlogLTMMT/blog/bai7-lap-trinh-mang-voi-udp-trong-java/</guid>
+      <guid>http://localhost:1313/BlogLTMMT/blog/bai7-lap-trinh-mang-voi-udp-trong-java/</guid>
       <description>&lt;ul&gt;
 &lt;li&gt;Trong các bài trước, chúng ta đã làm quen với &lt;strong&gt;Socket TCP&lt;/strong&gt;, giúp tạo kết nối ổn định giữa Client và Server.&lt;/li&gt;
 &lt;li&gt;Tuy nhiên, trong nhiều ứng dụng như &lt;strong&gt;trò chơi trực tuyến, stream video/audio&lt;/strong&gt;, ta cần &lt;strong&gt;tốc độ cao hơn&lt;/strong&gt;, dù có thể &lt;strong&gt;mất một ít dữ liệu&lt;/strong&gt;.&lt;/li&gt;
