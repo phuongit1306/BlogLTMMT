@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>Bài 8 - Gửi và nhận file qua mạng trong Java (File Transfer) | Blog Lập Trình - 2180607911 - Nguyễn Thanh Phương - 21DTHD3</title>
+<meta name="keywords" content="Java, Socket, File Transfer, Networking">
+<meta name="description" content="
+Trong các bài trước, ta đã học cách gửi và nhận chuỗi văn bản giữa Client và Server.
+Ở bài này, chúng ta sẽ tiến thêm một bước để truyền tải file (ảnh, PDF, nhạc, video, …) giữa hai máy tính qua Socket TCP 📁
+
+
+🧠 1. Nguyên lý hoạt động
+🔄 Luồng dữ liệu
+
+Client mở một file cần gửi → đọc dữ liệu thành byte[]
+Gửi dữ liệu này qua Socket OutputStream
+Server nhận dữ liệu qua InputStream và ghi vào file đích
+
+📸 Sơ đồ hoạt động:
+">
+<meta name="author" content="Nguyễn Thanh Phương">
+<link rel="canonical" href="https://phuongit1306.github.io/BlogLTMMT/blog/bai8-gui-va-nhan-file-qua-mang-trong-java/">
+<link crossorigin="anonymous" href="/BlogLTMMT/assets/css/stylesheet.a482bf00fa5c046040ef7973ad5fdf5657890cacb596c93f1382f664ca542074.css" integrity="sha256-pIK/APpcBGBA73lzrV/fVleJDKy1lsk/E4L2ZMpUIHQ=" rel="preload stylesheet" as="style">
+<link rel="icon" href="https://phuongit1306.github.io/BlogLTMMT/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="https://phuongit1306.github.io/BlogLTMMT/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://phuongit1306.github.io/BlogLTMMT/favicon-32x32.png">
+<link rel="apple-touch-icon" href="https://phuongit1306.github.io/BlogLTMMT/apple-touch-icon.png">
+<link rel="mask-icon" href="https://phuongit1306.github.io/BlogLTMMT/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="en" href="https://phuongit1306.github.io/BlogLTMMT/blog/bai8-gui-va-nhan-file-qua-mang-trong-java/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --code-block-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
+            }
+        }
+
+    </style>
+</noscript><meta property="og:url" content="https://phuongit1306.github.io/BlogLTMMT/blog/bai8-gui-va-nhan-file-qua-mang-trong-java/">
+  <meta property="og:site_name" content="Blog Lập Trình - 2180607911 - Nguyễn Thanh Phương - 21DTHD3">
+  <meta property="og:title" content="Bài 8 - Gửi và nhận file qua mạng trong Java (File Transfer)">
+  <meta property="og:description" content=" Trong các bài trước, ta đã học cách gửi và nhận chuỗi văn bản giữa Client và Server. Ở bài này, chúng ta sẽ tiến thêm một bước để truyền tải file (ảnh, PDF, nhạc, video, …) giữa hai máy tính qua Socket TCP 📁 🧠 1. Nguyên lý hoạt động 🔄 Luồng dữ liệu Client mở một file cần gửi → đọc dữ liệu thành byte[] Gửi dữ liệu này qua Socket OutputStream Server nhận dữ liệu qua InputStream và ghi vào file đích 📸 Sơ đồ hoạt động: ">
+  <meta property="og:locale" content="vi">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="blog">
+    <meta property="article:published_time" content="2025-10-14T00:00:00+00:00">
+    <meta property="article:modified_time" content="2025-10-14T00:00:00+00:00">
+    <meta property="article:tag" content="Java">
+    <meta property="article:tag" content="Socket">
+    <meta property="article:tag" content="File Transfer">
+    <meta property="article:tag" content="Networking">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Bài 8 - Gửi và nhận file qua mạng trong Java (File Transfer)">
+<meta name="twitter:description" content="
+Trong các bài trước, ta đã học cách gửi và nhận chuỗi văn bản giữa Client và Server.
+Ở bài này, chúng ta sẽ tiến thêm một bước để truyền tải file (ảnh, PDF, nhạc, video, …) giữa hai máy tính qua Socket TCP 📁
+
+
+🧠 1. Nguyên lý hoạt động
+🔄 Luồng dữ liệu
+
+Client mở một file cần gửi → đọc dữ liệu thành byte[]
+Gửi dữ liệu này qua Socket OutputStream
+Server nhận dữ liệu qua InputStream và ghi vào file đích
+
+📸 Sơ đồ hoạt động:
+">
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Blog - Lập trình mạng máy tính",
+      "item": "https://phuongit1306.github.io/BlogLTMMT/blog/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "Bài 8 - Gửi và nhận file qua mạng trong Java (File Transfer)",
+      "item": "https://phuongit1306.github.io/BlogLTMMT/blog/bai8-gui-va-nhan-file-qua-mang-trong-java/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Bài 8 - Gửi và nhận file qua mạng trong Java (File Transfer)",
+  "name": "Bài 8 - Gửi và nhận file qua mạng trong Java (File Transfer)",
+  "description": " Trong các bài trước, ta đã học cách gửi và nhận chuỗi văn bản giữa Client và Server. Ở bài này, chúng ta sẽ tiến thêm một bước để truyền tải file (ảnh, PDF, nhạc, video, …) giữa hai máy tính qua Socket TCP 📁 🧠 1. Nguyên lý hoạt động 🔄 Luồng dữ liệu Client mở một file cần gửi → đọc dữ liệu thành byte[] Gửi dữ liệu này qua Socket OutputStream Server nhận dữ liệu qua InputStream và ghi vào file đích 📸 Sơ đồ hoạt động: ",
+  "keywords": [
+    "Java", "Socket", "File Transfer", "Networking"
+  ],
+  "articleBody": " Trong các bài trước, ta đã học cách gửi và nhận chuỗi văn bản giữa Client và Server. Ở bài này, chúng ta sẽ tiến thêm một bước để truyền tải file (ảnh, PDF, nhạc, video, …) giữa hai máy tính qua Socket TCP 📁 🧠 1. Nguyên lý hoạt động 🔄 Luồng dữ liệu Client mở một file cần gửi → đọc dữ liệu thành byte[] Gửi dữ liệu này qua Socket OutputStream Server nhận dữ liệu qua InputStream và ghi vào file đích 📸 Sơ đồ hoạt động: 🧩 2. Chuẩn bị thư mục Trước khi chạy chương trình, hãy tạo cấu trúc đơn giản:\n📁 FileTransfer/\n┣ 📄 FileServer.java\n┣ 📄 FileClient.java\n┣ 📁 send_files/ ← Nơi chứa file Client sẽ gửi\n┗ 📁 received_files/ ← Nơi Server lưu file nhận được\n🖥️ 3. Mã nguồn chương trình ⚙️ FileServer.java import java.io.*; import java.net.*; public class FileServer { public static void main(String[] args) { int port = 5000; try (ServerSocket serverSocket = new ServerSocket(port)) { System.out.println(\"💬 Server đang chờ Client gửi file...\"); Socket socket = serverSocket.accept(); System.out.println(\"✅ Client đã kết nối: \" + socket.getInetAddress()); DataInputStream dis = new DataInputStream(socket.getInputStream()); String fileName = dis.readUTF(); long fileSize = dis.readLong(); File file = new File(\"received_files/\" + fileName); FileOutputStream fos = new FileOutputStream(file); byte[] buffer = new byte[4096]; int bytesRead; long totalRead = 0; while (totalRead \u003c fileSize \u0026\u0026 (bytesRead = dis.read(buffer)) != -1) { fos.write(buffer, 0, bytesRead); totalRead += bytesRead; int progress = (int) ((totalRead * 100) / fileSize); System.out.print(\"\\r📦 Đang tải: \" + progress + \"%\"); } System.out.println(\"\\n✅ File \" + fileName + \" đã nhận thành công!\"); fos.close(); dis.close(); socket.close(); } catch (IOException e) { e.printStackTrace(); } } } 💻 FileClient.java import java.io.*; import java.net.*; public class FileClient { public static void main(String[] args) { String host = \"localhost\"; int port = 5000; try (Socket socket = new Socket(host, port)) { System.out.println(\"🔗 Đã kết nối đến server.\"); File file = new File(\"send_files/sample.jpg\"); // Thay file bạn muốn gửi DataOutputStream dos = new DataOutputStream(socket.getOutputStream()); FileInputStream fis = new FileInputStream(file); dos.writeUTF(file.getName()); dos.writeLong(file.length()); byte[] buffer = new byte[4096]; int bytesRead; long totalSent = 0; while ((bytesRead = fis.read(buffer)) != -1) { dos.write(buffer, 0, bytesRead); totalSent += bytesRead; int progress = (int) ((totalSent * 100) / file.length()); System.out.print(\"\\r🚀 Đang gửi: \" + progress + \"%\"); } System.out.println(\"\\n✅ Gửi file thành công!\"); fis.close(); dos.close(); } catch (IOException e) { e.printStackTrace(); } } } ⚙️ 4. Cách chạy chương trình 🧱 Bước 1: Chạy Server javac FileServer.java java FileServer 💻 Bước 2: Chạy Client javac FileClient.java java FileClient Khi chạy xong, bạn sẽ thấy: 💬 Server đang chờ Client gửi file... ✅ Client đã kết nối: /127.0.0.1 📦 Đang tải: 100% ✅ File sample.jpg đã nhận thành công! 🧩 5. Giải thích mã nguồn Thành phần Mô tả DataInputStream / DataOutputStream Dễ dàng gửi/nhận kiểu dữ liệu nguyên thủy như UTF, long FileInputStream / FileOutputStream Đọc và ghi dữ liệu file byte[] buffer Bộ nhớ tạm để gửi từng phần file progress Tính % tiến độ gửi/nhận 🧠 6. Nâng cấp thêm Tính năng Gợi ý triển khai 🔄 Gửi nhiều file Cho phép chọn nhiều file hoặc gửi tuần tự 📂 Giao diện JavaFX Thêm thanh tiến trình (ProgressBar) hiển thị trạng thái 🔐 Bảo mật Mã hóa file bằng AES trước khi gửi 📶 Resume Upload Cho phép gửi lại từ vị trí dừng khi mạng gián đoạn 🌐 Truyền qua mạng LAN Dùng IP thật của máy trong socket.connect() 🏁 7. Tổng kết Qua bài này, bạn đã nắm:\nCách gửi và nhận file qua mạng bằng Java Socket.\nHiểu rõ cơ chế Input/Output Stream hoạt động với dữ liệu lớn.\nBiết cách mở rộng ứng dụng thành trình tải file hoặc chia sẻ dữ liệu nội bộ.\n✍️ Tác giả: Nguyễn Thanh Phương\n📅 Cập nhật: October 20, 2025\n",
+  "wordCount" : "639",
+  "inLanguage": "en",
+  "datePublished": "2025-10-14T00:00:00Z",
+  "dateModified": "2025-10-14T00:00:00Z",
+  "author":{
+    "@type": "Person",
+    "name": "Nguyễn Thanh Phương"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://phuongit1306.github.io/BlogLTMMT/blog/bai8-gui-va-nhan-file-qua-mang-trong-java/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Blog Lập Trình - 2180607911 - Nguyễn Thanh Phương - 21DTHD3",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://phuongit1306.github.io/BlogLTMMT/favicon.ico"
+    }
+  }
+}
+</script>
+</head>
+
+<body class="" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+
+</script>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="https://phuongit1306.github.io/BlogLTMMT/" accesskey="h" title="Blog Lập Trình - 2180607911 - Nguyễn Thanh Phương - 21DTHD3 (Alt + H)">Blog Lập Trình - 2180607911 - Nguyễn Thanh Phương - 21DTHD3</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)" aria-label="Toggle theme">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="https://phuongit1306.github.io/BlogLTMMT/" title="Home">
+                    <span>Home</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://phuongit1306.github.io/BlogLTMMT/blog" title="📝">
+                    <span>📝</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://phuongit1306.github.io/BlogLTMMT/about" title="📩">
+                    <span>📩</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    <div class="breadcrumbs"><a href="https://phuongit1306.github.io/BlogLTMMT/">Home</a>&nbsp;»&nbsp;<a href="https://phuongit1306.github.io/BlogLTMMT/blog/">Blog - Lập trình mạng máy tính</a></div>
+    <h1 class="post-title entry-hint-parent">
+      Bài 8 - Gửi và nhận file qua mạng trong Java (File Transfer)
+    </h1>
+    <div class="post-meta"><span title='2025-10-14 00:00:00 +0000 UTC'>October 14, 2025</span>&nbsp;·&nbsp;<span>3 min</span>&nbsp;·&nbsp;<span>Nguyễn Thanh Phương</span>
+
+</div>
+  </header> 
+  <div class="post-content"><ul>
+<li>Trong các bài trước, ta đã học cách gửi và nhận <strong>chuỗi văn bản</strong> giữa Client và Server.</li>
+<li>Ở bài này, chúng ta sẽ tiến thêm một bước để <strong>truyền tải file (ảnh, PDF, nhạc, video, …)</strong> giữa hai máy tính qua <strong>Socket TCP</strong> 📁</li>
+</ul>
+<hr>
+<h2 id="-1-nguyên-lý-hoạt-động">🧠 1. Nguyên lý hoạt động<a hidden class="anchor" aria-hidden="true" href="#-1-nguyên-lý-hoạt-động">#</a></h2>
+<h3 id="-luồng-dữ-liệu">🔄 Luồng dữ liệu<a hidden class="anchor" aria-hidden="true" href="#-luồng-dữ-liệu">#</a></h3>
+<ol>
+<li><strong>Client</strong> mở một file cần gửi → đọc dữ liệu thành byte[]</li>
+<li>Gửi dữ liệu này qua <strong>Socket OutputStream</strong></li>
+<li><strong>Server</strong> nhận dữ liệu qua <strong>InputStream</strong> và ghi vào file đích</li>
+</ol>
+<p>📸 <em>Sơ đồ hoạt động:</em>
+<img alt="Java File Transfer Diagram" loading="lazy" src="../images/java-file-transfer-diagram.png"></p>
+<hr>
+<h2 id="-2-chuẩn-bị-thư-mục">🧩 2. Chuẩn bị thư mục<a hidden class="anchor" aria-hidden="true" href="#-2-chuẩn-bị-thư-mục">#</a></h2>
+<p>Trước khi chạy chương trình, hãy tạo cấu trúc đơn giản:</p>
+<p>📁 FileTransfer/</p>
+<p>┣ 📄 FileServer.java</p>
+<p>┣ 📄 FileClient.java</p>
+<p>┣ 📁 send_files/ ← Nơi chứa file Client sẽ gửi</p>
+<p>┗ 📁 received_files/ ← Nơi Server lưu file nhận được</p>
+<hr>
+<h2 id="-3-mã-nguồn-chương-trình">🖥️ 3. Mã nguồn chương trình<a hidden class="anchor" aria-hidden="true" href="#-3-mã-nguồn-chương-trình">#</a></h2>
+<h3 id="-fileserverjava">⚙️ FileServer.java<a hidden class="anchor" aria-hidden="true" href="#-fileserverjava">#</a></h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#f92672">import</span> java.io.*;
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> java.net.*;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">FileServer</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">main</span>(String<span style="color:#f92672">[]</span> args) {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">int</span> port <span style="color:#f92672">=</span> 5000;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">try</span> (ServerSocket serverSocket <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> ServerSocket(port)) {
+</span></span><span style="display:flex;"><span>            System.<span style="color:#a6e22e">out</span>.<span style="color:#a6e22e">println</span>(<span style="color:#e6db74">&#34;💬 Server đang chờ Client gửi file...&#34;</span>);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>            Socket socket <span style="color:#f92672">=</span> serverSocket.<span style="color:#a6e22e">accept</span>();
+</span></span><span style="display:flex;"><span>            System.<span style="color:#a6e22e">out</span>.<span style="color:#a6e22e">println</span>(<span style="color:#e6db74">&#34;✅ Client đã kết nối: &#34;</span> <span style="color:#f92672">+</span> socket.<span style="color:#a6e22e">getInetAddress</span>());
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>            DataInputStream dis <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> DataInputStream(socket.<span style="color:#a6e22e">getInputStream</span>());
+</span></span><span style="display:flex;"><span>            String fileName <span style="color:#f92672">=</span> dis.<span style="color:#a6e22e">readUTF</span>();
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">long</span> fileSize <span style="color:#f92672">=</span> dis.<span style="color:#a6e22e">readLong</span>();
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>            File file <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> File(<span style="color:#e6db74">&#34;received_files/&#34;</span> <span style="color:#f92672">+</span> fileName);
+</span></span><span style="display:flex;"><span>            FileOutputStream fos <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> FileOutputStream(file);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">byte</span><span style="color:#f92672">[]</span> buffer <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#66d9ef">byte</span><span style="color:#f92672">[</span>4096<span style="color:#f92672">]</span>;
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">int</span> bytesRead;
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">long</span> totalRead <span style="color:#f92672">=</span> 0;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">while</span> (totalRead <span style="color:#f92672">&lt;</span> fileSize <span style="color:#f92672">&amp;&amp;</span> (bytesRead <span style="color:#f92672">=</span> dis.<span style="color:#a6e22e">read</span>(buffer)) <span style="color:#f92672">!=</span> <span style="color:#f92672">-</span>1) {
+</span></span><span style="display:flex;"><span>                fos.<span style="color:#a6e22e">write</span>(buffer, 0, bytesRead);
+</span></span><span style="display:flex;"><span>                totalRead <span style="color:#f92672">+=</span> bytesRead;
+</span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">int</span> progress <span style="color:#f92672">=</span> (<span style="color:#66d9ef">int</span>) ((totalRead <span style="color:#f92672">*</span> 100) <span style="color:#f92672">/</span> fileSize);
+</span></span><span style="display:flex;"><span>                System.<span style="color:#a6e22e">out</span>.<span style="color:#a6e22e">print</span>(<span style="color:#e6db74">&#34;\r📦 Đang tải: &#34;</span> <span style="color:#f92672">+</span> progress <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34;%&#34;</span>);
+</span></span><span style="display:flex;"><span>            }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>            System.<span style="color:#a6e22e">out</span>.<span style="color:#a6e22e">println</span>(<span style="color:#e6db74">&#34;\n✅ File &#34;</span> <span style="color:#f92672">+</span> fileName <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34; đã nhận thành công!&#34;</span>);
+</span></span><span style="display:flex;"><span>            fos.<span style="color:#a6e22e">close</span>();
+</span></span><span style="display:flex;"><span>            dis.<span style="color:#a6e22e">close</span>();
+</span></span><span style="display:flex;"><span>            socket.<span style="color:#a6e22e">close</span>();
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        } <span style="color:#66d9ef">catch</span> (IOException e) {
+</span></span><span style="display:flex;"><span>            e.<span style="color:#a6e22e">printStackTrace</span>();
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h4 id="-fileclientjava">💻 FileClient.java<a hidden class="anchor" aria-hidden="true" href="#-fileclientjava">#</a></h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#f92672">import</span> java.io.*;
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> java.net.*;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">FileClient</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">main</span>(String<span style="color:#f92672">[]</span> args) {
+</span></span><span style="display:flex;"><span>        String host <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;localhost&#34;</span>;
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">int</span> port <span style="color:#f92672">=</span> 5000;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">try</span> (Socket socket <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> Socket(host, port)) {
+</span></span><span style="display:flex;"><span>            System.<span style="color:#a6e22e">out</span>.<span style="color:#a6e22e">println</span>(<span style="color:#e6db74">&#34;🔗 Đã kết nối đến server.&#34;</span>);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>            File file <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> File(<span style="color:#e6db74">&#34;send_files/sample.jpg&#34;</span>); <span style="color:#75715e">// Thay file bạn muốn gửi</span>
+</span></span><span style="display:flex;"><span>            DataOutputStream dos <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> DataOutputStream(socket.<span style="color:#a6e22e">getOutputStream</span>());
+</span></span><span style="display:flex;"><span>            FileInputStream fis <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> FileInputStream(file);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>            dos.<span style="color:#a6e22e">writeUTF</span>(file.<span style="color:#a6e22e">getName</span>());
+</span></span><span style="display:flex;"><span>            dos.<span style="color:#a6e22e">writeLong</span>(file.<span style="color:#a6e22e">length</span>());
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">byte</span><span style="color:#f92672">[]</span> buffer <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#66d9ef">byte</span><span style="color:#f92672">[</span>4096<span style="color:#f92672">]</span>;
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">int</span> bytesRead;
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">long</span> totalSent <span style="color:#f92672">=</span> 0;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">while</span> ((bytesRead <span style="color:#f92672">=</span> fis.<span style="color:#a6e22e">read</span>(buffer)) <span style="color:#f92672">!=</span> <span style="color:#f92672">-</span>1) {
+</span></span><span style="display:flex;"><span>                dos.<span style="color:#a6e22e">write</span>(buffer, 0, bytesRead);
+</span></span><span style="display:flex;"><span>                totalSent <span style="color:#f92672">+=</span> bytesRead;
+</span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">int</span> progress <span style="color:#f92672">=</span> (<span style="color:#66d9ef">int</span>) ((totalSent <span style="color:#f92672">*</span> 100) <span style="color:#f92672">/</span> file.<span style="color:#a6e22e">length</span>());
+</span></span><span style="display:flex;"><span>                System.<span style="color:#a6e22e">out</span>.<span style="color:#a6e22e">print</span>(<span style="color:#e6db74">&#34;\r🚀 Đang gửi: &#34;</span> <span style="color:#f92672">+</span> progress <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34;%&#34;</span>);
+</span></span><span style="display:flex;"><span>            }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>            System.<span style="color:#a6e22e">out</span>.<span style="color:#a6e22e">println</span>(<span style="color:#e6db74">&#34;\n✅ Gửi file thành công!&#34;</span>);
+</span></span><span style="display:flex;"><span>            fis.<span style="color:#a6e22e">close</span>();
+</span></span><span style="display:flex;"><span>            dos.<span style="color:#a6e22e">close</span>();
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        } <span style="color:#66d9ef">catch</span> (IOException e) {
+</span></span><span style="display:flex;"><span>            e.<span style="color:#a6e22e">printStackTrace</span>();
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><hr>
+<h2 id="-4-cách-chạy-chương-trình">⚙️ 4. Cách chạy chương trình<a hidden class="anchor" aria-hidden="true" href="#-4-cách-chạy-chương-trình">#</a></h2>
+<h4 id="-bước-1-chạy-server">🧱 Bước 1: Chạy Server<a hidden class="anchor" aria-hidden="true" href="#-bước-1-chạy-server">#</a></h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>javac FileServer.<span style="color:#a6e22e">java</span>
+</span></span><span style="display:flex;"><span>java FileServer
+</span></span></code></pre></div><h4 id="-bước-2-chạy-client">💻 Bước 2: Chạy Client<a hidden class="anchor" aria-hidden="true" href="#-bước-2-chạy-client">#</a></h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>javac FileClient.<span style="color:#a6e22e">java</span>
+</span></span><span style="display:flex;"><span>java FileClient
+</span></span></code></pre></div><h4 id="khi-chạy-xong-bạn-sẽ-thấy">Khi chạy xong, bạn sẽ thấy:<a hidden class="anchor" aria-hidden="true" href="#khi-chạy-xong-bạn-sẽ-thấy">#</a></h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">💬</span> Server đang chờ Client gửi file...
+</span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">✅</span> Client đã kết nối: <span style="color:#f92672">/</span>127.<span style="color:#a6e22e">0</span>.<span style="color:#a6e22e">0</span>.<span style="color:#a6e22e">1</span>
+</span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">📦</span> Đang tải: 100<span style="color:#f92672">%</span>
+</span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">✅</span> File sample.<span style="color:#a6e22e">jpg</span> đã nhận thành công<span style="color:#f92672">!</span>
+</span></span></code></pre></div><hr>
+<h2 id="-5-giải-thích-mã-nguồn">🧩 5. Giải thích mã nguồn<a hidden class="anchor" aria-hidden="true" href="#-5-giải-thích-mã-nguồn">#</a></h2>
+<table>
+  <thead>
+      <tr>
+          <th>Thành phần</th>
+          <th>Mô tả</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><code>DataInputStream</code> / <code>DataOutputStream</code></td>
+          <td>Dễ dàng gửi/nhận kiểu dữ liệu nguyên thủy như UTF, long</td>
+      </tr>
+      <tr>
+          <td><code>FileInputStream</code> / <code>FileOutputStream</code></td>
+          <td>Đọc và ghi dữ liệu file</td>
+      </tr>
+      <tr>
+          <td><code>byte[] buffer</code></td>
+          <td>Bộ nhớ tạm để gửi từng phần file</td>
+      </tr>
+      <tr>
+          <td><code>progress</code></td>
+          <td>Tính % tiến độ gửi/nhận</td>
+      </tr>
+  </tbody>
+</table>
+<hr>
+<h2 id="-6-nâng-cấp-thêm">🧠 6. Nâng cấp thêm<a hidden class="anchor" aria-hidden="true" href="#-6-nâng-cấp-thêm">#</a></h2>
+<table>
+  <thead>
+      <tr>
+          <th>Tính năng</th>
+          <th>Gợi ý triển khai</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>🔄 Gửi nhiều file</td>
+          <td>Cho phép chọn nhiều file hoặc gửi tuần tự</td>
+      </tr>
+      <tr>
+          <td>📂 Giao diện JavaFX</td>
+          <td>Thêm thanh tiến trình (ProgressBar) hiển thị trạng thái</td>
+      </tr>
+      <tr>
+          <td>🔐 Bảo mật</td>
+          <td>Mã hóa file bằng AES trước khi gửi</td>
+      </tr>
+      <tr>
+          <td>📶 Resume Upload</td>
+          <td>Cho phép gửi lại từ vị trí dừng khi mạng gián đoạn</td>
+      </tr>
+      <tr>
+          <td>🌐 Truyền qua mạng LAN</td>
+          <td>Dùng IP thật của máy trong <code>socket.connect()</code></td>
+      </tr>
+  </tbody>
+</table>
+<hr>
+<h2 id="-7-tổng-kết">🏁 7. Tổng kết<a hidden class="anchor" aria-hidden="true" href="#-7-tổng-kết">#</a></h2>
+<p>Qua bài này, bạn đã nắm:</p>
+<ul>
+<li>
+<p>Cách gửi và nhận file qua mạng bằng Java Socket.</p>
+</li>
+<li>
+<p>Hiểu rõ cơ chế Input/Output Stream hoạt động với dữ liệu lớn.</p>
+</li>
+<li>
+<p>Biết cách mở rộng ứng dụng thành trình tải file hoặc chia sẻ dữ liệu nội bộ.</p>
+</li>
+</ul>
+<hr>
+<p>✍️ Tác giả: Nguyễn Thanh Phương</p>
+<p>📅 Cập nhật: October 20, 2025</p>
+<hr>
+
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+      <li><a href="https://phuongit1306.github.io/BlogLTMMT/tags/java/">Java</a></li>
+      <li><a href="https://phuongit1306.github.io/BlogLTMMT/tags/socket/">Socket</a></li>
+      <li><a href="https://phuongit1306.github.io/BlogLTMMT/tags/file-transfer/">File Transfer</a></li>
+      <li><a href="https://phuongit1306.github.io/BlogLTMMT/tags/networking/">Networking</a></li>
+    </ul>
+<nav class="paginav">
+  <a class="prev" href="https://phuongit1306.github.io/BlogLTMMT/blog/bai9-lap-trinh-mang-voi-rmi-trong-java/">
+    <span class="title">« </span>
+    <br>
+    <span>Bài 9 - Lập trình mạng trong Java với RMI (Remote Method Invocation)</span>
+  </a>
+  <a class="next" href="https://phuongit1306.github.io/BlogLTMMT/blog/bai7-lap-trinh-mang-voi-udp-trong-java/">
+    <span class="title"> »</span>
+    <br>
+    <span>Bài 7 - Lập trình mạng với UDP trong Java</span>
+  </a>
+</nav>
+
+  </footer>
+</article>
+    </main>
+    
+<footer class="footer">
+        <span>&copy; 2025 <a href="https://phuongit1306.github.io/BlogLTMMT/">Blog Lập Trình - 2180607911 - Nguyễn Thanh Phương - 21DTHD3</a></span> · 
+
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerHTML = 'copy';
+
+        function copyingDone() {
+            copybutton.innerHTML = 'copied!';
+            setTimeout(() => {
+                copybutton.innerHTML = 'copy';
+            }, 2000);
+        }
+
+        copybutton.addEventListener('click', (cb) => {
+            if ('clipboard' in navigator) {
+                navigator.clipboard.writeText(codeblock.textContent);
+                copyingDone();
+                return;
+            }
+
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) { };
+            selection.removeRange(range);
+        });
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+        } else if (container.parentNode.firstChild == container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+        }
+    });
+</script>
+</body>
+
+</html>
