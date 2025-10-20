@@ -1,0 +1,37 @@
+# ================================
+# Hugo build output
+# ================================
+public/
+resources/
+hugo_stats.json
+
+# ================================
+# OS-generated files
+# ================================
+.DS_Store
+Thumbs.db
+
+# ================================
+# IDE / Editor folders
+# ================================
+.vscode/
+.idea/
+
+# ================================
+# Node & package management
+# ================================
+node_modules/
+package-lock.json
+npm-debug.log*
+
+# ================================
+# Hugo module cache
+# ================================
+/_modules/
+
+# ================================
+# Temporary build or backup files
+# ================================
+*.bak
+*.tmp
+*.swp
