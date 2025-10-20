@@ -1,130 +1,87 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
-  <channel>
-    <title>Java on Blog Lập Trình - 2180607911 - Nguyễn Thanh Phương - 21DTHD3</title>
-    <link>https://yourusername.github.io/categories/java/</link>
-    <description>Recent content in Java on Blog Lập Trình - 2180607911 - Nguyễn Thanh Phương - 21DTHD3</description>
-    <generator>Hugo -- 0.151.2</generator>
-    <language>vi</language>
-    <lastBuildDate>Wed, 15 Oct 2025 00:00:00 +0000</lastBuildDate>
-    <atom:link href="https://yourusername.github.io/categories/java/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Bài 9 - Lập trình mạng trong Java với RMI (Remote Method Invocation)</title>
-      <link>https://yourusername.github.io/blog/bai9-lap-trinh-mang-voi-rmi-trong-java/</link>
-      <pubDate>Wed, 15 Oct 2025 00:00:00 +0000</pubDate>
-      <guid>https://yourusername.github.io/blog/bai9-lap-trinh-mang-voi-rmi-trong-java/</guid>
-      <description>&lt;ul&gt;
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Java on Blog Lập Trình - 2180607911 - Nguyễn Thanh Phương - 21DTHD3</title><link>https://phuongit1306.github.io/BlogLTMMT/categories/java/</link><description>Recent content in Java on Blog Lập Trình - 2180607911 - Nguyễn Thanh Phương - 21DTHD3</description><generator>Hugo -- 0.151.2</generator><language>vi</language><lastBuildDate>Wed, 15 Oct 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://phuongit1306.github.io/BlogLTMMT/categories/java/index.xml" rel="self" type="application/rss+xml"/><item><title>Bài 9 - Lập trình mạng trong Java với RMI (Remote Method Invocation)</title><link>https://phuongit1306.github.io/BlogLTMMT/blog/bai9-lap-trinh-mang-voi-rmi-trong-java/</link><pubDate>Wed, 15 Oct 2025 00:00:00 +0000</pubDate><guid>https://phuongit1306.github.io/BlogLTMMT/blog/bai9-lap-trinh-mang-voi-rmi-trong-java/</guid><description>&lt;ul&gt;
 &lt;li&gt;Khi lập trình mạng, ngoài việc truyền dữ liệu giữa Client và Server, đôi khi bạn muốn &lt;strong&gt;gọi trực tiếp một hàm&lt;/strong&gt; trên máy khác như thể nó nằm trong cùng chương trình.&lt;br&gt;
 👉 Đó chính là lúc &lt;strong&gt;RMI (Remote Method Invocation)&lt;/strong&gt; phát huy sức mạnh!&lt;/li&gt;
 &lt;/ul&gt;
 &lt;hr&gt;
-&lt;h2 id=&#34;-1-giới-thiệu-về-rmi&#34;&gt;🧠 1. Giới thiệu về RMI&lt;/h2&gt;
-&lt;p&gt;&lt;strong&gt;RMI (Remote Method Invocation)&lt;/strong&gt; là cơ chế cho phép một chương trình Java &lt;strong&gt;gọi phương thức của đối tượng trên máy khác&lt;/strong&gt; qua mạng, giống như gọi hàm cục bộ.&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Bài 8 - Gửi và nhận file qua mạng trong Java (File Transfer)</title>
-      <link>https://yourusername.github.io/blog/bai8-gui-va-nhan-file-qua-mang-trong-java/</link>
-      <pubDate>Tue, 14 Oct 2025 00:00:00 +0000</pubDate>
-      <guid>https://yourusername.github.io/blog/bai8-gui-va-nhan-file-qua-mang-trong-java/</guid>
-      <description>&lt;ul&gt;
+&lt;h2 id="-1-giới-thiệu-về-rmi"&gt;🧠 1. Giới thiệu về RMI&lt;/h2&gt;
+&lt;p&gt;&lt;strong&gt;RMI (Remote Method Invocation)&lt;/strong&gt; là cơ chế cho phép một chương trình Java &lt;strong&gt;gọi phương thức của đối tượng trên máy khác&lt;/strong&gt; qua mạng, giống như gọi hàm cục bộ.&lt;/p&gt;</description></item><item><title>Bài 8 - Gửi và nhận file qua mạng trong Java (File Transfer)</title><link>https://phuongit1306.github.io/BlogLTMMT/blog/bai8-gui-va-nhan-file-qua-mang-trong-java/</link><pubDate>Tue, 14 Oct 2025 00:00:00 +0000</pubDate><guid>https://phuongit1306.github.io/BlogLTMMT/blog/bai8-gui-va-nhan-file-qua-mang-trong-java/</guid><description>&lt;ul&gt;
 &lt;li&gt;Trong các bài trước, ta đã học cách gửi và nhận &lt;strong&gt;chuỗi văn bản&lt;/strong&gt; giữa Client và Server.&lt;/li&gt;
 &lt;li&gt;Ở bài này, chúng ta sẽ tiến thêm một bước để &lt;strong&gt;truyền tải file (ảnh, PDF, nhạc, video, …)&lt;/strong&gt; giữa hai máy tính qua &lt;strong&gt;Socket TCP&lt;/strong&gt; 📁&lt;/li&gt;
 &lt;/ul&gt;
 &lt;hr&gt;
-&lt;h2 id=&#34;-1-nguyên-lý-hoạt-động&#34;&gt;🧠 1. Nguyên lý hoạt động&lt;/h2&gt;
-&lt;h3 id=&#34;-luồng-dữ-liệu&#34;&gt;🔄 Luồng dữ liệu&lt;/h3&gt;
+&lt;h2 id="-1-nguyên-lý-hoạt-động"&gt;🧠 1. Nguyên lý hoạt động&lt;/h2&gt;
+&lt;h3 id="-luồng-dữ-liệu"&gt;🔄 Luồng dữ liệu&lt;/h3&gt;
 &lt;ol&gt;
 &lt;li&gt;&lt;strong&gt;Client&lt;/strong&gt; mở một file cần gửi → đọc dữ liệu thành byte[]&lt;/li&gt;
 &lt;li&gt;Gửi dữ liệu này qua &lt;strong&gt;Socket OutputStream&lt;/strong&gt;&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;Server&lt;/strong&gt; nhận dữ liệu qua &lt;strong&gt;InputStream&lt;/strong&gt; và ghi vào file đích&lt;/li&gt;
 &lt;/ol&gt;
 &lt;p&gt;📸 &lt;em&gt;Sơ đồ hoạt động:&lt;/em&gt;
-&lt;img alt=&#34;Java File Transfer Diagram&#34; loading=&#34;lazy&#34; src=&#34;../images/java-file-transfer-diagram.png&#34;&gt;&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Bài 7 - Lập trình mạng với UDP trong Java</title>
-      <link>https://yourusername.github.io/blog/bai7-lap-trinh-mang-voi-udp-trong-java/</link>
-      <pubDate>Sat, 11 Oct 2025 00:00:00 +0000</pubDate>
-      <guid>https://yourusername.github.io/blog/bai7-lap-trinh-mang-voi-udp-trong-java/</guid>
-      <description>&lt;ul&gt;
+&lt;img alt="Java File Transfer Diagram" loading="lazy" src="../images/java-file-transfer-diagram.png"&gt;&lt;/p&gt;</description></item><item><title>Bài 7 - Lập trình mạng với UDP trong Java</title><link>https://phuongit1306.github.io/BlogLTMMT/blog/bai7-lap-trinh-mang-voi-udp-trong-java/</link><pubDate>Sat, 11 Oct 2025 00:00:00 +0000</pubDate><guid>https://phuongit1306.github.io/BlogLTMMT/blog/bai7-lap-trinh-mang-voi-udp-trong-java/</guid><description>&lt;ul&gt;
 &lt;li&gt;Trong các bài trước, chúng ta đã làm quen với &lt;strong&gt;Socket TCP&lt;/strong&gt;, giúp tạo kết nối ổn định giữa Client và Server.&lt;/li&gt;
 &lt;li&gt;Tuy nhiên, trong nhiều ứng dụng như &lt;strong&gt;trò chơi trực tuyến, stream video/audio&lt;/strong&gt;, ta cần &lt;strong&gt;tốc độ cao hơn&lt;/strong&gt;, dù có thể &lt;strong&gt;mất một ít dữ liệu&lt;/strong&gt;.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;Đó chính là lúc giao thức &lt;strong&gt;UDP (User Datagram Protocol)&lt;/strong&gt; được sử dụng ⚡&lt;/p&gt;
 &lt;hr&gt;
-&lt;h2 id=&#34;-1-tổng-quan-về-udp&#34;&gt;🧠 1. Tổng quan về UDP&lt;/h2&gt;
+&lt;h2 id="-1-tổng-quan-về-udp"&gt;🧠 1. Tổng quan về UDP&lt;/h2&gt;
 &lt;table&gt;
-  &lt;thead&gt;
-      &lt;tr&gt;
-          &lt;th&gt;Đặc điểm&lt;/th&gt;
-          &lt;th&gt;Mô tả&lt;/th&gt;
-      &lt;/tr&gt;
-  &lt;/thead&gt;
-  &lt;tbody&gt;
-      &lt;tr&gt;
-          &lt;td&gt;&lt;strong&gt;Không kết nối (Connectionless)&lt;/strong&gt;&lt;/td&gt;
-          &lt;td&gt;Không cần thiết lập kết nối giữa client &amp;amp; server&lt;/td&gt;
-      &lt;/tr&gt;
-      &lt;tr&gt;
-          &lt;td&gt;&lt;strong&gt;Nhanh hơn TCP&lt;/strong&gt;&lt;/td&gt;
-          &lt;td&gt;Không có xác nhận gói tin nên tốc độ cao hơn&lt;/td&gt;
-      &lt;/tr&gt;
-      &lt;tr&gt;
-          &lt;td&gt;&lt;strong&gt;Không đảm bảo dữ liệu đến&lt;/strong&gt;&lt;/td&gt;
-          &lt;td&gt;Gói tin có thể bị mất, trễ hoặc đến sai thứ tự&lt;/td&gt;
-      &lt;/tr&gt;
-      &lt;tr&gt;
-          &lt;td&gt;&lt;strong&gt;Ứng dụng phổ biến&lt;/strong&gt;&lt;/td&gt;
-          &lt;td&gt;Video call, voice chat, game online, livestream&lt;/td&gt;
-      &lt;/tr&gt;
-  &lt;/tbody&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Đặc điểm&lt;/th&gt;
+&lt;th&gt;Mô tả&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;Không kết nối (Connectionless)&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;Không cần thiết lập kết nối giữa client &amp;amp; server&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;Nhanh hơn TCP&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;Không có xác nhận gói tin nên tốc độ cao hơn&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;Không đảm bảo dữ liệu đến&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;Gói tin có thể bị mất, trễ hoặc đến sai thứ tự&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;Ứng dụng phổ biến&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;Video call, voice chat, game online, livestream&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
 &lt;/table&gt;
 &lt;p&gt;📸 &lt;em&gt;Minh họa hoạt động UDP:&lt;/em&gt;
-&lt;img alt=&#34;Java UDP Diagram&#34; loading=&#34;lazy&#34; src=&#34;../images/java-udp-diagram.png&#34;&gt;&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Bài 6 - Xây dựng Chat Server nhiều người dùng (Multi-Client Chat)</title>
-      <link>https://yourusername.github.io/blog/bai6-xay-dung-chat-server-nhieu-nguoi-dung/</link>
-      <pubDate>Fri, 10 Oct 2025 00:00:00 +0000</pubDate>
-      <guid>https://yourusername.github.io/blog/bai6-xay-dung-chat-server-nhieu-nguoi-dung/</guid>
-      <description>&lt;ul&gt;
+&lt;img alt="Java UDP Diagram" loading="lazy" src="../images/java-udp-diagram.png"&gt;&lt;/p&gt;</description></item><item><title>Bài 6 - Xây dựng Chat Server nhiều người dùng (Multi-Client Chat)</title><link>https://phuongit1306.github.io/BlogLTMMT/blog/bai6-xay-dung-chat-server-nhieu-nguoi-dung/</link><pubDate>Fri, 10 Oct 2025 00:00:00 +0000</pubDate><guid>https://phuongit1306.github.io/BlogLTMMT/blog/bai6-xay-dung-chat-server-nhieu-nguoi-dung/</guid><description>&lt;ul&gt;
 &lt;li&gt;Sau khi đã tạo thành công &lt;strong&gt;chat hai chiều giữa 1 client và 1 server&lt;/strong&gt; ở bài trước, chúng ta sẽ tiếp tục phát triển thành &lt;strong&gt;chat nhiều người dùng cùng lúc&lt;/strong&gt;.&lt;/li&gt;
 &lt;li&gt;Ứng dụng này giúp &lt;strong&gt;nhiều client có thể trò chuyện trong cùng một phòng chat&lt;/strong&gt; giống như Messenger group hoặc Discord 🔥&lt;/li&gt;
 &lt;/ul&gt;
 &lt;hr&gt;
-&lt;h2 id=&#34;-1-ý-tưởng-hệ-thống&#34;&gt;🧩 1. Ý tưởng hệ thống&lt;/h2&gt;
-&lt;h3 id=&#34;-cấu-trúc-hoạt-động&#34;&gt;⚙️ Cấu trúc hoạt động&lt;/h3&gt;
+&lt;h2 id="-1-ý-tưởng-hệ-thống"&gt;🧩 1. Ý tưởng hệ thống&lt;/h2&gt;
+&lt;h3 id="-cấu-trúc-hoạt-động"&gt;⚙️ Cấu trúc hoạt động&lt;/h3&gt;
 &lt;table&gt;
-  &lt;thead&gt;
-      &lt;tr&gt;
-          &lt;th&gt;Thành phần&lt;/th&gt;
-          &lt;th&gt;Mô tả&lt;/th&gt;
-      &lt;/tr&gt;
-  &lt;/thead&gt;
-  &lt;tbody&gt;
-      &lt;tr&gt;
-          &lt;td&gt;&lt;strong&gt;Server&lt;/strong&gt;&lt;/td&gt;
-          &lt;td&gt;Chờ nhiều client kết nối, mỗi client có một luồng riêng để giao tiếp&lt;/td&gt;
-      &lt;/tr&gt;
-      &lt;tr&gt;
-          &lt;td&gt;&lt;strong&gt;Client&lt;/strong&gt;&lt;/td&gt;
-          &lt;td&gt;Kết nối đến server, gửi và nhận tin nhắn&lt;/td&gt;
-      &lt;/tr&gt;
-      &lt;tr&gt;
-          &lt;td&gt;&lt;strong&gt;Broadcast&lt;/strong&gt;&lt;/td&gt;
-          &lt;td&gt;Server gửi tin nhắn từ 1 client đến tất cả client khác&lt;/td&gt;
-      &lt;/tr&gt;
-  &lt;/tbody&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Thành phần&lt;/th&gt;
+&lt;th&gt;Mô tả&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;Server&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;Chờ nhiều client kết nối, mỗi client có một luồng riêng để giao tiếp&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;Client&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;Kết nối đến server, gửi và nhận tin nhắn&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;Broadcast&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;Server gửi tin nhắn từ 1 client đến tất cả client khác&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
 &lt;/table&gt;
 &lt;p&gt;📸 &lt;em&gt;Sơ đồ hoạt động:&lt;/em&gt;
-&lt;img alt=&#34;Java Multi Chat Diagram&#34; loading=&#34;lazy&#34; src=&#34;../images/java-multi-chat-diagram.png&#34;&gt;&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Bài 5 - Giao tiếp hai chiều trong Java bằng Socket (Chat Realtime)</title>
-      <link>https://yourusername.github.io/blog/bai5-giao-tiep-hai-chieu-trong-java/</link>
-      <pubDate>Thu, 09 Oct 2025 00:00:00 +0000</pubDate>
-      <guid>https://yourusername.github.io/blog/bai5-giao-tiep-hai-chieu-trong-java/</guid>
-      <description>&lt;p&gt;Trong các bài trước, ta đã học cách:&lt;/p&gt;
+&lt;img alt="Java Multi Chat Diagram" loading="lazy" src="../images/java-multi-chat-diagram.png"&gt;&lt;/p&gt;</description></item><item><title>Bài 5 - Giao tiếp hai chiều trong Java bằng Socket (Chat Realtime)</title><link>https://phuongit1306.github.io/BlogLTMMT/blog/bai5-giao-tiep-hai-chieu-trong-java/</link><pubDate>Thu, 09 Oct 2025 00:00:00 +0000</pubDate><guid>https://phuongit1306.github.io/BlogLTMMT/blog/bai5-giao-tiep-hai-chieu-trong-java/</guid><description>&lt;p&gt;Trong các bài trước, ta đã học cách:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;Kết nối Client ↔ Server bằng Socket.&lt;/li&gt;
 &lt;li&gt;Gửi và nhận dữ liệu một chiều (Client gửi, Server nhận).&lt;/li&gt;
@@ -133,97 +90,66 @@
 &lt;p&gt;👉 Trong bài này, chúng ta sẽ nâng cấp:&lt;br&gt;
 &lt;strong&gt;Cả hai bên đều có thể gửi &amp;amp; nhận tin nhắn cùng lúc&lt;/strong&gt; — tức là &lt;strong&gt;giao tiếp hai chiều (bidirectional communication)&lt;/strong&gt;, như một ứng dụng chat cơ bản.&lt;/p&gt;
 &lt;hr&gt;
-&lt;h2 id=&#34;-1-kiến-thức-nền-tảng&#34;&gt;🧩 1. Kiến thức nền tảng&lt;/h2&gt;
-&lt;h3 id=&#34;-mô-hình-hoạt-động&#34;&gt;⚙️ Mô hình hoạt động&lt;/h3&gt;
+&lt;h2 id="-1-kiến-thức-nền-tảng"&gt;🧩 1. Kiến thức nền tảng&lt;/h2&gt;
+&lt;h3 id="-mô-hình-hoạt-động"&gt;⚙️ Mô hình hoạt động&lt;/h3&gt;
 &lt;table&gt;
-  &lt;thead&gt;
-      &lt;tr&gt;
-          &lt;th&gt;Thành phần&lt;/th&gt;
-          &lt;th&gt;Mô tả&lt;/th&gt;
-      &lt;/tr&gt;
-  &lt;/thead&gt;
-  &lt;tbody&gt;
-      &lt;tr&gt;
-          &lt;td&gt;&lt;code&gt;ServerSocket&lt;/code&gt;&lt;/td&gt;
-          &lt;td&gt;Server lắng nghe yêu cầu kết nối&lt;/td&gt;
-      &lt;/tr&gt;
-      &lt;tr&gt;
-          &lt;td&gt;&lt;code&gt;Socket&lt;/code&gt;&lt;/td&gt;
-          &lt;td&gt;Cầu nối giữa 2 bên&lt;/td&gt;
-      &lt;/tr&gt;
-      &lt;tr&gt;
-          &lt;td&gt;&lt;code&gt;InputStream / OutputStream&lt;/code&gt;&lt;/td&gt;
-          &lt;td&gt;Dùng để đọc &amp;amp; gửi dữ liệu&lt;/td&gt;
-      &lt;/tr&gt;
-      &lt;tr&gt;
-          &lt;td&gt;&lt;code&gt;Thread&lt;/code&gt;&lt;/td&gt;
-          &lt;td&gt;Tạo luồng riêng cho việc &lt;strong&gt;nhận tin nhắn&lt;/strong&gt; để tránh bị chặn chương trình&lt;/td&gt;
-      &lt;/tr&gt;
-  &lt;/tbody&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Thành phần&lt;/th&gt;
+&lt;th&gt;Mô tả&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;ServerSocket&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;Server lắng nghe yêu cầu kết nối&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;Socket&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;Cầu nối giữa 2 bên&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;InputStream / OutputStream&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;Dùng để đọc &amp;amp; gửi dữ liệu&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;Thread&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;Tạo luồng riêng cho việc &lt;strong&gt;nhận tin nhắn&lt;/strong&gt; để tránh bị chặn chương trình&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
 &lt;/table&gt;
 &lt;p&gt;📸 &lt;em&gt;Minh họa hoạt động chat song công:&lt;/em&gt;
-&lt;img alt=&#34;Java Chat Diagram&#34; loading=&#34;lazy&#34; src=&#34;../images/java-chat-diagram.png&#34;&gt;&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Bài 4 - Truyền file qua mạng trong Java bằng Socket</title>
-      <link>https://yourusername.github.io/blog/bai4-truyen-file-qua-mang-trong-java/</link>
-      <pubDate>Wed, 08 Oct 2025 00:00:00 +0000</pubDate>
-      <guid>https://yourusername.github.io/blog/bai4-truyen-file-qua-mang-trong-java/</guid>
-      <description>&lt;ul&gt;
+&lt;img alt="Java Chat Diagram" loading="lazy" src="../images/java-chat-diagram.png"&gt;&lt;/p&gt;</description></item><item><title>Bài 4 - Truyền file qua mạng trong Java bằng Socket</title><link>https://phuongit1306.github.io/BlogLTMMT/blog/bai4-truyen-file-qua-mang-trong-java/</link><pubDate>Wed, 08 Oct 2025 00:00:00 +0000</pubDate><guid>https://phuongit1306.github.io/BlogLTMMT/blog/bai4-truyen-file-qua-mang-trong-java/</guid><description>&lt;ul&gt;
 &lt;li&gt;Trong các ứng dụng mạng, việc &lt;strong&gt;truyền file (file transfer)&lt;/strong&gt; là một trong những chức năng quan trọng nhất.&lt;/li&gt;
 &lt;li&gt;Java hỗ trợ thao tác này rất tốt thông qua &lt;strong&gt;Socket&lt;/strong&gt;, giúp chúng ta gửi và nhận dữ liệu dạng nhị phân giữa &lt;strong&gt;Client và Server&lt;/strong&gt;.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;hr&gt;
-&lt;h2 id=&#34;-1-tổng-quan-về-truyền-file&#34;&gt;⚙️ 1. Tổng quan về truyền file&lt;/h2&gt;
+&lt;h2 id="-1-tổng-quan-về-truyền-file"&gt;⚙️ 1. Tổng quan về truyền file&lt;/h2&gt;
 &lt;p&gt;Khi truyền file qua mạng bằng Socket:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;strong&gt;Client&lt;/strong&gt; đọc nội dung file → gửi qua luồng &lt;strong&gt;OutputStream&lt;/strong&gt;.&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;Server&lt;/strong&gt; nhận dữ liệu qua &lt;strong&gt;InputStream&lt;/strong&gt; → ghi lại thành file.&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;Quá trình này tương tự như &lt;strong&gt;copy file giữa hai máy tính&lt;/strong&gt;, chỉ khác là sử dụng &lt;strong&gt;giao thức TCP&lt;/strong&gt;.&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Bài 3 - Lập trình đa luồng trong Java (Multithreading)</title>
-      <link>https://yourusername.github.io/blog/bai3-lap-trinh-da-luong-trong-java/</link>
-      <pubDate>Tue, 07 Oct 2025 00:00:00 +0000</pubDate>
-      <guid>https://yourusername.github.io/blog/bai3-lap-trinh-da-luong-trong-java/</guid>
-      <description>&lt;ul&gt;
+&lt;p&gt;Quá trình này tương tự như &lt;strong&gt;copy file giữa hai máy tính&lt;/strong&gt;, chỉ khác là sử dụng &lt;strong&gt;giao thức TCP&lt;/strong&gt;.&lt;/p&gt;</description></item><item><title>Bài 3 - Lập trình đa luồng trong Java (Multithreading)</title><link>https://phuongit1306.github.io/BlogLTMMT/blog/bai3-lap-trinh-da-luong-trong-java/</link><pubDate>Tue, 07 Oct 2025 00:00:00 +0000</pubDate><guid>https://phuongit1306.github.io/BlogLTMMT/blog/bai3-lap-trinh-da-luong-trong-java/</guid><description>&lt;ul&gt;
 &lt;li&gt;Trong các ứng dụng mạng hoặc hệ thống có nhiều tác vụ chạy song song, &lt;strong&gt;đa luồng (multithreading)&lt;/strong&gt; giúp chương trình hoạt động &lt;strong&gt;hiệu quả, nhanh chóng và mượt mà hơn&lt;/strong&gt;.&lt;/li&gt;
 &lt;li&gt;Java hỗ trợ lập trình đa luồng rất mạnh mẽ thông qua &lt;strong&gt;Thread class&lt;/strong&gt; và &lt;strong&gt;Runnable interface&lt;/strong&gt;.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;hr&gt;
-&lt;h2 id=&#34;-1-giới-thiệu-về-luồng-thread&#34;&gt;⚙️ 1. Giới thiệu về luồng (Thread)&lt;/h2&gt;
+&lt;h2 id="-1-giới-thiệu-về-luồng-thread"&gt;⚙️ 1. Giới thiệu về luồng (Thread)&lt;/h2&gt;
 &lt;p&gt;Một &lt;strong&gt;thread (luồng)&lt;/strong&gt; là &lt;strong&gt;đơn vị thực thi nhỏ nhất&lt;/strong&gt; trong chương trình.&lt;br&gt;
-Khi chương trình có nhiều luồng, các luồng có thể chạy &lt;strong&gt;đồng thời (concurrently)&lt;/strong&gt;, chia sẻ tài nguyên chung như bộ nhớ hoặc dữ liệu.&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Bài 2 - Kết nối mạng trong Java với Socket</title>
-      <link>https://yourusername.github.io/blog/bai2-ket-noi-mang-trong-java-voi-socket/</link>
-      <pubDate>Mon, 06 Oct 2025 00:00:00 +0000</pubDate>
-      <guid>https://yourusername.github.io/blog/bai2-ket-noi-mang-trong-java-voi-socket/</guid>
-      <description>&lt;ul&gt;
+Khi chương trình có nhiều luồng, các luồng có thể chạy &lt;strong&gt;đồng thời (concurrently)&lt;/strong&gt;, chia sẻ tài nguyên chung như bộ nhớ hoặc dữ liệu.&lt;/p&gt;</description></item><item><title>Bài 2 - Kết nối mạng trong Java với Socket</title><link>https://phuongit1306.github.io/BlogLTMMT/blog/bai2-ket-noi-mang-trong-java-voi-socket/</link><pubDate>Mon, 06 Oct 2025 00:00:00 +0000</pubDate><guid>https://phuongit1306.github.io/BlogLTMMT/blog/bai2-ket-noi-mang-trong-java-voi-socket/</guid><description>&lt;ul&gt;
 &lt;li&gt;Khi lập trình ứng dụng mạng trong Java, &lt;strong&gt;Socket&lt;/strong&gt; là một trong những công cụ cơ bản và mạnh mẽ nhất giúp các thiết bị có thể &lt;strong&gt;giao tiếp với nhau qua mạng&lt;/strong&gt;.&lt;/li&gt;
 &lt;li&gt;Socket cho phép tạo ra &lt;strong&gt;kết nối hai chiều (two-way communication)&lt;/strong&gt; giữa &lt;strong&gt;Client&lt;/strong&gt; và &lt;strong&gt;Server&lt;/strong&gt;.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;hr&gt;
-&lt;h2 id=&#34;-giới-thiệu-về-socket&#34;&gt;🌐 Giới thiệu về Socket&lt;/h2&gt;
+&lt;h2 id="-giới-thiệu-về-socket"&gt;🌐 Giới thiệu về Socket&lt;/h2&gt;
 &lt;p&gt;Trong Java, một &lt;strong&gt;Socket&lt;/strong&gt; là điểm cuối (endpoint) của quá trình giao tiếp giữa hai máy tính.&lt;br&gt;
-Cụ thể:&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Bài 1 - Giới thiệu về Java</title>
-      <link>https://yourusername.github.io/blog/bai1-gioi-thieu-ve-java/</link>
-      <pubDate>Sun, 05 Oct 2025 00:00:00 +0000</pubDate>
-      <guid>https://yourusername.github.io/blog/bai1-gioi-thieu-ve-java/</guid>
-      <description>&lt;ul&gt;
+Cụ thể:&lt;/p&gt;</description></item><item><title>Bài 1 - Giới thiệu về Java</title><link>https://phuongit1306.github.io/BlogLTMMT/blog/bai1-gioi-thieu-ve-java/</link><pubDate>Sun, 05 Oct 2025 00:00:00 +0000</pubDate><guid>https://phuongit1306.github.io/BlogLTMMT/blog/bai1-gioi-thieu-ve-java/</guid><description>&lt;ul&gt;
 &lt;li&gt;Java là một ngôn ngữ lập trình hướng đối tượng mạnh mẽ, được sử dụng rộng rãi trong phát triển ứng dụng mạng.&lt;/li&gt;
 &lt;li&gt;Với Java, bạn có thể lập trình các ứng dụng server-client sử dụng &lt;strong&gt;Socket&lt;/strong&gt;, &lt;strong&gt;RMI&lt;/strong&gt;, và &lt;strong&gt;Multithreading&lt;/strong&gt;.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;📸 &lt;em&gt;Minh họa:&lt;/em&gt;
-&lt;img alt=&#34;Features of Java&#34; loading=&#34;lazy&#34; src=&#34;https://yourusername.github.io/images/dac-diem-cua-java.png&#34;&gt;&lt;/p&gt;
+&lt;img alt="Features of Java" loading="lazy" src="https://phuongit1306.github.io/BlogLTMMT/images/dac-diem-cua-java.png"&gt;&lt;/p&gt;
 &lt;hr&gt;
-&lt;h2 id=&#34;tương-tự-c-hướng-đối-tượng-hoàn-toàn&#34;&gt;Tương tự C++, hướng đối tượng hoàn toàn&lt;/h2&gt;
-&lt;p&gt;Trong quá trình tạo ra một ngôn ngữ mới phục vụ cho mục đích chạy được trên nhiều nền tảng, các kỹ sư của Sun MicroSystem muốn tạo ra một ngôn ngữ dễ học và quen thuộc với đa số người lập trình. Vì vậy họ đã sử dụng lại các cú pháp của C và C++.&lt;/p&gt;</description>
-    </item>
-  </channel>
-</rss>
+&lt;h2 id="tương-tự-c-hướng-đối-tượng-hoàn-toàn"&gt;Tương tự C++, hướng đối tượng hoàn toàn&lt;/h2&gt;
+&lt;p&gt;Trong quá trình tạo ra một ngôn ngữ mới phục vụ cho mục đích chạy được trên nhiều nền tảng, các kỹ sư của Sun MicroSystem muốn tạo ra một ngôn ngữ dễ học và quen thuộc với đa số người lập trình. Vì vậy họ đã sử dụng lại các cú pháp của C và C++.&lt;/p&gt;</description></item></channel></rss>

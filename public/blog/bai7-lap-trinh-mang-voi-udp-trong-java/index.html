@@ -1,13 +1,4 @@
-<!DOCTYPE html>
-<html lang="en" dir="auto">
-
-<head><meta charset="utf-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<meta name="robots" content="index, follow">
-<title>Bài 7 - Lập trình mạng với UDP trong Java | Blog Lập Trình - 2180607911 - Nguyễn Thanh Phương - 21DTHD3</title>
-<meta name="keywords" content="Java, UDP, Datagram, Networking">
-<meta name="description" content="
+<!doctype html><html lang=en dir=auto><head><meta charset=utf-8><meta http-equiv=X-UA-Compatible content="IE=edge"><meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no"><meta name=robots content="index, follow"><title>Bài 7 - Lập trình mạng với UDP trong Java | Blog Lập Trình - 2180607911 - Nguyễn Thanh Phương - 21DTHD3</title><meta name=keywords content="Java,UDP,Datagram,Networking"><meta name=description content="
 Trong các bài trước, chúng ta đã làm quen với Socket TCP, giúp tạo kết nối ổn định giữa Client và Server.
 Tuy nhiên, trong nhiều ứng dụng như trò chơi trực tuyến, stream video/audio, ta cần tốc độ cao hơn, dù có thể mất một ít dữ liệu.
 
@@ -24,7 +15,7 @@ Tuy nhiên, trong nhiều ứng dụng như trò chơi trực tuyến, stream vi
   
       
           Không kết nối (Connectionless)
-          Không cần thiết lập kết nối giữa client &amp; server
+          Không cần thiết lập kết nối giữa client & server
       
       
           Nhanh hơn TCP
@@ -41,71 +32,8 @@ Tuy nhiên, trong nhiều ứng dụng như trò chơi trực tuyến, stream vi
   
 
 📸 Minh họa hoạt động UDP:
-">
-<meta name="author" content="Nguyễn Thanh Phương">
-<link rel="canonical" href="https://yourusername.github.io/blog/bai7-lap-trinh-mang-voi-udp-trong-java/">
-<link crossorigin="anonymous" href="/assets/css/stylesheet.a482bf00fa5c046040ef7973ad5fdf5657890cacb596c93f1382f664ca542074.css" integrity="sha256-pIK/APpcBGBA73lzrV/fVleJDKy1lsk/E4L2ZMpUIHQ=" rel="preload stylesheet" as="style">
-<link rel="icon" href="https://yourusername.github.io/favicon.ico">
-<link rel="icon" type="image/png" sizes="16x16" href="https://yourusername.github.io/favicon-16x16.png">
-<link rel="icon" type="image/png" sizes="32x32" href="https://yourusername.github.io/favicon-32x32.png">
-<link rel="apple-touch-icon" href="https://yourusername.github.io/apple-touch-icon.png">
-<link rel="mask-icon" href="https://yourusername.github.io/safari-pinned-tab.svg">
-<meta name="theme-color" content="#2e2e33">
-<meta name="msapplication-TileColor" content="#2e2e33">
-<link rel="alternate" hreflang="en" href="https://yourusername.github.io/blog/bai7-lap-trinh-mang-voi-udp-trong-java/">
-<noscript>
-    <style>
-        #theme-toggle,
-        .top-link {
-            display: none;
-        }
-
-    </style>
-    <style>
-        @media (prefers-color-scheme: dark) {
-            :root {
-                --theme: rgb(29, 30, 32);
-                --entry: rgb(46, 46, 51);
-                --primary: rgb(218, 218, 219);
-                --secondary: rgb(155, 156, 157);
-                --tertiary: rgb(65, 66, 68);
-                --content: rgb(196, 196, 197);
-                --code-block-bg: rgb(46, 46, 51);
-                --code-bg: rgb(55, 56, 62);
-                --border: rgb(51, 51, 51);
-            }
-
-            .list {
-                background: var(--theme);
-            }
-
-            .list:not(.dark)::-webkit-scrollbar-track {
-                background: 0 0;
-            }
-
-            .list:not(.dark)::-webkit-scrollbar-thumb {
-                border-color: var(--theme);
-            }
-        }
-
-    </style>
-</noscript><meta property="og:url" content="https://yourusername.github.io/blog/bai7-lap-trinh-mang-voi-udp-trong-java/">
-  <meta property="og:site_name" content="Blog Lập Trình - 2180607911 - Nguyễn Thanh Phương - 21DTHD3">
-  <meta property="og:title" content="Bài 7 - Lập trình mạng với UDP trong Java">
-  <meta property="og:description" content=" Trong các bài trước, chúng ta đã làm quen với Socket TCP, giúp tạo kết nối ổn định giữa Client và Server. Tuy nhiên, trong nhiều ứng dụng như trò chơi trực tuyến, stream video/audio, ta cần tốc độ cao hơn, dù có thể mất một ít dữ liệu. Đó chính là lúc giao thức UDP (User Datagram Protocol) được sử dụng ⚡
-🧠 1. Tổng quan về UDP Đặc điểm Mô tả Không kết nối (Connectionless) Không cần thiết lập kết nối giữa client &amp; server Nhanh hơn TCP Không có xác nhận gói tin nên tốc độ cao hơn Không đảm bảo dữ liệu đến Gói tin có thể bị mất, trễ hoặc đến sai thứ tự Ứng dụng phổ biến Video call, voice chat, game online, livestream 📸 Minh họa hoạt động UDP: ">
-  <meta property="og:locale" content="vi">
-  <meta property="og:type" content="article">
-    <meta property="article:section" content="blog">
-    <meta property="article:published_time" content="2025-10-11T00:00:00+00:00">
-    <meta property="article:modified_time" content="2025-10-11T00:00:00+00:00">
-    <meta property="article:tag" content="Java">
-    <meta property="article:tag" content="UDP">
-    <meta property="article:tag" content="Datagram">
-    <meta property="article:tag" content="Networking">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Bài 7 - Lập trình mạng với UDP trong Java">
-<meta name="twitter:description" content="
+"><meta name=author content="Nguyễn Thanh Phương"><link rel=canonical href=https://phuongit1306.github.io/BlogLTMMT/blog/bai7-lap-trinh-mang-voi-udp-trong-java/><link crossorigin=anonymous href=/BlogLTMMT/assets/css/stylesheet.a482bf00fa5c046040ef7973ad5fdf5657890cacb596c93f1382f664ca542074.css integrity="sha256-pIK/APpcBGBA73lzrV/fVleJDKy1lsk/E4L2ZMpUIHQ=" rel="preload stylesheet" as=style><link rel=icon href=https://phuongit1306.github.io/BlogLTMMT/favicon.ico><link rel=icon type=image/png sizes=16x16 href=https://phuongit1306.github.io/BlogLTMMT/favicon-16x16.png><link rel=icon type=image/png sizes=32x32 href=https://phuongit1306.github.io/BlogLTMMT/favicon-32x32.png><link rel=apple-touch-icon href=https://phuongit1306.github.io/BlogLTMMT/apple-touch-icon.png><link rel=mask-icon href=https://phuongit1306.github.io/BlogLTMMT/safari-pinned-tab.svg><meta name=theme-color content="#2e2e33"><meta name=msapplication-TileColor content="#2e2e33"><link rel=alternate hreflang=en href=https://phuongit1306.github.io/BlogLTMMT/blog/bai7-lap-trinh-mang-voi-udp-trong-java/><noscript><style>#theme-toggle,.top-link{display:none}</style><style>@media(prefers-color-scheme:dark){:root{--theme:rgb(29, 30, 32);--entry:rgb(46, 46, 51);--primary:rgb(218, 218, 219);--secondary:rgb(155, 156, 157);--tertiary:rgb(65, 66, 68);--content:rgb(196, 196, 197);--code-block-bg:rgb(46, 46, 51);--code-bg:rgb(55, 56, 62);--border:rgb(51, 51, 51)}.list{background:var(--theme)}.list:not(.dark)::-webkit-scrollbar-track{background:0 0}.list:not(.dark)::-webkit-scrollbar-thumb{border-color:var(--theme)}}</style></noscript><meta property="og:url" content="https://phuongit1306.github.io/BlogLTMMT/blog/bai7-lap-trinh-mang-voi-udp-trong-java/"><meta property="og:site_name" content="Blog Lập Trình - 2180607911 - Nguyễn Thanh Phương - 21DTHD3"><meta property="og:title" content="Bài 7 - Lập trình mạng với UDP trong Java"><meta property="og:description" content=" Trong các bài trước, chúng ta đã làm quen với Socket TCP, giúp tạo kết nối ổn định giữa Client và Server. Tuy nhiên, trong nhiều ứng dụng như trò chơi trực tuyến, stream video/audio, ta cần tốc độ cao hơn, dù có thể mất một ít dữ liệu. Đó chính là lúc giao thức UDP (User Datagram Protocol) được sử dụng ⚡
+🧠 1. Tổng quan về UDP Đặc điểm Mô tả Không kết nối (Connectionless) Không cần thiết lập kết nối giữa client & server Nhanh hơn TCP Không có xác nhận gói tin nên tốc độ cao hơn Không đảm bảo dữ liệu đến Gói tin có thể bị mất, trễ hoặc đến sai thứ tự Ứng dụng phổ biến Video call, voice chat, game online, livestream 📸 Minh họa hoạt động UDP: "><meta property="og:locale" content="vi"><meta property="og:type" content="article"><meta property="article:section" content="blog"><meta property="article:published_time" content="2025-10-11T00:00:00+00:00"><meta property="article:modified_time" content="2025-10-11T00:00:00+00:00"><meta property="article:tag" content="Java"><meta property="article:tag" content="UDP"><meta property="article:tag" content="Datagram"><meta property="article:tag" content="Networking"><meta name=twitter:card content="summary"><meta name=twitter:title content="Bài 7 - Lập trình mạng với UDP trong Java"><meta name=twitter:description content="
 Trong các bài trước, chúng ta đã làm quen với Socket TCP, giúp tạo kết nối ổn định giữa Client và Server.
 Tuy nhiên, trong nhiều ứng dụng như trò chơi trực tuyến, stream video/audio, ta cần tốc độ cao hơn, dù có thể mất một ít dữ liệu.
 
@@ -122,7 +50,7 @@ Tuy nhiên, trong nhiều ứng dụng như trò chơi trực tuyến, stream vi
   
       
           Không kết nối (Connectionless)
-          Không cần thiết lập kết nối giữa client &amp; server
+          Không cần thiết lập kết nối giữa client & server
       
       
           Nhanh hơn TCP
@@ -139,500 +67,85 @@ Tuy nhiên, trong nhiều ứng dụng như trò chơi trực tuyến, stream vi
   
 
 📸 Minh họa hoạt động UDP:
-">
-
-
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "BreadcrumbList",
-  "itemListElement": [
-    {
-      "@type": "ListItem",
-      "position":  1 ,
-      "name": "Blog - Lập trình mạng máy tính",
-      "item": "https://yourusername.github.io/blog/"
-    }, 
-    {
-      "@type": "ListItem",
-      "position":  2 ,
-      "name": "Bài 7 - Lập trình mạng với UDP trong Java",
-      "item": "https://yourusername.github.io/blog/bai7-lap-trinh-mang-voi-udp-trong-java/"
-    }
-  ]
-}
-</script>
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "BlogPosting",
-  "headline": "Bài 7 - Lập trình mạng với UDP trong Java",
-  "name": "Bài 7 - Lập trình mạng với UDP trong Java",
-  "description": " Trong các bài trước, chúng ta đã làm quen với Socket TCP, giúp tạo kết nối ổn định giữa Client và Server. Tuy nhiên, trong nhiều ứng dụng như trò chơi trực tuyến, stream video/audio, ta cần tốc độ cao hơn, dù có thể mất một ít dữ liệu. Đó chính là lúc giao thức UDP (User Datagram Protocol) được sử dụng ⚡\n🧠 1. Tổng quan về UDP Đặc điểm Mô tả Không kết nối (Connectionless) Không cần thiết lập kết nối giữa client \u0026amp; server Nhanh hơn TCP Không có xác nhận gói tin nên tốc độ cao hơn Không đảm bảo dữ liệu đến Gói tin có thể bị mất, trễ hoặc đến sai thứ tự Ứng dụng phổ biến Video call, voice chat, game online, livestream 📸 Minh họa hoạt động UDP: ",
-  "keywords": [
-    "Java", "UDP", "Datagram", "Networking"
-  ],
-  "articleBody": " Trong các bài trước, chúng ta đã làm quen với Socket TCP, giúp tạo kết nối ổn định giữa Client và Server. Tuy nhiên, trong nhiều ứng dụng như trò chơi trực tuyến, stream video/audio, ta cần tốc độ cao hơn, dù có thể mất một ít dữ liệu. Đó chính là lúc giao thức UDP (User Datagram Protocol) được sử dụng ⚡\n🧠 1. Tổng quan về UDP Đặc điểm Mô tả Không kết nối (Connectionless) Không cần thiết lập kết nối giữa client \u0026 server Nhanh hơn TCP Không có xác nhận gói tin nên tốc độ cao hơn Không đảm bảo dữ liệu đến Gói tin có thể bị mất, trễ hoặc đến sai thứ tự Ứng dụng phổ biến Video call, voice chat, game online, livestream 📸 Minh họa hoạt động UDP: 🧩 2. Các lớp chính trong Java UDP Lớp Mô tả DatagramSocket Dùng để gửi hoặc nhận gói tin UDP DatagramPacket Đại diện cho một gói dữ liệu được gửi/nhận InetAddress Đại diện cho địa chỉ IP của máy chủ hoặc client 💻 3. Mã nguồn ví dụ: Gửi \u0026 nhận dữ liệu UDP Dưới đây là ví dụ về Server và Client giao tiếp qua UDP.\n🖥️ UDPServer.java import java.net.*; public class UDPServer { public static void main(String[] args) { try { DatagramSocket socket = new DatagramSocket(9876); byte[] receiveData = new byte[1024]; byte[] sendData; System.out.println(\"💬 UDP Server đang chờ gói tin...\"); while (true) { // Nhận dữ liệu từ Client DatagramPacket receivePacket = new DatagramPacket(receiveData, receiveData.length); socket.receive(receivePacket); String message = new String(receivePacket.getData(), 0, receivePacket.getLength()); System.out.println(\"📩 Nhận từ Client: \" + message); // Gửi phản hồi lại cho Client InetAddress clientAddress = receivePacket.getAddress(); int clientPort = receivePacket.getPort(); String response = \"Server nhận được: \" + message; sendData = response.getBytes(); DatagramPacket sendPacket = new DatagramPacket(sendData, sendData.length, clientAddress, clientPort); socket.send(sendPacket); } } catch (Exception e) { e.printStackTrace(); } } } 💻 UDPClient.java import java.net.*; import java.util.Scanner; public class UDPClient { public static void main(String[] args) { try { DatagramSocket socket = new DatagramSocket(); InetAddress serverAddress = InetAddress.getByName(\"localhost\"); Scanner scanner = new Scanner(System.in); while (true) { System.out.print(\"Nhập tin nhắn gửi đến server: \"); String message = scanner.nextLine(); byte[] sendData = message.getBytes(); DatagramPacket sendPacket = new DatagramPacket(sendData, sendData.length, serverAddress, 9876); socket.send(sendPacket); // Nhận phản hồi từ server byte[] receiveData = new byte[1024]; DatagramPacket receivePacket = new DatagramPacket(receiveData, receiveData.length); socket.receive(receivePacket); String response = new String(receivePacket.getData(), 0, receivePacket.getLength()); System.out.println(\"💻 Phản hồi từ server: \" + response); } } catch (Exception e) { e.printStackTrace(); } } } ⚙️ 4. Cách chạy chương trình Bước 1 – Chạy Server: javac UDPServer.java java UDPServer Bước 2 – Chạy Client: javac UDPClient.java java UDPClient 📟 Kết quả ví dụ: 💬 UDP Server đang chờ gói tin... 📩 Nhận từ Client: Xin chào Server! Và ở phía Client: Nhập tin nhắn gửi đến server: Xin chào Server! 💻 Phản hồi từ server: Server nhận được: Xin chào Server! 🔍 5. So sánh TCP và UDP Tiêu chí TCP UDP Kết nối Có kết nối (connection-based) Không kết nối Đảm bảo dữ liệu Có (retransmit nếu lỗi) Không đảm bảo Tốc độ Chậm hơn Nhanh hơn Ứng dụng Web, email, FTP Game, video call, streaming 🪄 6. Mở rộng thêm Tính năng Gợi ý 🌐 Gửi file qua UDP Chia file thành nhiều gói nhỏ rồi gửi tuần tự 🧠 Reliable UDP Tự xây cơ chế kiểm tra gói mất và gửi lại 🕹️ Game Multiplayer Dùng UDP để gửi dữ liệu vị trí người chơi trong thời gian thực 🔒 Bảo mật Mã hóa gói tin bằng AES trước khi gửi 🏁 7. Kết luận UDP nhanh, nhẹ, phù hợp cho các ứng dụng yêu cầu tốc độ cao hơn độ chính xác tuyệt đối.\nTuy nhiên, cần tự xử lý lỗi và kiểm tra dữ liệu nếu muốn đảm bảo an toàn.\nJava hỗ trợ UDP cực kỳ dễ dàng thông qua DatagramSocket và DatagramPacket.\n✍️ Tác giả: Nguyễn Thanh Phương\n📅 Cập nhật: October 20, 2025\n",
-  "wordCount" : "663",
-  "inLanguage": "en",
-  "datePublished": "2025-10-11T00:00:00Z",
-  "dateModified": "2025-10-11T00:00:00Z",
-  "author":{
-    "@type": "Person",
-    "name": "Nguyễn Thanh Phương"
-  },
-  "mainEntityOfPage": {
-    "@type": "WebPage",
-    "@id": "https://yourusername.github.io/blog/bai7-lap-trinh-mang-voi-udp-trong-java/"
-  },
-  "publisher": {
-    "@type": "Organization",
-    "name": "Blog Lập Trình - 2180607911 - Nguyễn Thanh Phương - 21DTHD3",
-    "logo": {
-      "@type": "ImageObject",
-      "url": "https://yourusername.github.io/favicon.ico"
-    }
-  }
-}
-</script>
-</head>
-
-<body class="" id="top">
-<script>
-    if (localStorage.getItem("pref-theme") === "dark") {
-        document.body.classList.add('dark');
-    } else if (localStorage.getItem("pref-theme") === "light") {
-        document.body.classList.remove('dark')
-    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
-        document.body.classList.add('dark');
-    }
-
-</script>
-
-<header class="header">
-    <nav class="nav">
-        <div class="logo">
-            <a href="https://yourusername.github.io/" accesskey="h" title="Blog Lập Trình - 2180607911 - Nguyễn Thanh Phương - 21DTHD3 (Alt + H)">Blog Lập Trình - 2180607911 - Nguyễn Thanh Phương - 21DTHD3</a>
-            <div class="logo-switches">
-                <button id="theme-toggle" accesskey="t" title="(Alt + T)" aria-label="Toggle theme">
-                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
-                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                        stroke-linejoin="round">
-                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
-                    </svg>
-                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
-                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                        stroke-linejoin="round">
-                        <circle cx="12" cy="12" r="5"></circle>
-                        <line x1="12" y1="1" x2="12" y2="3"></line>
-                        <line x1="12" y1="21" x2="12" y2="23"></line>
-                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
-                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
-                        <line x1="1" y1="12" x2="3" y2="12"></line>
-                        <line x1="21" y1="12" x2="23" y2="12"></line>
-                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
-                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
-                    </svg>
-                </button>
-            </div>
-        </div>
-        <ul id="menu">
-            <li>
-                <a href="https://yourusername.github.io/" title="Home">
-                    <span>Home</span>
-                </a>
-            </li>
-            <li>
-                <a href="https://yourusername.github.io/blog" title="📝">
-                    <span>📝</span>
-                </a>
-            </li>
-            <li>
-                <a href="https://yourusername.github.io/about" title="📩">
-                    <span>📩</span>
-                </a>
-            </li>
-        </ul>
-    </nav>
-</header>
-<main class="main">
-
-<article class="post-single">
-  <header class="post-header">
-    <div class="breadcrumbs"><a href="https://yourusername.github.io/">Home</a>&nbsp;»&nbsp;<a href="https://yourusername.github.io/blog/">Blog - Lập trình mạng máy tính</a></div>
-    <h1 class="post-title entry-hint-parent">
-      Bài 7 - Lập trình mạng với UDP trong Java
-    </h1>
-    <div class="post-meta"><span title='2025-10-11 00:00:00 +0000 UTC'>October 11, 2025</span>&nbsp;·&nbsp;<span>4 min</span>&nbsp;·&nbsp;<span>Nguyễn Thanh Phương</span>
-
-</div>
-  </header> 
-  <div class="post-content"><ul>
-<li>Trong các bài trước, chúng ta đã làm quen với <strong>Socket TCP</strong>, giúp tạo kết nối ổn định giữa Client và Server.</li>
-<li>Tuy nhiên, trong nhiều ứng dụng như <strong>trò chơi trực tuyến, stream video/audio</strong>, ta cần <strong>tốc độ cao hơn</strong>, dù có thể <strong>mất một ít dữ liệu</strong>.</li>
-</ul>
-<p>Đó chính là lúc giao thức <strong>UDP (User Datagram Protocol)</strong> được sử dụng ⚡</p>
-<hr>
-<h2 id="-1-tổng-quan-về-udp">🧠 1. Tổng quan về UDP<a hidden class="anchor" aria-hidden="true" href="#-1-tổng-quan-về-udp">#</a></h2>
-<table>
-  <thead>
-      <tr>
-          <th>Đặc điểm</th>
-          <th>Mô tả</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td><strong>Không kết nối (Connectionless)</strong></td>
-          <td>Không cần thiết lập kết nối giữa client &amp; server</td>
-      </tr>
-      <tr>
-          <td><strong>Nhanh hơn TCP</strong></td>
-          <td>Không có xác nhận gói tin nên tốc độ cao hơn</td>
-      </tr>
-      <tr>
-          <td><strong>Không đảm bảo dữ liệu đến</strong></td>
-          <td>Gói tin có thể bị mất, trễ hoặc đến sai thứ tự</td>
-      </tr>
-      <tr>
-          <td><strong>Ứng dụng phổ biến</strong></td>
-          <td>Video call, voice chat, game online, livestream</td>
-      </tr>
-  </tbody>
-</table>
-<p>📸 <em>Minh họa hoạt động UDP:</em>
-<img alt="Java UDP Diagram" loading="lazy" src="../images/java-udp-diagram.png"></p>
-<hr>
-<h2 id="-2-các-lớp-chính-trong-java-udp">🧩 2. Các lớp chính trong Java UDP<a hidden class="anchor" aria-hidden="true" href="#-2-các-lớp-chính-trong-java-udp">#</a></h2>
-<table>
-  <thead>
-      <tr>
-          <th>Lớp</th>
-          <th>Mô tả</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td><code>DatagramSocket</code></td>
-          <td>Dùng để gửi hoặc nhận gói tin UDP</td>
-      </tr>
-      <tr>
-          <td><code>DatagramPacket</code></td>
-          <td>Đại diện cho một gói dữ liệu được gửi/nhận</td>
-      </tr>
-      <tr>
-          <td><code>InetAddress</code></td>
-          <td>Đại diện cho địa chỉ IP của máy chủ hoặc client</td>
-      </tr>
-  </tbody>
-</table>
-<hr>
-<h2 id="-3-mã-nguồn-ví-dụ-gửi--nhận-dữ-liệu-udp">💻 3. Mã nguồn ví dụ: Gửi &amp; nhận dữ liệu UDP<a hidden class="anchor" aria-hidden="true" href="#-3-mã-nguồn-ví-dụ-gửi--nhận-dữ-liệu-udp">#</a></h2>
-<p>Dưới đây là ví dụ về <strong>Server</strong> và <strong>Client</strong> giao tiếp qua UDP.</p>
-<hr>
-<h3 id="-udpserverjava">🖥️ UDPServer.java<a hidden class="anchor" aria-hidden="true" href="#-udpserverjava">#</a></h3>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#f92672">import</span> java.net.*;
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">UDPServer</span> {
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">main</span>(String<span style="color:#f92672">[]</span> args) {
-</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">try</span> {
-</span></span><span style="display:flex;"><span>            DatagramSocket socket <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> DatagramSocket(9876);
-</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">byte</span><span style="color:#f92672">[]</span> receiveData <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#66d9ef">byte</span><span style="color:#f92672">[</span>1024<span style="color:#f92672">]</span>;
-</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">byte</span><span style="color:#f92672">[]</span> sendData;
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>            System.<span style="color:#a6e22e">out</span>.<span style="color:#a6e22e">println</span>(<span style="color:#e6db74">&#34;💬 UDP Server đang chờ gói tin...&#34;</span>);
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">while</span> (<span style="color:#66d9ef">true</span>) {
-</span></span><span style="display:flex;"><span>                <span style="color:#75715e">// Nhận dữ liệu từ Client</span>
-</span></span><span style="display:flex;"><span>                DatagramPacket receivePacket <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> DatagramPacket(receiveData, receiveData.<span style="color:#a6e22e">length</span>);
-</span></span><span style="display:flex;"><span>                socket.<span style="color:#a6e22e">receive</span>(receivePacket);
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>                String message <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> String(receivePacket.<span style="color:#a6e22e">getData</span>(), 0, receivePacket.<span style="color:#a6e22e">getLength</span>());
-</span></span><span style="display:flex;"><span>                System.<span style="color:#a6e22e">out</span>.<span style="color:#a6e22e">println</span>(<span style="color:#e6db74">&#34;📩 Nhận từ Client: &#34;</span> <span style="color:#f92672">+</span> message);
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>                <span style="color:#75715e">// Gửi phản hồi lại cho Client</span>
-</span></span><span style="display:flex;"><span>                InetAddress clientAddress <span style="color:#f92672">=</span> receivePacket.<span style="color:#a6e22e">getAddress</span>();
-</span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">int</span> clientPort <span style="color:#f92672">=</span> receivePacket.<span style="color:#a6e22e">getPort</span>();
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>                String response <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Server nhận được: &#34;</span> <span style="color:#f92672">+</span> message;
-</span></span><span style="display:flex;"><span>                sendData <span style="color:#f92672">=</span> response.<span style="color:#a6e22e">getBytes</span>();
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>                DatagramPacket sendPacket <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> DatagramPacket(sendData, sendData.<span style="color:#a6e22e">length</span>, clientAddress, clientPort);
-</span></span><span style="display:flex;"><span>                socket.<span style="color:#a6e22e">send</span>(sendPacket);
-</span></span><span style="display:flex;"><span>            }
-</span></span><span style="display:flex;"><span>        } <span style="color:#66d9ef">catch</span> (Exception e) {
-</span></span><span style="display:flex;"><span>            e.<span style="color:#a6e22e">printStackTrace</span>();
-</span></span><span style="display:flex;"><span>        }
-</span></span><span style="display:flex;"><span>    }
-</span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div><h3 id="-udpclientjava">💻 UDPClient.java<a hidden class="anchor" aria-hidden="true" href="#-udpclientjava">#</a></h3>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#f92672">import</span> java.net.*;
-</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> java.util.Scanner;
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">UDPClient</span> {
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">main</span>(String<span style="color:#f92672">[]</span> args) {
-</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">try</span> {
-</span></span><span style="display:flex;"><span>            DatagramSocket socket <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> DatagramSocket();
-</span></span><span style="display:flex;"><span>            InetAddress serverAddress <span style="color:#f92672">=</span> InetAddress.<span style="color:#a6e22e">getByName</span>(<span style="color:#e6db74">&#34;localhost&#34;</span>);
-</span></span><span style="display:flex;"><span>            Scanner scanner <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> Scanner(System.<span style="color:#a6e22e">in</span>);
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">while</span> (<span style="color:#66d9ef">true</span>) {
-</span></span><span style="display:flex;"><span>                System.<span style="color:#a6e22e">out</span>.<span style="color:#a6e22e">print</span>(<span style="color:#e6db74">&#34;Nhập tin nhắn gửi đến server: &#34;</span>);
-</span></span><span style="display:flex;"><span>                String message <span style="color:#f92672">=</span> scanner.<span style="color:#a6e22e">nextLine</span>();
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">byte</span><span style="color:#f92672">[]</span> sendData <span style="color:#f92672">=</span> message.<span style="color:#a6e22e">getBytes</span>();
-</span></span><span style="display:flex;"><span>                DatagramPacket sendPacket <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> DatagramPacket(sendData, sendData.<span style="color:#a6e22e">length</span>, serverAddress, 9876);
-</span></span><span style="display:flex;"><span>                socket.<span style="color:#a6e22e">send</span>(sendPacket);
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>                <span style="color:#75715e">// Nhận phản hồi từ server</span>
-</span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">byte</span><span style="color:#f92672">[]</span> receiveData <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#66d9ef">byte</span><span style="color:#f92672">[</span>1024<span style="color:#f92672">]</span>;
-</span></span><span style="display:flex;"><span>                DatagramPacket receivePacket <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> DatagramPacket(receiveData, receiveData.<span style="color:#a6e22e">length</span>);
-</span></span><span style="display:flex;"><span>                socket.<span style="color:#a6e22e">receive</span>(receivePacket);
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>                String response <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> String(receivePacket.<span style="color:#a6e22e">getData</span>(), 0, receivePacket.<span style="color:#a6e22e">getLength</span>());
-</span></span><span style="display:flex;"><span>                System.<span style="color:#a6e22e">out</span>.<span style="color:#a6e22e">println</span>(<span style="color:#e6db74">&#34;💻 Phản hồi từ server: &#34;</span> <span style="color:#f92672">+</span> response);
-</span></span><span style="display:flex;"><span>            }
-</span></span><span style="display:flex;"><span>        } <span style="color:#66d9ef">catch</span> (Exception e) {
-</span></span><span style="display:flex;"><span>            e.<span style="color:#a6e22e">printStackTrace</span>();
-</span></span><span style="display:flex;"><span>        }
-</span></span><span style="display:flex;"><span>    }
-</span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div><hr>
-<h2 id="-4-cách-chạy-chương-trình">⚙️ 4. Cách chạy chương trình<a hidden class="anchor" aria-hidden="true" href="#-4-cách-chạy-chương-trình">#</a></h2>
-<h4 id="bước-1--chạy-server">Bước 1 – Chạy Server:<a hidden class="anchor" aria-hidden="true" href="#bước-1--chạy-server">#</a></h4>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>javac UDPServer.<span style="color:#a6e22e">java</span>
-</span></span><span style="display:flex;"><span>java UDPServer
-</span></span></code></pre></div><h4 id="bước-2--chạy-client">Bước 2 – Chạy Client:<a hidden class="anchor" aria-hidden="true" href="#bước-2--chạy-client">#</a></h4>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>javac UDPClient.<span style="color:#a6e22e">java</span>
-</span></span><span style="display:flex;"><span>java UDPClient
-</span></span></code></pre></div><h4 id="-kết-quả-ví-dụ">📟 Kết quả ví dụ:<a hidden class="anchor" aria-hidden="true" href="#-kết-quả-ví-dụ">#</a></h4>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">💬</span> UDP Server đang chờ gói tin...
-</span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">📩</span> Nhận từ Client: Xin chào Server<span style="color:#f92672">!</span>
-</span></span></code></pre></div><h4 id="và-ở-phía-client">Và ở phía Client:<a hidden class="anchor" aria-hidden="true" href="#và-ở-phía-client">#</a></h4>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>Nhập tin nhắn gửi đến server: Xin chào Server<span style="color:#f92672">!</span>
-</span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">💻</span> Phản hồi từ server: Server nhận được: Xin chào Server<span style="color:#f92672">!</span>
-</span></span></code></pre></div><hr>
-<h2 id="-5-so-sánh-tcp-và-udp">🔍 5. So sánh TCP và UDP<a hidden class="anchor" aria-hidden="true" href="#-5-so-sánh-tcp-và-udp">#</a></h2>
-<table>
-  <thead>
-      <tr>
-          <th>Tiêu chí</th>
-          <th>TCP</th>
-          <th>UDP</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td><strong>Kết nối</strong></td>
-          <td>Có kết nối (connection-based)</td>
-          <td>Không kết nối</td>
-      </tr>
-      <tr>
-          <td><strong>Đảm bảo dữ liệu</strong></td>
-          <td>Có (retransmit nếu lỗi)</td>
-          <td>Không đảm bảo</td>
-      </tr>
-      <tr>
-          <td><strong>Tốc độ</strong></td>
-          <td>Chậm hơn</td>
-          <td>Nhanh hơn</td>
-      </tr>
-      <tr>
-          <td><strong>Ứng dụng</strong></td>
-          <td>Web, email, FTP</td>
-          <td>Game, video call, streaming</td>
-      </tr>
-  </tbody>
-</table>
-<hr>
-<h2 id="-6-mở-rộng-thêm">🪄 6. Mở rộng thêm<a hidden class="anchor" aria-hidden="true" href="#-6-mở-rộng-thêm">#</a></h2>
-<table>
-  <thead>
-      <tr>
-          <th>Tính năng</th>
-          <th>Gợi ý</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td>🌐 Gửi file qua UDP</td>
-          <td>Chia file thành nhiều gói nhỏ rồi gửi tuần tự</td>
-      </tr>
-      <tr>
-          <td>🧠 Reliable UDP</td>
-          <td>Tự xây cơ chế kiểm tra gói mất và gửi lại</td>
-      </tr>
-      <tr>
-          <td>🕹️ Game Multiplayer</td>
-          <td>Dùng UDP để gửi dữ liệu vị trí người chơi trong thời gian thực</td>
-      </tr>
-      <tr>
-          <td>🔒 Bảo mật</td>
-          <td>Mã hóa gói tin bằng AES trước khi gửi</td>
-      </tr>
-  </tbody>
-</table>
-<hr>
-<h2 id="-7-kết-luận">🏁 7. Kết luận<a hidden class="anchor" aria-hidden="true" href="#-7-kết-luận">#</a></h2>
-<ul>
-<li>
-<p>UDP nhanh, nhẹ, phù hợp cho các ứng dụng yêu cầu tốc độ cao hơn độ chính xác tuyệt đối.</p>
-</li>
-<li>
-<p>Tuy nhiên, cần tự xử lý lỗi và kiểm tra dữ liệu nếu muốn đảm bảo an toàn.</p>
-</li>
-<li>
-<p>Java hỗ trợ UDP cực kỳ dễ dàng thông qua DatagramSocket và DatagramPacket.</p>
-</li>
-</ul>
-<hr>
-<p>✍️ Tác giả: Nguyễn Thanh Phương</p>
-<p>📅 Cập nhật: October 20, 2025</p>
-<hr>
-
-
-  </div>
-
-  <footer class="post-footer">
-    <ul class="post-tags">
-      <li><a href="https://yourusername.github.io/tags/java/">Java</a></li>
-      <li><a href="https://yourusername.github.io/tags/udp/">UDP</a></li>
-      <li><a href="https://yourusername.github.io/tags/datagram/">Datagram</a></li>
-      <li><a href="https://yourusername.github.io/tags/networking/">Networking</a></li>
-    </ul>
-<nav class="paginav">
-  <a class="prev" href="https://yourusername.github.io/blog/bai8-gui-va-nhan-file-qua-mang-trong-java/">
-    <span class="title">« Prev</span>
-    <br>
-    <span>Bài 8 - Gửi và nhận file qua mạng trong Java (File Transfer)</span>
-  </a>
-  <a class="next" href="https://yourusername.github.io/blog/bai6-xay-dung-chat-server-nhieu-nguoi-dung/">
-    <span class="title">Next »</span>
-    <br>
-    <span>Bài 6 - Xây dựng Chat Server nhiều người dùng (Multi-Client Chat)</span>
-  </a>
-</nav>
-
-  </footer>
-</article>
-    </main>
-    
-<footer class="footer">
-        <span>&copy; 2025 <a href="https://yourusername.github.io/">Blog Lập Trình - 2180607911 - Nguyễn Thanh Phương - 21DTHD3</a></span> · 
-
-    <span>
-        Powered by
-        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
-        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
-    </span>
-</footer>
-<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
-        <path d="M12 6H0l6-6z" />
-    </svg>
-</a>
-
-<script>
-    let menu = document.getElementById('menu')
-    if (menu) {
-        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
-        menu.onscroll = function () {
-            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
-        }
-    }
-
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener("click", function (e) {
-            e.preventDefault();
-            var id = this.getAttribute("href").substr(1);
-            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
-                    behavior: "smooth"
-                });
-            } else {
-                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
-            }
-            if (id === "top") {
-                history.replaceState(null, null, " ");
-            } else {
-                history.pushState(null, null, `#${id}`);
-            }
-        });
-    });
-
-</script>
-<script>
-    var mybutton = document.getElementById("top-link");
-    window.onscroll = function () {
-        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
-            mybutton.style.visibility = "visible";
-            mybutton.style.opacity = "1";
-        } else {
-            mybutton.style.visibility = "hidden";
-            mybutton.style.opacity = "0";
-        }
-    };
-
-</script>
-<script>
-    document.getElementById("theme-toggle").addEventListener("click", () => {
-        if (document.body.className.includes("dark")) {
-            document.body.classList.remove('dark');
-            localStorage.setItem("pref-theme", 'light');
-        } else {
-            document.body.classList.add('dark');
-            localStorage.setItem("pref-theme", 'dark');
-        }
-    })
-
-</script>
-<script>
-    document.querySelectorAll('pre > code').forEach((codeblock) => {
-        const container = codeblock.parentNode.parentNode;
-
-        const copybutton = document.createElement('button');
-        copybutton.classList.add('copy-code');
-        copybutton.innerHTML = 'copy';
-
-        function copyingDone() {
-            copybutton.innerHTML = 'copied!';
-            setTimeout(() => {
-                copybutton.innerHTML = 'copy';
-            }, 2000);
-        }
-
-        copybutton.addEventListener('click', (cb) => {
-            if ('clipboard' in navigator) {
-                navigator.clipboard.writeText(codeblock.textContent);
-                copyingDone();
-                return;
-            }
-
-            const range = document.createRange();
-            range.selectNodeContents(codeblock);
-            const selection = window.getSelection();
-            selection.removeAllRanges();
-            selection.addRange(range);
-            try {
-                document.execCommand('copy');
-                copyingDone();
-            } catch (e) { };
-            selection.removeRange(range);
-        });
-
-        if (container.classList.contains("highlight")) {
-            container.appendChild(copybutton);
-        } else if (container.parentNode.firstChild == container) {
-            
-        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
-            
-            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
-        } else {
-            
-            codeblock.parentNode.appendChild(copybutton);
-        }
-    });
-</script>
-</body>
-
-</html>
+"><script type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Blog - Lập trình mạng máy tính","item":"https://phuongit1306.github.io/BlogLTMMT/blog/"},{"@type":"ListItem","position":2,"name":"Bài 7 - Lập trình mạng với UDP trong Java","item":"https://phuongit1306.github.io/BlogLTMMT/blog/bai7-lap-trinh-mang-voi-udp-trong-java/"}]}</script><script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"Bài 7 - Lập trình mạng với UDP trong Java","name":"Bài 7 - Lập trình mạng với UDP trong Java","description":" Trong các bài trước, chúng ta đã làm quen với Socket TCP, giúp tạo kết nối ổn định giữa Client và Server. Tuy nhiên, trong nhiều ứng dụng như trò chơi trực tuyến, stream video/audio, ta cần tốc độ cao hơn, dù có thể mất một ít dữ liệu. Đó chính là lúc giao thức UDP (User Datagram Protocol) được sử dụng ⚡\n🧠 1. Tổng quan về UDP Đặc điểm Mô tả Không kết nối (Connectionless) Không cần thiết lập kết nối giữa client \u0026amp; server Nhanh hơn TCP Không có xác nhận gói tin nên tốc độ cao hơn Không đảm bảo dữ liệu đến Gói tin có thể bị mất, trễ hoặc đến sai thứ tự Ứng dụng phổ biến Video call, voice chat, game online, livestream 📸 Minh họa hoạt động UDP: ","keywords":["Java","UDP","Datagram","Networking"],"articleBody":" Trong các bài trước, chúng ta đã làm quen với Socket TCP, giúp tạo kết nối ổn định giữa Client và Server. Tuy nhiên, trong nhiều ứng dụng như trò chơi trực tuyến, stream video/audio, ta cần tốc độ cao hơn, dù có thể mất một ít dữ liệu. Đó chính là lúc giao thức UDP (User Datagram Protocol) được sử dụng ⚡\n🧠 1. Tổng quan về UDP Đặc điểm Mô tả Không kết nối (Connectionless) Không cần thiết lập kết nối giữa client \u0026 server Nhanh hơn TCP Không có xác nhận gói tin nên tốc độ cao hơn Không đảm bảo dữ liệu đến Gói tin có thể bị mất, trễ hoặc đến sai thứ tự Ứng dụng phổ biến Video call, voice chat, game online, livestream 📸 Minh họa hoạt động UDP: 🧩 2. Các lớp chính trong Java UDP Lớp Mô tả DatagramSocket Dùng để gửi hoặc nhận gói tin UDP DatagramPacket Đại diện cho một gói dữ liệu được gửi/nhận InetAddress Đại diện cho địa chỉ IP của máy chủ hoặc client 💻 3. Mã nguồn ví dụ: Gửi \u0026 nhận dữ liệu UDP Dưới đây là ví dụ về Server và Client giao tiếp qua UDP.\n🖥️ UDPServer.java import java.net.*; public class UDPServer { public static void main(String[] args) { try { DatagramSocket socket = new DatagramSocket(9876); byte[] receiveData = new byte[1024]; byte[] sendData; System.out.println(\"💬 UDP Server đang chờ gói tin...\"); while (true) { // Nhận dữ liệu từ Client DatagramPacket receivePacket = new DatagramPacket(receiveData, receiveData.length); socket.receive(receivePacket); String message = new String(receivePacket.getData(), 0, receivePacket.getLength()); System.out.println(\"📩 Nhận từ Client: \" + message); // Gửi phản hồi lại cho Client InetAddress clientAddress = receivePacket.getAddress(); int clientPort = receivePacket.getPort(); String response = \"Server nhận được: \" + message; sendData = response.getBytes(); DatagramPacket sendPacket = new DatagramPacket(sendData, sendData.length, clientAddress, clientPort); socket.send(sendPacket); } } catch (Exception e) { e.printStackTrace(); } } } 💻 UDPClient.java import java.net.*; import java.util.Scanner; public class UDPClient { public static void main(String[] args) { try { DatagramSocket socket = new DatagramSocket(); InetAddress serverAddress = InetAddress.getByName(\"localhost\"); Scanner scanner = new Scanner(System.in); while (true) { System.out.print(\"Nhập tin nhắn gửi đến server: \"); String message = scanner.nextLine(); byte[] sendData = message.getBytes(); DatagramPacket sendPacket = new DatagramPacket(sendData, sendData.length, serverAddress, 9876); socket.send(sendPacket); // Nhận phản hồi từ server byte[] receiveData = new byte[1024]; DatagramPacket receivePacket = new DatagramPacket(receiveData, receiveData.length); socket.receive(receivePacket); String response = new String(receivePacket.getData(), 0, receivePacket.getLength()); System.out.println(\"💻 Phản hồi từ server: \" + response); } } catch (Exception e) { e.printStackTrace(); } } } ⚙️ 4. Cách chạy chương trình Bước 1 – Chạy Server: javac UDPServer.java java UDPServer Bước 2 – Chạy Client: javac UDPClient.java java UDPClient 📟 Kết quả ví dụ: 💬 UDP Server đang chờ gói tin... 📩 Nhận từ Client: Xin chào Server! Và ở phía Client: Nhập tin nhắn gửi đến server: Xin chào Server! 💻 Phản hồi từ server: Server nhận được: Xin chào Server! 🔍 5. So sánh TCP và UDP Tiêu chí TCP UDP Kết nối Có kết nối (connection-based) Không kết nối Đảm bảo dữ liệu Có (retransmit nếu lỗi) Không đảm bảo Tốc độ Chậm hơn Nhanh hơn Ứng dụng Web, email, FTP Game, video call, streaming 🪄 6. Mở rộng thêm Tính năng Gợi ý 🌐 Gửi file qua UDP Chia file thành nhiều gói nhỏ rồi gửi tuần tự 🧠 Reliable UDP Tự xây cơ chế kiểm tra gói mất và gửi lại 🕹️ Game Multiplayer Dùng UDP để gửi dữ liệu vị trí người chơi trong thời gian thực 🔒 Bảo mật Mã hóa gói tin bằng AES trước khi gửi 🏁 7. Kết luận UDP nhanh, nhẹ, phù hợp cho các ứng dụng yêu cầu tốc độ cao hơn độ chính xác tuyệt đối.\nTuy nhiên, cần tự xử lý lỗi và kiểm tra dữ liệu nếu muốn đảm bảo an toàn.\nJava hỗ trợ UDP cực kỳ dễ dàng thông qua DatagramSocket và DatagramPacket.\n✍️ Tác giả: Nguyễn Thanh Phương\n📅 Cập nhật: October 20, 2025\n","wordCount":"663","inLanguage":"en","datePublished":"2025-10-11T00:00:00Z","dateModified":"2025-10-11T00:00:00Z","author":{"@type":"Person","name":"Nguyễn Thanh Phương"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://phuongit1306.github.io/BlogLTMMT/blog/bai7-lap-trinh-mang-voi-udp-trong-java/"},"publisher":{"@type":"Organization","name":"Blog Lập Trình - 2180607911 - Nguyễn Thanh Phương - 21DTHD3","logo":{"@type":"ImageObject","url":"https://phuongit1306.github.io/BlogLTMMT/favicon.ico"}}}</script></head><body id=top><script>localStorage.getItem("pref-theme")==="dark"?document.body.classList.add("dark"):localStorage.getItem("pref-theme")==="light"?document.body.classList.remove("dark"):window.matchMedia("(prefers-color-scheme: dark)").matches&&document.body.classList.add("dark")</script><header class=header><nav class=nav><div class=logo><a href=https://phuongit1306.github.io/BlogLTMMT/ accesskey=h title="Blog Lập Trình - 2180607911 - Nguyễn Thanh Phương - 21DTHD3 (Alt + H)">Blog Lập Trình - 2180607911 - Nguyễn Thanh Phương - 21DTHD3</a><div class=logo-switches><button id=theme-toggle accesskey=t title="(Alt + T)" aria-label="Toggle theme">
+<svg id="moon" width="24" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg>
+<svg id="sun" width="24" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg></button></div></div><ul id=menu><li><a href=https://phuongit1306.github.io/BlogLTMMT/ title=Home><span>Home</span></a></li><li><a href=https://phuongit1306.github.io/BlogLTMMT/blog title=📝><span>📝</span></a></li><li><a href=https://phuongit1306.github.io/BlogLTMMT/about title=📩><span>📩</span></a></li></ul></nav></header><main class=main><article class=post-single><header class=post-header><div class=breadcrumbs><a href=https://phuongit1306.github.io/BlogLTMMT/>Home</a>&nbsp;»&nbsp;<a href=https://phuongit1306.github.io/BlogLTMMT/blog/>Blog - Lập trình mạng máy tính</a></div><h1 class="post-title entry-hint-parent">Bài 7 - Lập trình mạng với UDP trong Java</h1><div class=post-meta><span title='2025-10-11 00:00:00 +0000 UTC'>October 11, 2025</span>&nbsp;·&nbsp;<span>4 min</span>&nbsp;·&nbsp;<span>Nguyễn Thanh Phương</span></div></header><div class=post-content><ul><li>Trong các bài trước, chúng ta đã làm quen với <strong>Socket TCP</strong>, giúp tạo kết nối ổn định giữa Client và Server.</li><li>Tuy nhiên, trong nhiều ứng dụng như <strong>trò chơi trực tuyến, stream video/audio</strong>, ta cần <strong>tốc độ cao hơn</strong>, dù có thể <strong>mất một ít dữ liệu</strong>.</li></ul><p>Đó chính là lúc giao thức <strong>UDP (User Datagram Protocol)</strong> được sử dụng ⚡</p><hr><h2 id=-1-tổng-quan-về-udp>🧠 1. Tổng quan về UDP<a hidden class=anchor aria-hidden=true href=#-1-tổng-quan-về-udp>#</a></h2><table><thead><tr><th>Đặc điểm</th><th>Mô tả</th></tr></thead><tbody><tr><td><strong>Không kết nối (Connectionless)</strong></td><td>Không cần thiết lập kết nối giữa client & server</td></tr><tr><td><strong>Nhanh hơn TCP</strong></td><td>Không có xác nhận gói tin nên tốc độ cao hơn</td></tr><tr><td><strong>Không đảm bảo dữ liệu đến</strong></td><td>Gói tin có thể bị mất, trễ hoặc đến sai thứ tự</td></tr><tr><td><strong>Ứng dụng phổ biến</strong></td><td>Video call, voice chat, game online, livestream</td></tr></tbody></table><p>📸 <em>Minh họa hoạt động UDP:</em>
+<img alt="Java UDP Diagram" loading=lazy src=../images/java-udp-diagram.png></p><hr><h2 id=-2-các-lớp-chính-trong-java-udp>🧩 2. Các lớp chính trong Java UDP<a hidden class=anchor aria-hidden=true href=#-2-các-lớp-chính-trong-java-udp>#</a></h2><table><thead><tr><th>Lớp</th><th>Mô tả</th></tr></thead><tbody><tr><td><code>DatagramSocket</code></td><td>Dùng để gửi hoặc nhận gói tin UDP</td></tr><tr><td><code>DatagramPacket</code></td><td>Đại diện cho một gói dữ liệu được gửi/nhận</td></tr><tr><td><code>InetAddress</code></td><td>Đại diện cho địa chỉ IP của máy chủ hoặc client</td></tr></tbody></table><hr><h2 id=-3-mã-nguồn-ví-dụ-gửi--nhận-dữ-liệu-udp>💻 3. Mã nguồn ví dụ: Gửi & nhận dữ liệu UDP<a hidden class=anchor aria-hidden=true href=#-3-mã-nguồn-ví-dụ-gửi--nhận-dữ-liệu-udp>#</a></h2><p>Dưới đây là ví dụ về <strong>Server</strong> và <strong>Client</strong> giao tiếp qua UDP.</p><hr><h3 id=-udpserverjava>🖥️ UDPServer.java<a hidden class=anchor aria-hidden=true href=#-udpserverjava>#</a></h3><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-java data-lang=java><span style=display:flex><span><span style=color:#f92672>import</span> java.net.*;
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>public</span> <span style=color:#66d9ef>class</span> <span style=color:#a6e22e>UDPServer</span> {
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>public</span> <span style=color:#66d9ef>static</span> <span style=color:#66d9ef>void</span> <span style=color:#a6e22e>main</span>(String<span style=color:#f92672>[]</span> args) {
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>try</span> {
+</span></span><span style=display:flex><span>            DatagramSocket socket <span style=color:#f92672>=</span> <span style=color:#66d9ef>new</span> DatagramSocket(9876);
+</span></span><span style=display:flex><span>            <span style=color:#66d9ef>byte</span><span style=color:#f92672>[]</span> receiveData <span style=color:#f92672>=</span> <span style=color:#66d9ef>new</span> <span style=color:#66d9ef>byte</span><span style=color:#f92672>[</span>1024<span style=color:#f92672>]</span>;
+</span></span><span style=display:flex><span>            <span style=color:#66d9ef>byte</span><span style=color:#f92672>[]</span> sendData;
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>            System.<span style=color:#a6e22e>out</span>.<span style=color:#a6e22e>println</span>(<span style=color:#e6db74>&#34;💬 UDP Server đang chờ gói tin...&#34;</span>);
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>            <span style=color:#66d9ef>while</span> (<span style=color:#66d9ef>true</span>) {
+</span></span><span style=display:flex><span>                <span style=color:#75715e>// Nhận dữ liệu từ Client</span>
+</span></span><span style=display:flex><span>                DatagramPacket receivePacket <span style=color:#f92672>=</span> <span style=color:#66d9ef>new</span> DatagramPacket(receiveData, receiveData.<span style=color:#a6e22e>length</span>);
+</span></span><span style=display:flex><span>                socket.<span style=color:#a6e22e>receive</span>(receivePacket);
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>                String message <span style=color:#f92672>=</span> <span style=color:#66d9ef>new</span> String(receivePacket.<span style=color:#a6e22e>getData</span>(), 0, receivePacket.<span style=color:#a6e22e>getLength</span>());
+</span></span><span style=display:flex><span>                System.<span style=color:#a6e22e>out</span>.<span style=color:#a6e22e>println</span>(<span style=color:#e6db74>&#34;📩 Nhận từ Client: &#34;</span> <span style=color:#f92672>+</span> message);
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>                <span style=color:#75715e>// Gửi phản hồi lại cho Client</span>
+</span></span><span style=display:flex><span>                InetAddress clientAddress <span style=color:#f92672>=</span> receivePacket.<span style=color:#a6e22e>getAddress</span>();
+</span></span><span style=display:flex><span>                <span style=color:#66d9ef>int</span> clientPort <span style=color:#f92672>=</span> receivePacket.<span style=color:#a6e22e>getPort</span>();
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>                String response <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;Server nhận được: &#34;</span> <span style=color:#f92672>+</span> message;
+</span></span><span style=display:flex><span>                sendData <span style=color:#f92672>=</span> response.<span style=color:#a6e22e>getBytes</span>();
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>                DatagramPacket sendPacket <span style=color:#f92672>=</span> <span style=color:#66d9ef>new</span> DatagramPacket(sendData, sendData.<span style=color:#a6e22e>length</span>, clientAddress, clientPort);
+</span></span><span style=display:flex><span>                socket.<span style=color:#a6e22e>send</span>(sendPacket);
+</span></span><span style=display:flex><span>            }
+</span></span><span style=display:flex><span>        } <span style=color:#66d9ef>catch</span> (Exception e) {
+</span></span><span style=display:flex><span>            e.<span style=color:#a6e22e>printStackTrace</span>();
+</span></span><span style=display:flex><span>        }
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>}
+</span></span></code></pre></div><h3 id=-udpclientjava>💻 UDPClient.java<a hidden class=anchor aria-hidden=true href=#-udpclientjava>#</a></h3><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-java data-lang=java><span style=display:flex><span><span style=color:#f92672>import</span> java.net.*;
+</span></span><span style=display:flex><span><span style=color:#f92672>import</span> java.util.Scanner;
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>public</span> <span style=color:#66d9ef>class</span> <span style=color:#a6e22e>UDPClient</span> {
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>public</span> <span style=color:#66d9ef>static</span> <span style=color:#66d9ef>void</span> <span style=color:#a6e22e>main</span>(String<span style=color:#f92672>[]</span> args) {
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>try</span> {
+</span></span><span style=display:flex><span>            DatagramSocket socket <span style=color:#f92672>=</span> <span style=color:#66d9ef>new</span> DatagramSocket();
+</span></span><span style=display:flex><span>            InetAddress serverAddress <span style=color:#f92672>=</span> InetAddress.<span style=color:#a6e22e>getByName</span>(<span style=color:#e6db74>&#34;localhost&#34;</span>);
+</span></span><span style=display:flex><span>            Scanner scanner <span style=color:#f92672>=</span> <span style=color:#66d9ef>new</span> Scanner(System.<span style=color:#a6e22e>in</span>);
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>            <span style=color:#66d9ef>while</span> (<span style=color:#66d9ef>true</span>) {
+</span></span><span style=display:flex><span>                System.<span style=color:#a6e22e>out</span>.<span style=color:#a6e22e>print</span>(<span style=color:#e6db74>&#34;Nhập tin nhắn gửi đến server: &#34;</span>);
+</span></span><span style=display:flex><span>                String message <span style=color:#f92672>=</span> scanner.<span style=color:#a6e22e>nextLine</span>();
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>                <span style=color:#66d9ef>byte</span><span style=color:#f92672>[]</span> sendData <span style=color:#f92672>=</span> message.<span style=color:#a6e22e>getBytes</span>();
+</span></span><span style=display:flex><span>                DatagramPacket sendPacket <span style=color:#f92672>=</span> <span style=color:#66d9ef>new</span> DatagramPacket(sendData, sendData.<span style=color:#a6e22e>length</span>, serverAddress, 9876);
+</span></span><span style=display:flex><span>                socket.<span style=color:#a6e22e>send</span>(sendPacket);
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>                <span style=color:#75715e>// Nhận phản hồi từ server</span>
+</span></span><span style=display:flex><span>                <span style=color:#66d9ef>byte</span><span style=color:#f92672>[]</span> receiveData <span style=color:#f92672>=</span> <span style=color:#66d9ef>new</span> <span style=color:#66d9ef>byte</span><span style=color:#f92672>[</span>1024<span style=color:#f92672>]</span>;
+</span></span><span style=display:flex><span>                DatagramPacket receivePacket <span style=color:#f92672>=</span> <span style=color:#66d9ef>new</span> DatagramPacket(receiveData, receiveData.<span style=color:#a6e22e>length</span>);
+</span></span><span style=display:flex><span>                socket.<span style=color:#a6e22e>receive</span>(receivePacket);
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>                String response <span style=color:#f92672>=</span> <span style=color:#66d9ef>new</span> String(receivePacket.<span style=color:#a6e22e>getData</span>(), 0, receivePacket.<span style=color:#a6e22e>getLength</span>());
+</span></span><span style=display:flex><span>                System.<span style=color:#a6e22e>out</span>.<span style=color:#a6e22e>println</span>(<span style=color:#e6db74>&#34;💻 Phản hồi từ server: &#34;</span> <span style=color:#f92672>+</span> response);
+</span></span><span style=display:flex><span>            }
+</span></span><span style=display:flex><span>        } <span style=color:#66d9ef>catch</span> (Exception e) {
+</span></span><span style=display:flex><span>            e.<span style=color:#a6e22e>printStackTrace</span>();
+</span></span><span style=display:flex><span>        }
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>}
+</span></span></code></pre></div><hr><h2 id=-4-cách-chạy-chương-trình>⚙️ 4. Cách chạy chương trình<a hidden class=anchor aria-hidden=true href=#-4-cách-chạy-chương-trình>#</a></h2><h4 id=bước-1--chạy-server>Bước 1 – Chạy Server:<a hidden class=anchor aria-hidden=true href=#bước-1--chạy-server>#</a></h4><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-java data-lang=java><span style=display:flex><span>javac UDPServer.<span style=color:#a6e22e>java</span>
+</span></span><span style=display:flex><span>java UDPServer
+</span></span></code></pre></div><h4 id=bước-2--chạy-client>Bước 2 – Chạy Client:<a hidden class=anchor aria-hidden=true href=#bước-2--chạy-client>#</a></h4><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-java data-lang=java><span style=display:flex><span>javac UDPClient.<span style=color:#a6e22e>java</span>
+</span></span><span style=display:flex><span>java UDPClient
+</span></span></code></pre></div><h4 id=-kết-quả-ví-dụ>📟 Kết quả ví dụ:<a hidden class=anchor aria-hidden=true href=#-kết-quả-ví-dụ>#</a></h4><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-java data-lang=java><span style=display:flex><span><span style=color:#960050;background-color:#1e0010>💬</span> UDP Server đang chờ gói tin...
+</span></span><span style=display:flex><span><span style=color:#960050;background-color:#1e0010>📩</span> Nhận từ Client: Xin chào Server<span style=color:#f92672>!</span>
+</span></span></code></pre></div><h4 id=và-ở-phía-client>Và ở phía Client:<a hidden class=anchor aria-hidden=true href=#và-ở-phía-client>#</a></h4><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-java data-lang=java><span style=display:flex><span>Nhập tin nhắn gửi đến server: Xin chào Server<span style=color:#f92672>!</span>
+</span></span><span style=display:flex><span><span style=color:#960050;background-color:#1e0010>💻</span> Phản hồi từ server: Server nhận được: Xin chào Server<span style=color:#f92672>!</span>
+</span></span></code></pre></div><hr><h2 id=-5-so-sánh-tcp-và-udp>🔍 5. So sánh TCP và UDP<a hidden class=anchor aria-hidden=true href=#-5-so-sánh-tcp-và-udp>#</a></h2><table><thead><tr><th>Tiêu chí</th><th>TCP</th><th>UDP</th></tr></thead><tbody><tr><td><strong>Kết nối</strong></td><td>Có kết nối (connection-based)</td><td>Không kết nối</td></tr><tr><td><strong>Đảm bảo dữ liệu</strong></td><td>Có (retransmit nếu lỗi)</td><td>Không đảm bảo</td></tr><tr><td><strong>Tốc độ</strong></td><td>Chậm hơn</td><td>Nhanh hơn</td></tr><tr><td><strong>Ứng dụng</strong></td><td>Web, email, FTP</td><td>Game, video call, streaming</td></tr></tbody></table><hr><h2 id=-6-mở-rộng-thêm>🪄 6. Mở rộng thêm<a hidden class=anchor aria-hidden=true href=#-6-mở-rộng-thêm>#</a></h2><table><thead><tr><th>Tính năng</th><th>Gợi ý</th></tr></thead><tbody><tr><td>🌐 Gửi file qua UDP</td><td>Chia file thành nhiều gói nhỏ rồi gửi tuần tự</td></tr><tr><td>🧠 Reliable UDP</td><td>Tự xây cơ chế kiểm tra gói mất và gửi lại</td></tr><tr><td>🕹️ Game Multiplayer</td><td>Dùng UDP để gửi dữ liệu vị trí người chơi trong thời gian thực</td></tr><tr><td>🔒 Bảo mật</td><td>Mã hóa gói tin bằng AES trước khi gửi</td></tr></tbody></table><hr><h2 id=-7-kết-luận>🏁 7. Kết luận<a hidden class=anchor aria-hidden=true href=#-7-kết-luận>#</a></h2><ul><li><p>UDP nhanh, nhẹ, phù hợp cho các ứng dụng yêu cầu tốc độ cao hơn độ chính xác tuyệt đối.</p></li><li><p>Tuy nhiên, cần tự xử lý lỗi và kiểm tra dữ liệu nếu muốn đảm bảo an toàn.</p></li><li><p>Java hỗ trợ UDP cực kỳ dễ dàng thông qua DatagramSocket và DatagramPacket.</p></li></ul><hr><p>✍️ Tác giả: Nguyễn Thanh Phương</p><p>📅 Cập nhật: October 20, 2025</p><hr></div><footer class=post-footer><ul class=post-tags><li><a href=https://phuongit1306.github.io/BlogLTMMT/tags/java/>Java</a></li><li><a href=https://phuongit1306.github.io/BlogLTMMT/tags/udp/>UDP</a></li><li><a href=https://phuongit1306.github.io/BlogLTMMT/tags/datagram/>Datagram</a></li><li><a href=https://phuongit1306.github.io/BlogLTMMT/tags/networking/>Networking</a></li></ul><nav class=paginav><a class=prev href=https://phuongit1306.github.io/BlogLTMMT/blog/bai8-gui-va-nhan-file-qua-mang-trong-java/><span class=title>« Prev</span><br><span>Bài 8 - Gửi và nhận file qua mạng trong Java (File Transfer)</span>
+</a><a class=next href=https://phuongit1306.github.io/BlogLTMMT/blog/bai6-xay-dung-chat-server-nhieu-nguoi-dung/><span class=title>Next »</span><br><span>Bài 6 - Xây dựng Chat Server nhiều người dùng (Multi-Client Chat)</span></a></nav></footer></article></main><footer class=footer><span>&copy; 2025 <a href=https://phuongit1306.github.io/BlogLTMMT/>Blog Lập Trình - 2180607911 - Nguyễn Thanh Phương - 21DTHD3</a></span> ·
+<span>Powered by
+<a href=https://gohugo.io/ rel="noopener noreferrer" target=_blank>Hugo</a> &
+<a href=https://github.com/adityatelange/hugo-PaperMod/ rel=noopener target=_blank>PaperMod</a></span></footer><a href=#top aria-label="go to top" title="Go to Top (Alt + G)" class=top-link id=top-link accesskey=g><svg viewBox="0 0 12 6" fill="currentColor"><path d="M12 6H0l6-6z"/></svg>
+</a><script>let menu=document.getElementById("menu");menu&&(menu.scrollLeft=localStorage.getItem("menu-scroll-position"),menu.onscroll=function(){localStorage.setItem("menu-scroll-position",menu.scrollLeft)}),document.querySelectorAll('a[href^="#"]').forEach(e=>{e.addEventListener("click",function(e){e.preventDefault();var t=this.getAttribute("href").substr(1);window.matchMedia("(prefers-reduced-motion: reduce)").matches?document.querySelector(`[id='${decodeURIComponent(t)}']`).scrollIntoView():document.querySelector(`[id='${decodeURIComponent(t)}']`).scrollIntoView({behavior:"smooth"}),t==="top"?history.replaceState(null,null," "):history.pushState(null,null,`#${t}`)})})</script><script>var mybutton=document.getElementById("top-link");window.onscroll=function(){document.body.scrollTop>800||document.documentElement.scrollTop>800?(mybutton.style.visibility="visible",mybutton.style.opacity="1"):(mybutton.style.visibility="hidden",mybutton.style.opacity="0")}</script><script>document.getElementById("theme-toggle").addEventListener("click",()=>{document.body.className.includes("dark")?(document.body.classList.remove("dark"),localStorage.setItem("pref-theme","light")):(document.body.classList.add("dark"),localStorage.setItem("pref-theme","dark"))})</script><script>document.querySelectorAll("pre > code").forEach(e=>{const n=e.parentNode.parentNode,t=document.createElement("button");t.classList.add("copy-code"),t.innerHTML="copy";function s(){t.innerHTML="copied!",setTimeout(()=>{t.innerHTML="copy"},2e3)}t.addEventListener("click",t=>{if("clipboard"in navigator){navigator.clipboard.writeText(e.textContent),s();return}const n=document.createRange();n.selectNodeContents(e);const o=window.getSelection();o.removeAllRanges(),o.addRange(n);try{document.execCommand("copy"),s()}catch{}o.removeRange(n)}),n.classList.contains("highlight")?n.appendChild(t):n.parentNode.firstChild==n||(e.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName=="TABLE"?e.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(t):e.parentNode.appendChild(t))})</script></body></html>
