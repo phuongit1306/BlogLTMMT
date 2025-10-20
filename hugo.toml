@@ -28,8 +28,8 @@ theme = "PaperMod"
     imageUrl = "images/avatar.jpg"
     imageTitle = "Nguyễn Thanh Phương"
     buttons = [
-      { name = "📝 Blog", url = "/blog" },
-      { name = "📩 Liên hệ", url = "/about" },
+      { name = "📝 Blog", url = "blog/" },
+      { name = "📩 Liên hệ", url = "about" },
       { name = "📂 GitHub", url = "https://github.com/phuongit1306" }
     ]
 

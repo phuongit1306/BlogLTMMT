@@ -1,7 +1,25 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Distributed Systems on Blog Lập Trình - 2180607911 - Nguyễn Thanh Phương - 21DTHD3</title><link>https://phuongit1306.github.io/BlogLTMMT/tags/distributed-systems/</link><description>Recent content in Distributed Systems on Blog Lập Trình - 2180607911 - Nguyễn Thanh Phương - 21DTHD3</description><generator>Hugo -- 0.151.2</generator><language>vi</language><lastBuildDate>Wed, 15 Oct 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://phuongit1306.github.io/BlogLTMMT/tags/distributed-systems/index.xml" rel="self" type="application/rss+xml"/><item><title>Bài 9 - Lập trình mạng trong Java với RMI (Remote Method Invocation)</title><link>https://phuongit1306.github.io/BlogLTMMT/blog/bai9-lap-trinh-mang-voi-rmi-trong-java/</link><pubDate>Wed, 15 Oct 2025 00:00:00 +0000</pubDate><guid>https://phuongit1306.github.io/BlogLTMMT/blog/bai9-lap-trinh-mang-voi-rmi-trong-java/</guid><description>&lt;ul&gt;
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Distributed Systems on Blog Lập Trình - 2180607911 - Nguyễn Thanh Phương - 21DTHD3</title>
+    <link>https://phuongit1306.github.io/BlogLTMMT/tags/distributed-systems/</link>
+    <description>Recent content in Distributed Systems on Blog Lập Trình - 2180607911 - Nguyễn Thanh Phương - 21DTHD3</description>
+    <generator>Hugo -- 0.151.2</generator>
+    <language>vi</language>
+    <lastBuildDate>Wed, 15 Oct 2025 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://phuongit1306.github.io/BlogLTMMT/tags/distributed-systems/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Bài 9 - Lập trình mạng trong Java với RMI (Remote Method Invocation)</title>
+      <link>https://phuongit1306.github.io/BlogLTMMT/blog/bai9-lap-trinh-mang-voi-rmi-trong-java/</link>
+      <pubDate>Wed, 15 Oct 2025 00:00:00 +0000</pubDate>
+      <guid>https://phuongit1306.github.io/BlogLTMMT/blog/bai9-lap-trinh-mang-voi-rmi-trong-java/</guid>
+      <description>&lt;ul&gt;
 &lt;li&gt;Khi lập trình mạng, ngoài việc truyền dữ liệu giữa Client và Server, đôi khi bạn muốn &lt;strong&gt;gọi trực tiếp một hàm&lt;/strong&gt; trên máy khác như thể nó nằm trong cùng chương trình.&lt;br&gt;
 👉 Đó chính là lúc &lt;strong&gt;RMI (Remote Method Invocation)&lt;/strong&gt; phát huy sức mạnh!&lt;/li&gt;
 &lt;/ul&gt;
 &lt;hr&gt;
-&lt;h2 id="-1-giới-thiệu-về-rmi"&gt;🧠 1. Giới thiệu về RMI&lt;/h2&gt;
-&lt;p&gt;&lt;strong&gt;RMI (Remote Method Invocation)&lt;/strong&gt; là cơ chế cho phép một chương trình Java &lt;strong&gt;gọi phương thức của đối tượng trên máy khác&lt;/strong&gt; qua mạng, giống như gọi hàm cục bộ.&lt;/p&gt;</description></item></channel></rss>
+&lt;h2 id=&#34;-1-giới-thiệu-về-rmi&#34;&gt;🧠 1. Giới thiệu về RMI&lt;/h2&gt;
+&lt;p&gt;&lt;strong&gt;RMI (Remote Method Invocation)&lt;/strong&gt; là cơ chế cho phép một chương trình Java &lt;strong&gt;gọi phương thức của đối tượng trên máy khác&lt;/strong&gt; qua mạng, giống như gọi hàm cục bộ.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>
