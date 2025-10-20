@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Lập Trình Mạng on Blog Lập Trình - 2180607911 - Nguyễn Thanh Phương - 21DTHD3</title>
-    <link>http://localhost:1313/BlogLTMMT/tags/l%E1%BA%ADp-tr%C3%ACnh-m%E1%BA%A1ng/</link>
+    <link>https://phuongit1306.github.io/BlogLTMMT/tags/l%E1%BA%ADp-tr%C3%ACnh-m%E1%BA%A1ng/</link>
     <description>Recent content in Lập Trình Mạng on Blog Lập Trình - 2180607911 - Nguyễn Thanh Phương - 21DTHD3</description>
     <generator>Hugo -- 0.151.2</generator>
     <language>vi</language>
     <lastBuildDate>Wed, 08 Oct 2025 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://localhost:1313/BlogLTMMT/tags/l%E1%BA%ADp-tr%C3%ACnh-m%E1%BA%A1ng/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://phuongit1306.github.io/BlogLTMMT/tags/l%E1%BA%ADp-tr%C3%ACnh-m%E1%BA%A1ng/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Bài 4 - Truyền file qua mạng trong Java bằng Socket</title>
-      <link>http://localhost:1313/BlogLTMMT/blog/bai4-truyen-file-qua-mang-trong-java/</link>
+      <link>https://phuongit1306.github.io/BlogLTMMT/blog/bai4-truyen-file-qua-mang-trong-java/</link>
       <pubDate>Wed, 08 Oct 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/BlogLTMMT/blog/bai4-truyen-file-qua-mang-trong-java/</guid>
+      <guid>https://phuongit1306.github.io/BlogLTMMT/blog/bai4-truyen-file-qua-mang-trong-java/</guid>
       <description>&lt;ul&gt;
 &lt;li&gt;Trong các ứng dụng mạng, việc &lt;strong&gt;truyền file (file transfer)&lt;/strong&gt; là một trong những chức năng quan trọng nhất.&lt;/li&gt;
 &lt;li&gt;Java hỗ trợ thao tác này rất tốt thông qua &lt;strong&gt;Socket&lt;/strong&gt;, giúp chúng ta gửi và nhận dữ liệu dạng nhị phân giữa &lt;strong&gt;Client và Server&lt;/strong&gt;.&lt;/li&gt;
@@ -28,9 +28,9 @@
     </item>
     <item>
       <title>Bài 2 - Kết nối mạng trong Java với Socket</title>
-      <link>http://localhost:1313/BlogLTMMT/blog/bai2-ket-noi-mang-trong-java-voi-socket/</link>
+      <link>https://phuongit1306.github.io/BlogLTMMT/blog/bai2-ket-noi-mang-trong-java-voi-socket/</link>
       <pubDate>Mon, 06 Oct 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/BlogLTMMT/blog/bai2-ket-noi-mang-trong-java-voi-socket/</guid>
+      <guid>https://phuongit1306.github.io/BlogLTMMT/blog/bai2-ket-noi-mang-trong-java-voi-socket/</guid>
       <description>&lt;ul&gt;
 &lt;li&gt;Khi lập trình ứng dụng mạng trong Java, &lt;strong&gt;Socket&lt;/strong&gt; là một trong những công cụ cơ bản và mạnh mẽ nhất giúp các thiết bị có thể &lt;strong&gt;giao tiếp với nhau qua mạng&lt;/strong&gt;.&lt;/li&gt;
 &lt;li&gt;Socket cho phép tạo ra &lt;strong&gt;kết nối hai chiều (two-way communication)&lt;/strong&gt; giữa &lt;strong&gt;Client&lt;/strong&gt; và &lt;strong&gt;Server&lt;/strong&gt;.&lt;/li&gt;
@@ -42,15 +42,15 @@ Cụ thể:&lt;/p&gt;</description>
     </item>
     <item>
       <title>Bài 1 - Giới thiệu về Java</title>
-      <link>http://localhost:1313/BlogLTMMT/blog/bai1-gioi-thieu-ve-java/</link>
+      <link>https://phuongit1306.github.io/BlogLTMMT/blog/bai1-gioi-thieu-ve-java/</link>
       <pubDate>Sun, 05 Oct 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/BlogLTMMT/blog/bai1-gioi-thieu-ve-java/</guid>
+      <guid>https://phuongit1306.github.io/BlogLTMMT/blog/bai1-gioi-thieu-ve-java/</guid>
       <description>&lt;ul&gt;
 &lt;li&gt;Java là một ngôn ngữ lập trình hướng đối tượng mạnh mẽ, được sử dụng rộng rãi trong phát triển ứng dụng mạng.&lt;/li&gt;
 &lt;li&gt;Với Java, bạn có thể lập trình các ứng dụng server-client sử dụng &lt;strong&gt;Socket&lt;/strong&gt;, &lt;strong&gt;RMI&lt;/strong&gt;, và &lt;strong&gt;Multithreading&lt;/strong&gt;.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;📸 &lt;em&gt;Minh họa:&lt;/em&gt;
-&lt;img alt=&#34;Features of Java&#34; loading=&#34;lazy&#34; src=&#34;http://localhost:1313/BlogLTMMT/images/dac-diem-cua-java.png&#34;&gt;&lt;/p&gt;
+&lt;img alt=&#34;Features of Java&#34; loading=&#34;lazy&#34; src=&#34;https://phuongit1306.github.io/BlogLTMMT/images/dac-diem-cua-java.png&#34;&gt;&lt;/p&gt;
 &lt;hr&gt;
 &lt;h2 id=&#34;tương-tự-c-hướng-đối-tượng-hoàn-toàn&#34;&gt;Tương tự C++, hướng đối tượng hoàn toàn&lt;/h2&gt;
 &lt;p&gt;Trong quá trình tạo ra một ngôn ngữ mới phục vụ cho mục đích chạy được trên nhiều nền tảng, các kỹ sư của Sun MicroSystem muốn tạo ra một ngôn ngữ dễ học và quen thuộc với đa số người lập trình. Vì vậy họ đã sử dụng lại các cú pháp của C và C++.&lt;/p&gt;</description>

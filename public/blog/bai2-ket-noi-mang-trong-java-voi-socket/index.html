@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="en" dir="auto">
 
-<head><script src="/BlogLTMMT/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=BlogLTMMT/livereload" data-no-instant defer></script><meta charset="utf-8">
+<head><meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<meta name="robots" content="noindex, nofollow">
+<meta name="robots" content="index, follow">
 <title>Bài 2 - Kết nối mạng trong Java với Socket | Blog Lập Trình - 2180607911 - Nguyễn Thanh Phương - 21DTHD3</title>
 <meta name="keywords" content="Java, Lập trình mạng, Socket">
 <meta name="description" content="
@@ -16,16 +16,16 @@ Socket cho phép tạo ra kết nối hai chiều (two-way communication) giữa
 Trong Java, một Socket là điểm cuối (endpoint) của quá trình giao tiếp giữa hai máy tính.
 Cụ thể:">
 <meta name="author" content="Nguyễn Thanh Phương">
-<link rel="canonical" href="http://localhost:1313/BlogLTMMT/blog/bai2-ket-noi-mang-trong-java-voi-socket/">
+<link rel="canonical" href="https://phuongit1306.github.io/BlogLTMMT/blog/bai2-ket-noi-mang-trong-java-voi-socket/">
 <link crossorigin="anonymous" href="/BlogLTMMT/assets/css/stylesheet.a482bf00fa5c046040ef7973ad5fdf5657890cacb596c93f1382f664ca542074.css" integrity="sha256-pIK/APpcBGBA73lzrV/fVleJDKy1lsk/E4L2ZMpUIHQ=" rel="preload stylesheet" as="style">
-<link rel="icon" href="http://localhost:1313/BlogLTMMT/favicon.ico">
-<link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/BlogLTMMT/favicon-16x16.png">
-<link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/BlogLTMMT/favicon-32x32.png">
-<link rel="apple-touch-icon" href="http://localhost:1313/BlogLTMMT/apple-touch-icon.png">
-<link rel="mask-icon" href="http://localhost:1313/BlogLTMMT/safari-pinned-tab.svg">
+<link rel="icon" href="https://phuongit1306.github.io/BlogLTMMT/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="https://phuongit1306.github.io/BlogLTMMT/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://phuongit1306.github.io/BlogLTMMT/favicon-32x32.png">
+<link rel="apple-touch-icon" href="https://phuongit1306.github.io/BlogLTMMT/apple-touch-icon.png">
+<link rel="mask-icon" href="https://phuongit1306.github.io/BlogLTMMT/safari-pinned-tab.svg">
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
-<link rel="alternate" hreflang="en" href="http://localhost:1313/BlogLTMMT/blog/bai2-ket-noi-mang-trong-java-voi-socket/">
+<link rel="alternate" hreflang="en" href="https://phuongit1306.github.io/BlogLTMMT/blog/bai2-ket-noi-mang-trong-java-voi-socket/">
 <noscript>
     <style>
         #theme-toggle,
@@ -62,7 +62,84 @@ Cụ thể:">
         }
 
     </style>
-</noscript>
+</noscript><meta property="og:url" content="https://phuongit1306.github.io/BlogLTMMT/blog/bai2-ket-noi-mang-trong-java-voi-socket/">
+  <meta property="og:site_name" content="Blog Lập Trình - 2180607911 - Nguyễn Thanh Phương - 21DTHD3">
+  <meta property="og:title" content="Bài 2 - Kết nối mạng trong Java với Socket">
+  <meta property="og:description" content=" Khi lập trình ứng dụng mạng trong Java, Socket là một trong những công cụ cơ bản và mạnh mẽ nhất giúp các thiết bị có thể giao tiếp với nhau qua mạng. Socket cho phép tạo ra kết nối hai chiều (two-way communication) giữa Client và Server. 🌐 Giới thiệu về Socket Trong Java, một Socket là điểm cuối (endpoint) của quá trình giao tiếp giữa hai máy tính.
+Cụ thể:">
+  <meta property="og:locale" content="vi">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="blog">
+    <meta property="article:published_time" content="2025-10-06T00:00:00+00:00">
+    <meta property="article:modified_time" content="2025-10-06T00:00:00+00:00">
+    <meta property="article:tag" content="Java">
+    <meta property="article:tag" content="Lập Trình Mạng">
+    <meta property="article:tag" content="Socket">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Bài 2 - Kết nối mạng trong Java với Socket">
+<meta name="twitter:description" content="
+Khi lập trình ứng dụng mạng trong Java, Socket là một trong những công cụ cơ bản và mạnh mẽ nhất giúp các thiết bị có thể giao tiếp với nhau qua mạng.
+Socket cho phép tạo ra kết nối hai chiều (two-way communication) giữa Client và Server.
+
+
+🌐 Giới thiệu về Socket
+Trong Java, một Socket là điểm cuối (endpoint) của quá trình giao tiếp giữa hai máy tính.
+Cụ thể:">
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Blog - Lập trình mạng máy tính",
+      "item": "https://phuongit1306.github.io/BlogLTMMT/blog/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "Bài 2 - Kết nối mạng trong Java với Socket",
+      "item": "https://phuongit1306.github.io/BlogLTMMT/blog/bai2-ket-noi-mang-trong-java-voi-socket/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Bài 2 - Kết nối mạng trong Java với Socket",
+  "name": "Bài 2 - Kết nối mạng trong Java với Socket",
+  "description": " Khi lập trình ứng dụng mạng trong Java, Socket là một trong những công cụ cơ bản và mạnh mẽ nhất giúp các thiết bị có thể giao tiếp với nhau qua mạng. Socket cho phép tạo ra kết nối hai chiều (two-way communication) giữa Client và Server. 🌐 Giới thiệu về Socket Trong Java, một Socket là điểm cuối (endpoint) của quá trình giao tiếp giữa hai máy tính.\nCụ thể:\n",
+  "keywords": [
+    "Java", "Lập trình mạng", "Socket"
+  ],
+  "articleBody": " Khi lập trình ứng dụng mạng trong Java, Socket là một trong những công cụ cơ bản và mạnh mẽ nhất giúp các thiết bị có thể giao tiếp với nhau qua mạng. Socket cho phép tạo ra kết nối hai chiều (two-way communication) giữa Client và Server. 🌐 Giới thiệu về Socket Trong Java, một Socket là điểm cuối (endpoint) của quá trình giao tiếp giữa hai máy tính.\nCụ thể:\nServerSocket: được sử dụng ở phía Server để chờ và chấp nhận kết nối. Socket: được sử dụng ở phía Client để gửi và nhận dữ liệu đến Server. 📘 Lưu ý: Java cung cấp đầy đủ thư viện để xử lý Socket qua gói java.net.\n⚙️ Cấu trúc hoạt động của Socket Server tạo một ServerSocket lắng nghe (listen) trên một cổng cụ thể. Client gửi yêu cầu kết nối đến địa chỉ IP + cổng của Server. Khi Server chấp nhận, hai bên sẽ tạo ra kênh giao tiếp. Dữ liệu được truyền qua InputStream và OutputStream. Sơ đồ minh hoạ:\n[Client] ⇄ [Socket Stream] ⇄ [ServerSocket] 💻 Ví dụ: Server và Client cơ bản trong Java 🖥️ Server (lắng nghe và phản hồi) import java.io.*; import java.net.*; public class SimpleServer { public static void main(String[] args) { try { ServerSocket serverSocket = new ServerSocket(5000); System.out.println(\"Server đang chờ kết nối...\"); Socket socket = serverSocket.accept(); System.out.println(\"Client đã kết nối!\"); BufferedReader input = new BufferedReader(new InputStreamReader(socket.getInputStream())); PrintWriter output = new PrintWriter(socket.getOutputStream(), true); String message = input.readLine(); System.out.println(\"Client: \" + message); output.println(\"Xin chào Client, tôi là Server!\"); socket.close(); serverSocket.close(); } catch (IOException e) { e.printStackTrace(); } } } 💬 Client (gửi tin nhắn đến Server)\nimport java.io.*; import java.net.*; public class SimpleClient { public static void main(String[] args) { try { Socket socket = new Socket(\"localhost\", 5000); BufferedReader input = new BufferedReader(new InputStreamReader(socket.getInputStream())); PrintWriter output = new PrintWriter(socket.getOutputStream(), true); output.println(\"Xin chào Server!\"); String response = input.readLine(); System.out.println(\"Server: \" + response); socket.close(); } catch (IOException e) { e.printStackTrace(); } } } ✍️ Tác giả: Nguyễn Thanh Phương\n📅 Cập nhật: October 19, 2025\n",
+  "wordCount" : "343",
+  "inLanguage": "en",
+  "datePublished": "2025-10-06T00:00:00Z",
+  "dateModified": "2025-10-06T00:00:00Z",
+  "author":{
+    "@type": "Person",
+    "name": "Nguyễn Thanh Phương"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://phuongit1306.github.io/BlogLTMMT/blog/bai2-ket-noi-mang-trong-java-voi-socket/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Blog Lập Trình - 2180607911 - Nguyễn Thanh Phương - 21DTHD3",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://phuongit1306.github.io/BlogLTMMT/favicon.ico"
+    }
+  }
+}
+</script>
 </head>
 
 <body class="" id="top">
@@ -80,7 +157,7 @@ Cụ thể:">
 <header class="header">
     <nav class="nav">
         <div class="logo">
-            <a href="http://localhost:1313/BlogLTMMT/" accesskey="h" title="Blog Lập Trình - 2180607911 - Nguyễn Thanh Phương - 21DTHD3 (Alt + H)">Blog Lập Trình - 2180607911 - Nguyễn Thanh Phương - 21DTHD3</a>
+            <a href="https://phuongit1306.github.io/BlogLTMMT/" accesskey="h" title="Blog Lập Trình - 2180607911 - Nguyễn Thanh Phương - 21DTHD3 (Alt + H)">Blog Lập Trình - 2180607911 - Nguyễn Thanh Phương - 21DTHD3</a>
             <div class="logo-switches">
                 <button id="theme-toggle" accesskey="t" title="(Alt + T)" aria-label="Toggle theme">
                     <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
@@ -106,17 +183,17 @@ Cụ thể:">
         </div>
         <ul id="menu">
             <li>
-                <a href="http://localhost:1313/BlogLTMMT/" title="Home">
+                <a href="https://phuongit1306.github.io/BlogLTMMT/" title="Home">
                     <span>Home</span>
                 </a>
             </li>
             <li>
-                <a href="http://localhost:1313/BlogLTMMT/blog" title="📝">
+                <a href="https://phuongit1306.github.io/BlogLTMMT/blog" title="📝">
                     <span>📝</span>
                 </a>
             </li>
             <li>
-                <a href="http://localhost:1313/BlogLTMMT/about" title="📩">
+                <a href="https://phuongit1306.github.io/BlogLTMMT/about" title="📩">
                     <span>📩</span>
                 </a>
             </li>
@@ -127,7 +204,7 @@ Cụ thể:">
 
 <article class="post-single">
   <header class="post-header">
-    <div class="breadcrumbs"><a href="http://localhost:1313/BlogLTMMT/">Home</a>&nbsp;»&nbsp;<a href="http://localhost:1313/BlogLTMMT/blog/">Blog - Lập trình mạng máy tính</a></div>
+    <div class="breadcrumbs"><a href="https://phuongit1306.github.io/BlogLTMMT/">Home</a>&nbsp;»&nbsp;<a href="https://phuongit1306.github.io/BlogLTMMT/blog/">Blog - Lập trình mạng máy tính</a></div>
     <h1 class="post-title entry-hint-parent">
       Bài 2 - Kết nối mạng trong Java với Socket
     </h1>
@@ -222,17 +299,17 @@ Cụ thể:</p>
 
   <footer class="post-footer">
     <ul class="post-tags">
-      <li><a href="http://localhost:1313/BlogLTMMT/tags/java/">Java</a></li>
-      <li><a href="http://localhost:1313/BlogLTMMT/tags/l%E1%BA%ADp-tr%C3%ACnh-m%E1%BA%A1ng/">Lập Trình Mạng</a></li>
-      <li><a href="http://localhost:1313/BlogLTMMT/tags/socket/">Socket</a></li>
+      <li><a href="https://phuongit1306.github.io/BlogLTMMT/tags/java/">Java</a></li>
+      <li><a href="https://phuongit1306.github.io/BlogLTMMT/tags/l%E1%BA%ADp-tr%C3%ACnh-m%E1%BA%A1ng/">Lập Trình Mạng</a></li>
+      <li><a href="https://phuongit1306.github.io/BlogLTMMT/tags/socket/">Socket</a></li>
     </ul>
 <nav class="paginav">
-  <a class="prev" href="http://localhost:1313/BlogLTMMT/blog/bai3-lap-trinh-da-luong-trong-java/">
+  <a class="prev" href="https://phuongit1306.github.io/BlogLTMMT/blog/bai3-lap-trinh-da-luong-trong-java/">
     <span class="title">« Prev</span>
     <br>
     <span>Bài 3 - Lập trình đa luồng trong Java (Multithreading)</span>
   </a>
-  <a class="next" href="http://localhost:1313/BlogLTMMT/blog/bai1-gioi-thieu-ve-java/">
+  <a class="next" href="https://phuongit1306.github.io/BlogLTMMT/blog/bai1-gioi-thieu-ve-java/">
     <span class="title">Next »</span>
     <br>
     <span>Bài 1 - Giới thiệu về Java</span>
@@ -244,7 +321,7 @@ Cụ thể:</p>
     </main>
     
 <footer class="footer">
-        <span>&copy; 2025 <a href="http://localhost:1313/BlogLTMMT/">Blog Lập Trình - 2180607911 - Nguyễn Thanh Phương - 21DTHD3</a></span> · 
+        <span>&copy; 2025 <a href="https://phuongit1306.github.io/BlogLTMMT/">Blog Lập Trình - 2180607911 - Nguyễn Thanh Phương - 21DTHD3</a></span> · 
 
     <span>
         Powered by

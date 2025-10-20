@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="en" dir="auto">
 
-<head><script src="/BlogLTMMT/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=BlogLTMMT/livereload" data-no-instant defer></script><meta charset="utf-8">
+<head><meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<meta name="robots" content="noindex, nofollow">
+<meta name="robots" content="index, follow">
 <title>Bài 4 - Truyền file qua mạng trong Java bằng Socket | Blog Lập Trình - 2180607911 - Nguyễn Thanh Phương - 21DTHD3</title>
 <meta name="keywords" content="Java, Socket, Truyền file, Lập trình mạng">
 <meta name="description" content="
@@ -20,16 +20,16 @@ Server nhận dữ liệu qua InputStream → ghi lại thành file.
 
 Quá trình này tương tự như copy file giữa hai máy tính, chỉ khác là sử dụng giao thức TCP.">
 <meta name="author" content="Nguyễn Thanh Phương">
-<link rel="canonical" href="http://localhost:1313/BlogLTMMT/blog/bai4-truyen-file-qua-mang-trong-java/">
+<link rel="canonical" href="https://phuongit1306.github.io/BlogLTMMT/blog/bai4-truyen-file-qua-mang-trong-java/">
 <link crossorigin="anonymous" href="/BlogLTMMT/assets/css/stylesheet.a482bf00fa5c046040ef7973ad5fdf5657890cacb596c93f1382f664ca542074.css" integrity="sha256-pIK/APpcBGBA73lzrV/fVleJDKy1lsk/E4L2ZMpUIHQ=" rel="preload stylesheet" as="style">
-<link rel="icon" href="http://localhost:1313/BlogLTMMT/favicon.ico">
-<link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/BlogLTMMT/favicon-16x16.png">
-<link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/BlogLTMMT/favicon-32x32.png">
-<link rel="apple-touch-icon" href="http://localhost:1313/BlogLTMMT/apple-touch-icon.png">
-<link rel="mask-icon" href="http://localhost:1313/BlogLTMMT/safari-pinned-tab.svg">
+<link rel="icon" href="https://phuongit1306.github.io/BlogLTMMT/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="https://phuongit1306.github.io/BlogLTMMT/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://phuongit1306.github.io/BlogLTMMT/favicon-32x32.png">
+<link rel="apple-touch-icon" href="https://phuongit1306.github.io/BlogLTMMT/apple-touch-icon.png">
+<link rel="mask-icon" href="https://phuongit1306.github.io/BlogLTMMT/safari-pinned-tab.svg">
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
-<link rel="alternate" hreflang="en" href="http://localhost:1313/BlogLTMMT/blog/bai4-truyen-file-qua-mang-trong-java/">
+<link rel="alternate" hreflang="en" href="https://phuongit1306.github.io/BlogLTMMT/blog/bai4-truyen-file-qua-mang-trong-java/">
 <noscript>
     <style>
         #theme-toggle,
@@ -66,7 +66,89 @@ Quá trình này tương tự như copy file giữa hai máy tính, chỉ khác 
         }
 
     </style>
-</noscript>
+</noscript><meta property="og:url" content="https://phuongit1306.github.io/BlogLTMMT/blog/bai4-truyen-file-qua-mang-trong-java/">
+  <meta property="og:site_name" content="Blog Lập Trình - 2180607911 - Nguyễn Thanh Phương - 21DTHD3">
+  <meta property="og:title" content="Bài 4 - Truyền file qua mạng trong Java bằng Socket">
+  <meta property="og:description" content=" Trong các ứng dụng mạng, việc truyền file (file transfer) là một trong những chức năng quan trọng nhất. Java hỗ trợ thao tác này rất tốt thông qua Socket, giúp chúng ta gửi và nhận dữ liệu dạng nhị phân giữa Client và Server. ⚙️ 1. Tổng quan về truyền file Khi truyền file qua mạng bằng Socket:
+Client đọc nội dung file → gửi qua luồng OutputStream. Server nhận dữ liệu qua InputStream → ghi lại thành file. Quá trình này tương tự như copy file giữa hai máy tính, chỉ khác là sử dụng giao thức TCP.">
+  <meta property="og:locale" content="vi">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="blog">
+    <meta property="article:published_time" content="2025-10-08T00:00:00+00:00">
+    <meta property="article:modified_time" content="2025-10-08T00:00:00+00:00">
+    <meta property="article:tag" content="Java">
+    <meta property="article:tag" content="Socket">
+    <meta property="article:tag" content="Truyền File">
+    <meta property="article:tag" content="Lập Trình Mạng">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Bài 4 - Truyền file qua mạng trong Java bằng Socket">
+<meta name="twitter:description" content="
+Trong các ứng dụng mạng, việc truyền file (file transfer) là một trong những chức năng quan trọng nhất.
+Java hỗ trợ thao tác này rất tốt thông qua Socket, giúp chúng ta gửi và nhận dữ liệu dạng nhị phân giữa Client và Server.
+
+
+⚙️ 1. Tổng quan về truyền file
+Khi truyền file qua mạng bằng Socket:
+
+Client đọc nội dung file → gửi qua luồng OutputStream.
+Server nhận dữ liệu qua InputStream → ghi lại thành file.
+
+Quá trình này tương tự như copy file giữa hai máy tính, chỉ khác là sử dụng giao thức TCP.">
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Blog - Lập trình mạng máy tính",
+      "item": "https://phuongit1306.github.io/BlogLTMMT/blog/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "Bài 4 - Truyền file qua mạng trong Java bằng Socket",
+      "item": "https://phuongit1306.github.io/BlogLTMMT/blog/bai4-truyen-file-qua-mang-trong-java/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Bài 4 - Truyền file qua mạng trong Java bằng Socket",
+  "name": "Bài 4 - Truyền file qua mạng trong Java bằng Socket",
+  "description": " Trong các ứng dụng mạng, việc truyền file (file transfer) là một trong những chức năng quan trọng nhất. Java hỗ trợ thao tác này rất tốt thông qua Socket, giúp chúng ta gửi và nhận dữ liệu dạng nhị phân giữa Client và Server. ⚙️ 1. Tổng quan về truyền file Khi truyền file qua mạng bằng Socket:\nClient đọc nội dung file → gửi qua luồng OutputStream. Server nhận dữ liệu qua InputStream → ghi lại thành file. Quá trình này tương tự như copy file giữa hai máy tính, chỉ khác là sử dụng giao thức TCP.\n",
+  "keywords": [
+    "Java", "Socket", "Truyền file", "Lập trình mạng"
+  ],
+  "articleBody": " Trong các ứng dụng mạng, việc truyền file (file transfer) là một trong những chức năng quan trọng nhất. Java hỗ trợ thao tác này rất tốt thông qua Socket, giúp chúng ta gửi và nhận dữ liệu dạng nhị phân giữa Client và Server. ⚙️ 1. Tổng quan về truyền file Khi truyền file qua mạng bằng Socket:\nClient đọc nội dung file → gửi qua luồng OutputStream. Server nhận dữ liệu qua InputStream → ghi lại thành file. Quá trình này tương tự như copy file giữa hai máy tính, chỉ khác là sử dụng giao thức TCP.\n📸 Minh họa luồng dữ liệu giữa Client và Server: 🧩 2. Mô hình hoạt động Thành phần Mô tả ServerSocket Tạo cổng lắng nghe (ví dụ 6000) Socket Kết nối giữa hai máy FileInputStream Đọc dữ liệu từ file (Client side) FileOutputStream Ghi dữ liệu ra file (Server side) Buffered streams Tăng tốc độ truyền dữ liệu 🖥️ 3. Code ví dụ: Truyền file đơn giản giữa Client và Server 🧠 Server nhận file import java.io.*; import java.net.*; public class FileReceiver { public static void main(String[] args) { int port = 6000; try (ServerSocket serverSocket = new ServerSocket(port)) { System.out.println(\"📡 Server đang lắng nghe trên cổng \" + port + \"...\"); Socket socket = serverSocket.accept(); System.out.println(\"✅ Client đã kết nối: \" + socket.getInetAddress()); // Tạo luồng để nhận dữ liệu từ client DataInputStream dis = new DataInputStream(socket.getInputStream()); String fileName = dis.readUTF(); // nhận tên file long fileSize = dis.readLong(); // nhận kích thước file System.out.println(\"Đang nhận file: \" + fileName + \" (\" + fileSize + \" bytes)\"); // Tạo thư mục lưu file nếu chưa có File dir = new File(\"received_files\"); if (!dir.exists()) dir.mkdir(); FileOutputStream fos = new FileOutputStream(\"received_files/\" + fileName); byte[] buffer = new byte[4096]; int read; long total = 0; while ((read = dis.read(buffer)) \u003e 0) { fos.write(buffer, 0, read); total += read; if (total \u003e= fileSize) break; } System.out.println(\"📁 Đã nhận xong file: \" + fileName); fos.close(); dis.close(); socket.close(); } catch (IOException e) { e.printStackTrace(); } } } 🖥️ Client gửi file import java.io.*; import java.net.*; public class FileSender { public static void main(String[] args) { String host = \"localhost\"; int port = 6000; String filePath = \"C:/Users/ntp34/Desktop/test.txt\"; // Đường dẫn file bạn muốn gửi try (Socket socket = new Socket(host, port)) { System.out.println(\"🔗 Đã kết nối tới server.\"); File file = new File(filePath); FileInputStream fis = new FileInputStream(file); DataOutputStream dos = new DataOutputStream(socket.getOutputStream()); // Gửi thông tin file trước dos.writeUTF(file.getName()); dos.writeLong(file.length()); System.out.println(\"📤 Đang gửi file: \" + file.getName()); byte[] buffer = new byte[4096]; int read; while ((read = fis.read(buffer)) \u003e 0) { dos.write(buffer, 0, read); } System.out.println(\"✅ File đã được gửi thành công!\"); fis.close(); dos.close(); } catch (IOException e) { e.printStackTrace(); } } } ✍️ Tác giả: Nguyễn Thanh Phương\n📅 Cập nhật: October 19, 2025\n",
+  "wordCount" : "472",
+  "inLanguage": "en",
+  "datePublished": "2025-10-08T00:00:00Z",
+  "dateModified": "2025-10-08T00:00:00Z",
+  "author":{
+    "@type": "Person",
+    "name": "Nguyễn Thanh Phương"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://phuongit1306.github.io/BlogLTMMT/blog/bai4-truyen-file-qua-mang-trong-java/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Blog Lập Trình - 2180607911 - Nguyễn Thanh Phương - 21DTHD3",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://phuongit1306.github.io/BlogLTMMT/favicon.ico"
+    }
+  }
+}
+</script>
 </head>
 
 <body class="" id="top">
@@ -84,7 +166,7 @@ Quá trình này tương tự như copy file giữa hai máy tính, chỉ khác 
 <header class="header">
     <nav class="nav">
         <div class="logo">
-            <a href="http://localhost:1313/BlogLTMMT/" accesskey="h" title="Blog Lập Trình - 2180607911 - Nguyễn Thanh Phương - 21DTHD3 (Alt + H)">Blog Lập Trình - 2180607911 - Nguyễn Thanh Phương - 21DTHD3</a>
+            <a href="https://phuongit1306.github.io/BlogLTMMT/" accesskey="h" title="Blog Lập Trình - 2180607911 - Nguyễn Thanh Phương - 21DTHD3 (Alt + H)">Blog Lập Trình - 2180607911 - Nguyễn Thanh Phương - 21DTHD3</a>
             <div class="logo-switches">
                 <button id="theme-toggle" accesskey="t" title="(Alt + T)" aria-label="Toggle theme">
                     <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
@@ -110,17 +192,17 @@ Quá trình này tương tự như copy file giữa hai máy tính, chỉ khác 
         </div>
         <ul id="menu">
             <li>
-                <a href="http://localhost:1313/BlogLTMMT/" title="Home">
+                <a href="https://phuongit1306.github.io/BlogLTMMT/" title="Home">
                     <span>Home</span>
                 </a>
             </li>
             <li>
-                <a href="http://localhost:1313/BlogLTMMT/blog" title="📝">
+                <a href="https://phuongit1306.github.io/BlogLTMMT/blog" title="📝">
                     <span>📝</span>
                 </a>
             </li>
             <li>
-                <a href="http://localhost:1313/BlogLTMMT/about" title="📩">
+                <a href="https://phuongit1306.github.io/BlogLTMMT/about" title="📩">
                     <span>📩</span>
                 </a>
             </li>
@@ -131,7 +213,7 @@ Quá trình này tương tự như copy file giữa hai máy tính, chỉ khác 
 
 <article class="post-single">
   <header class="post-header">
-    <div class="breadcrumbs"><a href="http://localhost:1313/BlogLTMMT/">Home</a>&nbsp;»&nbsp;<a href="http://localhost:1313/BlogLTMMT/blog/">Blog - Lập trình mạng máy tính</a></div>
+    <div class="breadcrumbs"><a href="https://phuongit1306.github.io/BlogLTMMT/">Home</a>&nbsp;»&nbsp;<a href="https://phuongit1306.github.io/BlogLTMMT/blog/">Blog - Lập trình mạng máy tính</a></div>
     <h1 class="post-title entry-hint-parent">
       Bài 4 - Truyền file qua mạng trong Java bằng Socket
     </h1>
@@ -280,18 +362,18 @@ Quá trình này tương tự như copy file giữa hai máy tính, chỉ khác 
 
   <footer class="post-footer">
     <ul class="post-tags">
-      <li><a href="http://localhost:1313/BlogLTMMT/tags/java/">Java</a></li>
-      <li><a href="http://localhost:1313/BlogLTMMT/tags/socket/">Socket</a></li>
-      <li><a href="http://localhost:1313/BlogLTMMT/tags/truy%E1%BB%81n-file/">Truyền File</a></li>
-      <li><a href="http://localhost:1313/BlogLTMMT/tags/l%E1%BA%ADp-tr%C3%ACnh-m%E1%BA%A1ng/">Lập Trình Mạng</a></li>
+      <li><a href="https://phuongit1306.github.io/BlogLTMMT/tags/java/">Java</a></li>
+      <li><a href="https://phuongit1306.github.io/BlogLTMMT/tags/socket/">Socket</a></li>
+      <li><a href="https://phuongit1306.github.io/BlogLTMMT/tags/truy%E1%BB%81n-file/">Truyền File</a></li>
+      <li><a href="https://phuongit1306.github.io/BlogLTMMT/tags/l%E1%BA%ADp-tr%C3%ACnh-m%E1%BA%A1ng/">Lập Trình Mạng</a></li>
     </ul>
 <nav class="paginav">
-  <a class="prev" href="http://localhost:1313/BlogLTMMT/blog/bai5-giao-tiep-hai-chieu-trong-java/">
+  <a class="prev" href="https://phuongit1306.github.io/BlogLTMMT/blog/bai5-giao-tiep-hai-chieu-trong-java/">
     <span class="title">« Prev</span>
     <br>
     <span>Bài 5 - Giao tiếp hai chiều trong Java bằng Socket (Chat Realtime)</span>
   </a>
-  <a class="next" href="http://localhost:1313/BlogLTMMT/blog/bai3-lap-trinh-da-luong-trong-java/">
+  <a class="next" href="https://phuongit1306.github.io/BlogLTMMT/blog/bai3-lap-trinh-da-luong-trong-java/">
     <span class="title">Next »</span>
     <br>
     <span>Bài 3 - Lập trình đa luồng trong Java (Multithreading)</span>
@@ -303,7 +385,7 @@ Quá trình này tương tự như copy file giữa hai máy tính, chỉ khác 
     </main>
     
 <footer class="footer">
-        <span>&copy; 2025 <a href="http://localhost:1313/BlogLTMMT/">Blog Lập Trình - 2180607911 - Nguyễn Thanh Phương - 21DTHD3</a></span> · 
+        <span>&copy; 2025 <a href="https://phuongit1306.github.io/BlogLTMMT/">Blog Lập Trình - 2180607911 - Nguyễn Thanh Phương - 21DTHD3</a></span> · 
 
     <span>
         Powered by

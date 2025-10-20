@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="en" dir="auto">
 
-<head><script src="/BlogLTMMT/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=BlogLTMMT/livereload" data-no-instant defer></script><meta charset="utf-8">
+<head><meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<meta name="robots" content="noindex, nofollow">
+<meta name="robots" content="index, follow">
 <title>Bài 3 - Lập trình đa luồng trong Java (Multithreading) | Blog Lập Trình - 2180607911 - Nguyễn Thanh Phương - 21DTHD3</title>
 <meta name="keywords" content="Java, Đa luồng, Multithreading, Socket">
 <meta name="description" content="
@@ -16,16 +16,16 @@ Java hỗ trợ lập trình đa luồng rất mạnh mẽ thông qua Thread cla
 Một thread (luồng) là đơn vị thực thi nhỏ nhất trong chương trình.
 Khi chương trình có nhiều luồng, các luồng có thể chạy đồng thời (concurrently), chia sẻ tài nguyên chung như bộ nhớ hoặc dữ liệu.">
 <meta name="author" content="Nguyễn Thanh Phương">
-<link rel="canonical" href="http://localhost:1313/BlogLTMMT/blog/bai3-lap-trinh-da-luong-trong-java/">
+<link rel="canonical" href="https://phuongit1306.github.io/BlogLTMMT/blog/bai3-lap-trinh-da-luong-trong-java/">
 <link crossorigin="anonymous" href="/BlogLTMMT/assets/css/stylesheet.a482bf00fa5c046040ef7973ad5fdf5657890cacb596c93f1382f664ca542074.css" integrity="sha256-pIK/APpcBGBA73lzrV/fVleJDKy1lsk/E4L2ZMpUIHQ=" rel="preload stylesheet" as="style">
-<link rel="icon" href="http://localhost:1313/BlogLTMMT/favicon.ico">
-<link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/BlogLTMMT/favicon-16x16.png">
-<link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/BlogLTMMT/favicon-32x32.png">
-<link rel="apple-touch-icon" href="http://localhost:1313/BlogLTMMT/apple-touch-icon.png">
-<link rel="mask-icon" href="http://localhost:1313/BlogLTMMT/safari-pinned-tab.svg">
+<link rel="icon" href="https://phuongit1306.github.io/BlogLTMMT/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="https://phuongit1306.github.io/BlogLTMMT/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://phuongit1306.github.io/BlogLTMMT/favicon-32x32.png">
+<link rel="apple-touch-icon" href="https://phuongit1306.github.io/BlogLTMMT/apple-touch-icon.png">
+<link rel="mask-icon" href="https://phuongit1306.github.io/BlogLTMMT/safari-pinned-tab.svg">
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
-<link rel="alternate" hreflang="en" href="http://localhost:1313/BlogLTMMT/blog/bai3-lap-trinh-da-luong-trong-java/">
+<link rel="alternate" hreflang="en" href="https://phuongit1306.github.io/BlogLTMMT/blog/bai3-lap-trinh-da-luong-trong-java/">
 <noscript>
     <style>
         #theme-toggle,
@@ -62,7 +62,85 @@ Khi chương trình có nhiều luồng, các luồng có thể chạy đồng t
         }
 
     </style>
-</noscript>
+</noscript><meta property="og:url" content="https://phuongit1306.github.io/BlogLTMMT/blog/bai3-lap-trinh-da-luong-trong-java/">
+  <meta property="og:site_name" content="Blog Lập Trình - 2180607911 - Nguyễn Thanh Phương - 21DTHD3">
+  <meta property="og:title" content="Bài 3 - Lập trình đa luồng trong Java (Multithreading)">
+  <meta property="og:description" content=" Trong các ứng dụng mạng hoặc hệ thống có nhiều tác vụ chạy song song, đa luồng (multithreading) giúp chương trình hoạt động hiệu quả, nhanh chóng và mượt mà hơn. Java hỗ trợ lập trình đa luồng rất mạnh mẽ thông qua Thread class và Runnable interface. ⚙️ 1. Giới thiệu về luồng (Thread) Một thread (luồng) là đơn vị thực thi nhỏ nhất trong chương trình.
+Khi chương trình có nhiều luồng, các luồng có thể chạy đồng thời (concurrently), chia sẻ tài nguyên chung như bộ nhớ hoặc dữ liệu.">
+  <meta property="og:locale" content="vi">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="blog">
+    <meta property="article:published_time" content="2025-10-07T00:00:00+00:00">
+    <meta property="article:modified_time" content="2025-10-07T00:00:00+00:00">
+    <meta property="article:tag" content="Java">
+    <meta property="article:tag" content="Đa Luồng">
+    <meta property="article:tag" content="Multithreading">
+    <meta property="article:tag" content="Socket">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Bài 3 - Lập trình đa luồng trong Java (Multithreading)">
+<meta name="twitter:description" content="
+Trong các ứng dụng mạng hoặc hệ thống có nhiều tác vụ chạy song song, đa luồng (multithreading) giúp chương trình hoạt động hiệu quả, nhanh chóng và mượt mà hơn.
+Java hỗ trợ lập trình đa luồng rất mạnh mẽ thông qua Thread class và Runnable interface.
+
+
+⚙️ 1. Giới thiệu về luồng (Thread)
+Một thread (luồng) là đơn vị thực thi nhỏ nhất trong chương trình.
+Khi chương trình có nhiều luồng, các luồng có thể chạy đồng thời (concurrently), chia sẻ tài nguyên chung như bộ nhớ hoặc dữ liệu.">
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Blog - Lập trình mạng máy tính",
+      "item": "https://phuongit1306.github.io/BlogLTMMT/blog/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "Bài 3 - Lập trình đa luồng trong Java (Multithreading)",
+      "item": "https://phuongit1306.github.io/BlogLTMMT/blog/bai3-lap-trinh-da-luong-trong-java/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Bài 3 - Lập trình đa luồng trong Java (Multithreading)",
+  "name": "Bài 3 - Lập trình đa luồng trong Java (Multithreading)",
+  "description": " Trong các ứng dụng mạng hoặc hệ thống có nhiều tác vụ chạy song song, đa luồng (multithreading) giúp chương trình hoạt động hiệu quả, nhanh chóng và mượt mà hơn. Java hỗ trợ lập trình đa luồng rất mạnh mẽ thông qua Thread class và Runnable interface. ⚙️ 1. Giới thiệu về luồng (Thread) Một thread (luồng) là đơn vị thực thi nhỏ nhất trong chương trình.\nKhi chương trình có nhiều luồng, các luồng có thể chạy đồng thời (concurrently), chia sẻ tài nguyên chung như bộ nhớ hoặc dữ liệu.\n",
+  "keywords": [
+    "Java", "Đa luồng", "Multithreading", "Socket"
+  ],
+  "articleBody": " Trong các ứng dụng mạng hoặc hệ thống có nhiều tác vụ chạy song song, đa luồng (multithreading) giúp chương trình hoạt động hiệu quả, nhanh chóng và mượt mà hơn. Java hỗ trợ lập trình đa luồng rất mạnh mẽ thông qua Thread class và Runnable interface. ⚙️ 1. Giới thiệu về luồng (Thread) Một thread (luồng) là đơn vị thực thi nhỏ nhất trong chương trình.\nKhi chương trình có nhiều luồng, các luồng có thể chạy đồng thời (concurrently), chia sẻ tài nguyên chung như bộ nhớ hoặc dữ liệu.\n💡 Ví dụ: Trong một server chat, mỗi người dùng được xử lý bởi một thread riêng, giúp tất cả có thể trò chuyện cùng lúc mà không bị gián đoạn.\n🧩 2. Cách tạo Thread trong Java ✅ Cách 1: Kế thừa lớp Thread class MyThread extends Thread { public void run() { System.out.println(\"Luồng đang chạy: \" + Thread.currentThread().getName()); } public static void main(String[] args) { MyThread t1 = new MyThread(); MyThread t2 = new MyThread(); t1.start(); t2.start(); } } ✅ Cách 2: Triển khai Runnable class MyThread extends Thread { public void run() { System.out.println(\"Luồng đang chạy: \" + Thread.currentThread().getName()); } public static void main(String[] args) { MyThread t1 = new MyThread(); MyThread t2 = new MyThread(); t1.start(); t2.start(); } } ⚠️ Lưu ý: Không gọi run() trực tiếp! Hãy gọi start() để tạo luồng thực sự.\n🚀 3. Ví dụ: Server xử lý nhiều Client cùng lúc Trong các ứng dụng mạng, ví dụ như chat server, ta muốn mỗi Client được xử lý trên một luồng riêng biệt. Dưới đây là ví dụ đầy đủ về Server và Client đa luồng.\n🖥️ Server đa luồng (Multi-threaded Server) import java.io.*; import java.net.*; class ClientHandler extends Thread { private Socket socket; public ClientHandler(Socket socket) { this.socket = socket; } public void run() { try { BufferedReader input = new BufferedReader( new InputStreamReader(socket.getInputStream()) ); PrintWriter output = new PrintWriter(socket.getOutputStream(), true); // Nhận tên từ client String name = input.readLine(); System.out.println(\"Client kết nối: \" + name); output.println(\"Xin chào \" + name + \", bạn đã kết nối thành công!\"); // Đọc tin nhắn từ client String message; while ((message = input.readLine()) != null) { if (message.equalsIgnoreCase(\"exit\")) { output.println(\"Tạm biệt \" + name + \"!\"); break; } System.out.println(name + \": \" + message); output.println(\"Server nhận: \" + message.toUpperCase()); } socket.close(); System.out.println(\"Client \" + name + \" đã ngắt kết nối.\"); } catch (IOException e) { System.out.println(\"Lỗi khi xử lý client: \" + e.getMessage()); } } } public class MultiThreadedServer { public static void main(String[] args) { try { ServerSocket server = new ServerSocket(5000); System.out.println(\"Server đang chạy trên cổng 5000...\"); while (true) { Socket socket = server.accept(); System.out.println(\"Client mới kết nối!\"); new ClientHandler(socket).start(); } } catch (IOException e) { e.printStackTrace(); } } } 💬 Client (gửi tên và tin nhắn đến Server)\nimport java.io.*; import java.net.*; import java.util.Scanner; public class MultiClient { public static void main(String[] args) { try { Socket socket = new Socket(\"localhost\", 5000); BufferedReader input = new BufferedReader( new InputStreamReader(socket.getInputStream()) ); PrintWriter output = new PrintWriter(socket.getOutputStream(), true); Scanner scanner = new Scanner(System.in); System.out.print(\"Nhập tên của bạn: \"); String name = scanner.nextLine(); output.println(name); Thread listener = new Thread(() -\u003e { try { String line; while ((line = input.readLine()) != null) { System.out.println(\"\u003e\u003e \" + line); } } catch (IOException e) { System.out.println(\"Ngắt kết nối khỏi server.\"); } }); listener.start(); String message; while (true) { message = scanner.nextLine(); output.println(message); if (message.equalsIgnoreCase(\"exit\")) break; } socket.close(); } catch (IOException e) { e.printStackTrace(); } } } ✍️ Tác giả: Nguyễn Thanh Phương\n📅 Cập nhật: October 19, 2025\n",
+  "wordCount" : "597",
+  "inLanguage": "en",
+  "datePublished": "2025-10-07T00:00:00Z",
+  "dateModified": "2025-10-07T00:00:00Z",
+  "author":{
+    "@type": "Person",
+    "name": "Nguyễn Thanh Phương"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://phuongit1306.github.io/BlogLTMMT/blog/bai3-lap-trinh-da-luong-trong-java/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Blog Lập Trình - 2180607911 - Nguyễn Thanh Phương - 21DTHD3",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://phuongit1306.github.io/BlogLTMMT/favicon.ico"
+    }
+  }
+}
+</script>
 </head>
 
 <body class="" id="top">
@@ -80,7 +158,7 @@ Khi chương trình có nhiều luồng, các luồng có thể chạy đồng t
 <header class="header">
     <nav class="nav">
         <div class="logo">
-            <a href="http://localhost:1313/BlogLTMMT/" accesskey="h" title="Blog Lập Trình - 2180607911 - Nguyễn Thanh Phương - 21DTHD3 (Alt + H)">Blog Lập Trình - 2180607911 - Nguyễn Thanh Phương - 21DTHD3</a>
+            <a href="https://phuongit1306.github.io/BlogLTMMT/" accesskey="h" title="Blog Lập Trình - 2180607911 - Nguyễn Thanh Phương - 21DTHD3 (Alt + H)">Blog Lập Trình - 2180607911 - Nguyễn Thanh Phương - 21DTHD3</a>
             <div class="logo-switches">
                 <button id="theme-toggle" accesskey="t" title="(Alt + T)" aria-label="Toggle theme">
                     <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
@@ -106,17 +184,17 @@ Khi chương trình có nhiều luồng, các luồng có thể chạy đồng t
         </div>
         <ul id="menu">
             <li>
-                <a href="http://localhost:1313/BlogLTMMT/" title="Home">
+                <a href="https://phuongit1306.github.io/BlogLTMMT/" title="Home">
                     <span>Home</span>
                 </a>
             </li>
             <li>
-                <a href="http://localhost:1313/BlogLTMMT/blog" title="📝">
+                <a href="https://phuongit1306.github.io/BlogLTMMT/blog" title="📝">
                     <span>📝</span>
                 </a>
             </li>
             <li>
-                <a href="http://localhost:1313/BlogLTMMT/about" title="📩">
+                <a href="https://phuongit1306.github.io/BlogLTMMT/about" title="📩">
                     <span>📩</span>
                 </a>
             </li>
@@ -127,7 +205,7 @@ Khi chương trình có nhiều luồng, các luồng có thể chạy đồng t
 
 <article class="post-single">
   <header class="post-header">
-    <div class="breadcrumbs"><a href="http://localhost:1313/BlogLTMMT/">Home</a>&nbsp;»&nbsp;<a href="http://localhost:1313/BlogLTMMT/blog/">Blog - Lập trình mạng máy tính</a></div>
+    <div class="breadcrumbs"><a href="https://phuongit1306.github.io/BlogLTMMT/">Home</a>&nbsp;»&nbsp;<a href="https://phuongit1306.github.io/BlogLTMMT/blog/">Blog - Lập trình mạng máy tính</a></div>
     <h1 class="post-title entry-hint-parent">
       Bài 3 - Lập trình đa luồng trong Java (Multithreading)
     </h1>
@@ -295,18 +373,18 @@ Dưới đây là ví dụ đầy đủ về Server và Client đa luồng.</p>
 
   <footer class="post-footer">
     <ul class="post-tags">
-      <li><a href="http://localhost:1313/BlogLTMMT/tags/java/">Java</a></li>
-      <li><a href="http://localhost:1313/BlogLTMMT/tags/%C4%91a-lu%E1%BB%93ng/">Đa Luồng</a></li>
-      <li><a href="http://localhost:1313/BlogLTMMT/tags/multithreading/">Multithreading</a></li>
-      <li><a href="http://localhost:1313/BlogLTMMT/tags/socket/">Socket</a></li>
+      <li><a href="https://phuongit1306.github.io/BlogLTMMT/tags/java/">Java</a></li>
+      <li><a href="https://phuongit1306.github.io/BlogLTMMT/tags/%C4%91a-lu%E1%BB%93ng/">Đa Luồng</a></li>
+      <li><a href="https://phuongit1306.github.io/BlogLTMMT/tags/multithreading/">Multithreading</a></li>
+      <li><a href="https://phuongit1306.github.io/BlogLTMMT/tags/socket/">Socket</a></li>
     </ul>
 <nav class="paginav">
-  <a class="prev" href="http://localhost:1313/BlogLTMMT/blog/bai4-truyen-file-qua-mang-trong-java/">
+  <a class="prev" href="https://phuongit1306.github.io/BlogLTMMT/blog/bai4-truyen-file-qua-mang-trong-java/">
     <span class="title">« Prev</span>
     <br>
     <span>Bài 4 - Truyền file qua mạng trong Java bằng Socket</span>
   </a>
-  <a class="next" href="http://localhost:1313/BlogLTMMT/blog/bai2-ket-noi-mang-trong-java-voi-socket/">
+  <a class="next" href="https://phuongit1306.github.io/BlogLTMMT/blog/bai2-ket-noi-mang-trong-java-voi-socket/">
     <span class="title">Next »</span>
     <br>
     <span>Bài 2 - Kết nối mạng trong Java với Socket</span>
@@ -318,7 +396,7 @@ Dưới đây là ví dụ đầy đủ về Server và Client đa luồng.</p>
     </main>
     
 <footer class="footer">
-        <span>&copy; 2025 <a href="http://localhost:1313/BlogLTMMT/">Blog Lập Trình - 2180607911 - Nguyễn Thanh Phương - 21DTHD3</a></span> · 
+        <span>&copy; 2025 <a href="https://phuongit1306.github.io/BlogLTMMT/">Blog Lập Trình - 2180607911 - Nguyễn Thanh Phương - 21DTHD3</a></span> · 
 
     <span>
         Powered by

@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Đa Luồng on Blog Lập Trình - 2180607911 - Nguyễn Thanh Phương - 21DTHD3</title>
-    <link>http://localhost:1313/BlogLTMMT/tags/%C4%91a-lu%E1%BB%93ng/</link>
+    <link>https://phuongit1306.github.io/BlogLTMMT/tags/%C4%91a-lu%E1%BB%93ng/</link>
     <description>Recent content in Đa Luồng on Blog Lập Trình - 2180607911 - Nguyễn Thanh Phương - 21DTHD3</description>
     <generator>Hugo -- 0.151.2</generator>
     <language>vi</language>
     <lastBuildDate>Thu, 09 Oct 2025 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://localhost:1313/BlogLTMMT/tags/%C4%91a-lu%E1%BB%93ng/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://phuongit1306.github.io/BlogLTMMT/tags/%C4%91a-lu%E1%BB%93ng/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Bài 5 - Giao tiếp hai chiều trong Java bằng Socket (Chat Realtime)</title>
-      <link>http://localhost:1313/BlogLTMMT/blog/bai5-giao-tiep-hai-chieu-trong-java/</link>
+      <link>https://phuongit1306.github.io/BlogLTMMT/blog/bai5-giao-tiep-hai-chieu-trong-java/</link>
       <pubDate>Thu, 09 Oct 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/BlogLTMMT/blog/bai5-giao-tiep-hai-chieu-trong-java/</guid>
+      <guid>https://phuongit1306.github.io/BlogLTMMT/blog/bai5-giao-tiep-hai-chieu-trong-java/</guid>
       <description>&lt;p&gt;Trong các bài trước, ta đã học cách:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;Kết nối Client ↔ Server bằng Socket.&lt;/li&gt;
@@ -55,9 +55,9 @@
     </item>
     <item>
       <title>Bài 3 - Lập trình đa luồng trong Java (Multithreading)</title>
-      <link>http://localhost:1313/BlogLTMMT/blog/bai3-lap-trinh-da-luong-trong-java/</link>
+      <link>https://phuongit1306.github.io/BlogLTMMT/blog/bai3-lap-trinh-da-luong-trong-java/</link>
       <pubDate>Tue, 07 Oct 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/BlogLTMMT/blog/bai3-lap-trinh-da-luong-trong-java/</guid>
+      <guid>https://phuongit1306.github.io/BlogLTMMT/blog/bai3-lap-trinh-da-luong-trong-java/</guid>
       <description>&lt;ul&gt;
 &lt;li&gt;Trong các ứng dụng mạng hoặc hệ thống có nhiều tác vụ chạy song song, &lt;strong&gt;đa luồng (multithreading)&lt;/strong&gt; giúp chương trình hoạt động &lt;strong&gt;hiệu quả, nhanh chóng và mượt mà hơn&lt;/strong&gt;.&lt;/li&gt;
 &lt;li&gt;Java hỗ trợ lập trình đa luồng rất mạnh mẽ thông qua &lt;strong&gt;Thread class&lt;/strong&gt; và &lt;strong&gt;Runnable interface&lt;/strong&gt;.&lt;/li&gt;

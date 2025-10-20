@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="en" dir="auto">
 
-<head><script src="/BlogLTMMT/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=BlogLTMMT/livereload" data-no-instant defer></script><meta charset="utf-8">
+<head><meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<meta name="robots" content="noindex, nofollow">
+<meta name="robots" content="index, follow">
 <title>Bài 6 - Xây dựng Chat Server nhiều người dùng (Multi-Client Chat) | Blog Lập Trình - 2180607911 - Nguyễn Thanh Phương - 21DTHD3</title>
 <meta name="keywords" content="Java, Socket, Multithreading, Chat, Networking">
 <meta name="description" content="
@@ -39,16 +39,16 @@ Sau khi đã tạo thành công chat hai chiều giữa 1 client và 1 server �
 📸 Sơ đồ hoạt động:
 ">
 <meta name="author" content="Nguyễn Thanh Phương">
-<link rel="canonical" href="http://localhost:1313/BlogLTMMT/blog/bai6-xay-dung-chat-server-nhieu-nguoi-dung/">
+<link rel="canonical" href="https://phuongit1306.github.io/BlogLTMMT/blog/bai6-xay-dung-chat-server-nhieu-nguoi-dung/">
 <link crossorigin="anonymous" href="/BlogLTMMT/assets/css/stylesheet.a482bf00fa5c046040ef7973ad5fdf5657890cacb596c93f1382f664ca542074.css" integrity="sha256-pIK/APpcBGBA73lzrV/fVleJDKy1lsk/E4L2ZMpUIHQ=" rel="preload stylesheet" as="style">
-<link rel="icon" href="http://localhost:1313/BlogLTMMT/favicon.ico">
-<link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/BlogLTMMT/favicon-16x16.png">
-<link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/BlogLTMMT/favicon-32x32.png">
-<link rel="apple-touch-icon" href="http://localhost:1313/BlogLTMMT/apple-touch-icon.png">
-<link rel="mask-icon" href="http://localhost:1313/BlogLTMMT/safari-pinned-tab.svg">
+<link rel="icon" href="https://phuongit1306.github.io/BlogLTMMT/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="https://phuongit1306.github.io/BlogLTMMT/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://phuongit1306.github.io/BlogLTMMT/favicon-32x32.png">
+<link rel="apple-touch-icon" href="https://phuongit1306.github.io/BlogLTMMT/apple-touch-icon.png">
+<link rel="mask-icon" href="https://phuongit1306.github.io/BlogLTMMT/safari-pinned-tab.svg">
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
-<link rel="alternate" hreflang="en" href="http://localhost:1313/BlogLTMMT/blog/bai6-xay-dung-chat-server-nhieu-nguoi-dung/">
+<link rel="alternate" hreflang="en" href="https://phuongit1306.github.io/BlogLTMMT/blog/bai6-xay-dung-chat-server-nhieu-nguoi-dung/">
 <noscript>
     <style>
         #theme-toggle,
@@ -85,7 +85,108 @@ Sau khi đã tạo thành công chat hai chiều giữa 1 client và 1 server �
         }
 
     </style>
-</noscript>
+</noscript><meta property="og:url" content="https://phuongit1306.github.io/BlogLTMMT/blog/bai6-xay-dung-chat-server-nhieu-nguoi-dung/">
+  <meta property="og:site_name" content="Blog Lập Trình - 2180607911 - Nguyễn Thanh Phương - 21DTHD3">
+  <meta property="og:title" content="Bài 6 - Xây dựng Chat Server nhiều người dùng (Multi-Client Chat)">
+  <meta property="og:description" content=" Sau khi đã tạo thành công chat hai chiều giữa 1 client và 1 server ở bài trước, chúng ta sẽ tiếp tục phát triển thành chat nhiều người dùng cùng lúc. Ứng dụng này giúp nhiều client có thể trò chuyện trong cùng một phòng chat giống như Messenger group hoặc Discord 🔥 🧩 1. Ý tưởng hệ thống ⚙️ Cấu trúc hoạt động Thành phần Mô tả Server Chờ nhiều client kết nối, mỗi client có một luồng riêng để giao tiếp Client Kết nối đến server, gửi và nhận tin nhắn Broadcast Server gửi tin nhắn từ 1 client đến tất cả client khác 📸 Sơ đồ hoạt động: ">
+  <meta property="og:locale" content="vi">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="blog">
+    <meta property="article:published_time" content="2025-10-10T00:00:00+00:00">
+    <meta property="article:modified_time" content="2025-10-10T00:00:00+00:00">
+    <meta property="article:tag" content="Java">
+    <meta property="article:tag" content="Socket">
+    <meta property="article:tag" content="Multithreading">
+    <meta property="article:tag" content="Chat">
+    <meta property="article:tag" content="Networking">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Bài 6 - Xây dựng Chat Server nhiều người dùng (Multi-Client Chat)">
+<meta name="twitter:description" content="
+Sau khi đã tạo thành công chat hai chiều giữa 1 client và 1 server ở bài trước, chúng ta sẽ tiếp tục phát triển thành chat nhiều người dùng cùng lúc.
+Ứng dụng này giúp nhiều client có thể trò chuyện trong cùng một phòng chat giống như Messenger group hoặc Discord 🔥
+
+
+🧩 1. Ý tưởng hệ thống
+⚙️ Cấu trúc hoạt động
+
+  
+      
+          Thành phần
+          Mô tả
+      
+  
+  
+      
+          Server
+          Chờ nhiều client kết nối, mỗi client có một luồng riêng để giao tiếp
+      
+      
+          Client
+          Kết nối đến server, gửi và nhận tin nhắn
+      
+      
+          Broadcast
+          Server gửi tin nhắn từ 1 client đến tất cả client khác
+      
+  
+
+📸 Sơ đồ hoạt động:
+">
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Blog - Lập trình mạng máy tính",
+      "item": "https://phuongit1306.github.io/BlogLTMMT/blog/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "Bài 6 - Xây dựng Chat Server nhiều người dùng (Multi-Client Chat)",
+      "item": "https://phuongit1306.github.io/BlogLTMMT/blog/bai6-xay-dung-chat-server-nhieu-nguoi-dung/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Bài 6 - Xây dựng Chat Server nhiều người dùng (Multi-Client Chat)",
+  "name": "Bài 6 - Xây dựng Chat Server nhiều người dùng (Multi-Client Chat)",
+  "description": " Sau khi đã tạo thành công chat hai chiều giữa 1 client và 1 server ở bài trước, chúng ta sẽ tiếp tục phát triển thành chat nhiều người dùng cùng lúc. Ứng dụng này giúp nhiều client có thể trò chuyện trong cùng một phòng chat giống như Messenger group hoặc Discord 🔥 🧩 1. Ý tưởng hệ thống ⚙️ Cấu trúc hoạt động Thành phần Mô tả Server Chờ nhiều client kết nối, mỗi client có một luồng riêng để giao tiếp Client Kết nối đến server, gửi và nhận tin nhắn Broadcast Server gửi tin nhắn từ 1 client đến tất cả client khác 📸 Sơ đồ hoạt động: ",
+  "keywords": [
+    "Java", "Socket", "Multithreading", "Chat", "Networking"
+  ],
+  "articleBody": " Sau khi đã tạo thành công chat hai chiều giữa 1 client và 1 server ở bài trước, chúng ta sẽ tiếp tục phát triển thành chat nhiều người dùng cùng lúc. Ứng dụng này giúp nhiều client có thể trò chuyện trong cùng một phòng chat giống như Messenger group hoặc Discord 🔥 🧩 1. Ý tưởng hệ thống ⚙️ Cấu trúc hoạt động Thành phần Mô tả Server Chờ nhiều client kết nối, mỗi client có một luồng riêng để giao tiếp Client Kết nối đến server, gửi và nhận tin nhắn Broadcast Server gửi tin nhắn từ 1 client đến tất cả client khác 📸 Sơ đồ hoạt động: 🧱 2. Kiến trúc chương trình Chúng ta chia ứng dụng thành 3 file:\nChatServer.java – Quản lý kết nối và gửi tin nhắn đến tất cả người dùng ClientHandler.java – Xử lý từng client trên một luồng riêng ChatClient.java – Giao diện phía người dùng 🖥️ 3. Mã nguồn chi tiết 🧠 ChatServer.java import java.io.*; import java.net.*; import java.util.*; public class ChatServer { private static final int PORT = 5000; private static Set\u003cClientHandler\u003e clientHandlers = new HashSet\u003c\u003e(); public static void main(String[] args) { System.out.println(\"💬 Server đang chạy trên cổng \" + PORT); try (ServerSocket serverSocket = new ServerSocket(PORT)) { while (true) { Socket clientSocket = serverSocket.accept(); System.out.println(\"✅ Client mới kết nối: \" + clientSocket); ClientHandler clientHandler = new ClientHandler(clientSocket, clientHandlers); clientHandlers.add(clientHandler); new Thread(clientHandler).start(); } } catch (IOException e) { e.printStackTrace(); } } } ⚙️ ClientHandler.java\nimport java.io.*; import java.net.*; import java.util.*; public class ClientHandler implements Runnable { private Socket socket; private Set\u003cClientHandler\u003e clientHandlers; private PrintWriter out; private String clientName; public ClientHandler(Socket socket, Set\u003cClientHandler\u003e clientHandlers) { this.socket = socket; this.clientHandlers = clientHandlers; } @Override public void run() { try { BufferedReader in = new BufferedReader(new InputStreamReader(socket.getInputStream())); out = new PrintWriter(socket.getOutputStream(), true); out.println(\"Nhập tên của bạn:\"); clientName = in.readLine(); broadcast(\"🔔 \" + clientName + \" đã tham gia phòng chat!\"); String message; while ((message = in.readLine()) != null) { if (message.equalsIgnoreCase(\"exit\")) { broadcast(\"🚪 \" + clientName + \" đã rời khỏi phòng.\"); break; } broadcast(\"💬 \" + clientName + \": \" + message); } } catch (IOException e) { System.out.println(\"❌ Lỗi kết nối với \" + clientName); } finally { try { socket.close(); clientHandlers.remove(this); } catch (IOException e) { e.printStackTrace(); } } } private void broadcast(String message) { System.out.println(message); for (ClientHandler client : clientHandlers) { if (client != this) { client.out.println(message); } } } } 💻 ChatClient.java\nimport java.io.*; import java.net.*; public class ChatClient { public static void main(String[] args) { String host = \"localhost\"; int port = 5000; try (Socket socket = new Socket(host, port)) { System.out.println(\"🔗 Đã kết nối đến server!\"); BufferedReader input = new BufferedReader(new InputStreamReader(System.in)); BufferedReader reader = new BufferedReader(new InputStreamReader(socket.getInputStream())); PrintWriter writer = new PrintWriter(socket.getOutputStream(), true); // Luồng nhận tin nhắn new Thread(() -\u003e { try { String response; while ((response = reader.readLine()) != null) { System.out.println(response); } } catch (IOException e) { System.out.println(\"❌ Mất kết nối đến server!\"); } }).start(); // Gửi tin nhắn String userInput; while ((userInput = input.readLine()) != null) { writer.println(userInput); if (userInput.equalsIgnoreCase(\"exit\")) { break; } } } catch (IOException e) { System.out.println(\"❌ Không thể kết nối đến server!\"); } } } 🚀 4. Cách chạy chương trình ⚙️ Bước 1 – Chạy Server\njavac ChatServer.java ClientHandler.java java ChatServer ⚙️ Bước 2 – Mở 2 cửa sổ Terminal khác và chạy Client\njavac ChatClient.java java ChatClient 💡 Kết quả:\n💬 Server đang chạy trên cổng 5000 ✅ Client mới kết nối: /127.0.0.1 ✅ Client mới kết nối: /127.0.0.1 🔔 Nam đã tham gia phòng chat! 🔔 Phương đã tham gia phòng chat! 💬 Nam: Xin chào cả nhóm! 💬 Phương: Hello Nam 😄 🧠 5. Giải thích hoạt động Thành phần Chức năng ChatServer Tạo socket server, quản lý danh sách client ClientHandler Xử lý giao tiếp từng client trên luồng riêng broadcast() Gửi tin nhắn đến tất cả client khác exit Client thoát khỏi phòng chat 🪄 6. Mở rộng thêm Tính năng Mô tả ✅ Danh sách người dùng Gửi danh sách người online đến các client 💬 Phòng chat riêng Tạo nhiều phòng khác nhau 🖼️ Giao diện Dùng JavaFX / Swing để hiển thị cửa sổ chat đẹp hơn 🔐 Bảo mật Mã hóa dữ liệu bằng AES hoặc SSL Socket 🏁 7. Tổng kết Bằng cách kết hợp:\nSocket để giao tiếp mạng\nMultithreading để xử lý nhiều client\nBroadcast message để chia sẻ thông tin\n👉 Bạn đã tạo thành công Chat Server nhiều người dùng — nền tảng cho các ứng dụng chat thực tế.\n✍️ Tác giả: Nguyễn Thanh Phương\n📅 Cập nhật: October 19, 2025\n",
+  "wordCount" : "774",
+  "inLanguage": "en",
+  "datePublished": "2025-10-10T00:00:00Z",
+  "dateModified": "2025-10-10T00:00:00Z",
+  "author":{
+    "@type": "Person",
+    "name": "Nguyễn Thanh Phương"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://phuongit1306.github.io/BlogLTMMT/blog/bai6-xay-dung-chat-server-nhieu-nguoi-dung/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Blog Lập Trình - 2180607911 - Nguyễn Thanh Phương - 21DTHD3",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://phuongit1306.github.io/BlogLTMMT/favicon.ico"
+    }
+  }
+}
+</script>
 </head>
 
 <body class="" id="top">
@@ -103,7 +204,7 @@ Sau khi đã tạo thành công chat hai chiều giữa 1 client và 1 server �
 <header class="header">
     <nav class="nav">
         <div class="logo">
-            <a href="http://localhost:1313/BlogLTMMT/" accesskey="h" title="Blog Lập Trình - 2180607911 - Nguyễn Thanh Phương - 21DTHD3 (Alt + H)">Blog Lập Trình - 2180607911 - Nguyễn Thanh Phương - 21DTHD3</a>
+            <a href="https://phuongit1306.github.io/BlogLTMMT/" accesskey="h" title="Blog Lập Trình - 2180607911 - Nguyễn Thanh Phương - 21DTHD3 (Alt + H)">Blog Lập Trình - 2180607911 - Nguyễn Thanh Phương - 21DTHD3</a>
             <div class="logo-switches">
                 <button id="theme-toggle" accesskey="t" title="(Alt + T)" aria-label="Toggle theme">
                     <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
@@ -129,17 +230,17 @@ Sau khi đã tạo thành công chat hai chiều giữa 1 client và 1 server �
         </div>
         <ul id="menu">
             <li>
-                <a href="http://localhost:1313/BlogLTMMT/" title="Home">
+                <a href="https://phuongit1306.github.io/BlogLTMMT/" title="Home">
                     <span>Home</span>
                 </a>
             </li>
             <li>
-                <a href="http://localhost:1313/BlogLTMMT/blog" title="📝">
+                <a href="https://phuongit1306.github.io/BlogLTMMT/blog" title="📝">
                     <span>📝</span>
                 </a>
             </li>
             <li>
-                <a href="http://localhost:1313/BlogLTMMT/about" title="📩">
+                <a href="https://phuongit1306.github.io/BlogLTMMT/about" title="📩">
                     <span>📩</span>
                 </a>
             </li>
@@ -150,7 +251,7 @@ Sau khi đã tạo thành công chat hai chiều giữa 1 client và 1 server �
 
 <article class="post-single">
   <header class="post-header">
-    <div class="breadcrumbs"><a href="http://localhost:1313/BlogLTMMT/">Home</a>&nbsp;»&nbsp;<a href="http://localhost:1313/BlogLTMMT/blog/">Blog - Lập trình mạng máy tính</a></div>
+    <div class="breadcrumbs"><a href="https://phuongit1306.github.io/BlogLTMMT/">Home</a>&nbsp;»&nbsp;<a href="https://phuongit1306.github.io/BlogLTMMT/blog/">Blog - Lập trình mạng máy tính</a></div>
     <h1 class="post-title entry-hint-parent">
       Bài 6 - Xây dựng Chat Server nhiều người dùng (Multi-Client Chat)
     </h1>
@@ -410,19 +511,19 @@ Sau khi đã tạo thành công chat hai chiều giữa 1 client và 1 server �
 
   <footer class="post-footer">
     <ul class="post-tags">
-      <li><a href="http://localhost:1313/BlogLTMMT/tags/java/">Java</a></li>
-      <li><a href="http://localhost:1313/BlogLTMMT/tags/socket/">Socket</a></li>
-      <li><a href="http://localhost:1313/BlogLTMMT/tags/multithreading/">Multithreading</a></li>
-      <li><a href="http://localhost:1313/BlogLTMMT/tags/chat/">Chat</a></li>
-      <li><a href="http://localhost:1313/BlogLTMMT/tags/networking/">Networking</a></li>
+      <li><a href="https://phuongit1306.github.io/BlogLTMMT/tags/java/">Java</a></li>
+      <li><a href="https://phuongit1306.github.io/BlogLTMMT/tags/socket/">Socket</a></li>
+      <li><a href="https://phuongit1306.github.io/BlogLTMMT/tags/multithreading/">Multithreading</a></li>
+      <li><a href="https://phuongit1306.github.io/BlogLTMMT/tags/chat/">Chat</a></li>
+      <li><a href="https://phuongit1306.github.io/BlogLTMMT/tags/networking/">Networking</a></li>
     </ul>
 <nav class="paginav">
-  <a class="prev" href="http://localhost:1313/BlogLTMMT/blog/bai7-lap-trinh-mang-voi-udp-trong-java/">
+  <a class="prev" href="https://phuongit1306.github.io/BlogLTMMT/blog/bai7-lap-trinh-mang-voi-udp-trong-java/">
     <span class="title">« Prev</span>
     <br>
     <span>Bài 7 - Lập trình mạng với UDP trong Java</span>
   </a>
-  <a class="next" href="http://localhost:1313/BlogLTMMT/blog/bai5-giao-tiep-hai-chieu-trong-java/">
+  <a class="next" href="https://phuongit1306.github.io/BlogLTMMT/blog/bai5-giao-tiep-hai-chieu-trong-java/">
     <span class="title">Next »</span>
     <br>
     <span>Bài 5 - Giao tiếp hai chiều trong Java bằng Socket (Chat Realtime)</span>
@@ -434,7 +535,7 @@ Sau khi đã tạo thành công chat hai chiều giữa 1 client và 1 server �
     </main>
     
 <footer class="footer">
-        <span>&copy; 2025 <a href="http://localhost:1313/BlogLTMMT/">Blog Lập Trình - 2180607911 - Nguyễn Thanh Phương - 21DTHD3</a></span> · 
+        <span>&copy; 2025 <a href="https://phuongit1306.github.io/BlogLTMMT/">Blog Lập Trình - 2180607911 - Nguyễn Thanh Phương - 21DTHD3</a></span> · 
 
     <span>
         Powered by
