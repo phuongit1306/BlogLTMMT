@@ -27,7 +27,7 @@ npm-debug.log*
 # Hugo module cache
 # ================================
 /_modules/
-
+/public/
 # ================================
 # Temporary build or backup files
 # ================================
