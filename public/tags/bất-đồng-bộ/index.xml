@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Bất Đồng Bộ on Blog Lập Trình</title>
+    <link>http://localhost:1313/tags/b%E1%BA%A5t-%C4%91%E1%BB%93ng-b%E1%BB%99/</link>
+    <description>Recent content in Bất Đồng Bộ on Blog Lập Trình</description>
+    <generator>Hugo -- 0.151.2</generator>
+    <language>vi</language>
+    <lastBuildDate>Mon, 20 Oct 2025 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/b%E1%BA%A5t-%C4%91%E1%BB%93ng-b%E1%BB%99/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Xử lý Bất đồng bộ trong JavaScript – Hiểu rõ Callback, Promise và Async/Await</title>
+      <link>http://localhost:1313/blog/bai10-xu-ly-bat-dong-bo-trong-javascript/</link>
+      <pubDate>Mon, 20 Oct 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/blog/bai10-xu-ly-bat-dong-bo-trong-javascript/</guid>
+      <description>&lt;p&gt;JavaScript là ngôn ngữ &lt;strong&gt;đơn luồng (single-threaded)&lt;/strong&gt;, nghĩa là nó chỉ thực hiện &lt;strong&gt;một tác vụ tại một thời điểm&lt;/strong&gt;.&lt;br&gt;
+Vậy làm sao JavaScript có thể xử lý được những tác vụ &lt;strong&gt;mất thời gian&lt;/strong&gt; như tải dữ liệu từ server, đọc file, hay đợi người dùng thao tác mà &lt;strong&gt;không làm treo trình duyệt&lt;/strong&gt;?&lt;/p&gt;
+&lt;p&gt;👉 Câu trả lời nằm ở &lt;strong&gt;cơ chế xử lý bất đồng bộ (asynchronous programming)&lt;/strong&gt;.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

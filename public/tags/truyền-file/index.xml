@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Truyền File on Blog Lập Trình - 2180607911 - Nguyễn Thanh Phương - 21DTHD3</title>
+    <link>https://yourusername.github.io/tags/truy%E1%BB%81n-file/</link>
+    <description>Recent content in Truyền File on Blog Lập Trình - 2180607911 - Nguyễn Thanh Phương - 21DTHD3</description>
+    <generator>Hugo -- 0.151.2</generator>
+    <language>vi</language>
+    <lastBuildDate>Wed, 08 Oct 2025 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://yourusername.github.io/tags/truy%E1%BB%81n-file/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Bài 4 - Truyền file qua mạng trong Java bằng Socket</title>
+      <link>https://yourusername.github.io/blog/bai4-truyen-file-qua-mang-trong-java/</link>
+      <pubDate>Wed, 08 Oct 2025 00:00:00 +0000</pubDate>
+      <guid>https://yourusername.github.io/blog/bai4-truyen-file-qua-mang-trong-java/</guid>
+      <description>&lt;ul&gt;
+&lt;li&gt;Trong các ứng dụng mạng, việc &lt;strong&gt;truyền file (file transfer)&lt;/strong&gt; là một trong những chức năng quan trọng nhất.&lt;/li&gt;
+&lt;li&gt;Java hỗ trợ thao tác này rất tốt thông qua &lt;strong&gt;Socket&lt;/strong&gt;, giúp chúng ta gửi và nhận dữ liệu dạng nhị phân giữa &lt;strong&gt;Client và Server&lt;/strong&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;-1-tổng-quan-về-truyền-file&#34;&gt;⚙️ 1. Tổng quan về truyền file&lt;/h2&gt;
+&lt;p&gt;Khi truyền file qua mạng bằng Socket:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Client&lt;/strong&gt; đọc nội dung file → gửi qua luồng &lt;strong&gt;OutputStream&lt;/strong&gt;.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Server&lt;/strong&gt; nhận dữ liệu qua &lt;strong&gt;InputStream&lt;/strong&gt; → ghi lại thành file.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Quá trình này tương tự như &lt;strong&gt;copy file giữa hai máy tính&lt;/strong&gt;, chỉ khác là sử dụng &lt;strong&gt;giao thức TCP&lt;/strong&gt;.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

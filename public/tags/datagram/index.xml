@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Datagram on Blog Lập Trình - 2180607911 - Nguyễn Thanh Phương - 21DTHD3</title>
+    <link>https://yourusername.github.io/tags/datagram/</link>
+    <description>Recent content in Datagram on Blog Lập Trình - 2180607911 - Nguyễn Thanh Phương - 21DTHD3</description>
+    <generator>Hugo -- 0.151.2</generator>
+    <language>vi</language>
+    <lastBuildDate>Sat, 11 Oct 2025 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://yourusername.github.io/tags/datagram/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Bài 7 - Lập trình mạng với UDP trong Java</title>
+      <link>https://yourusername.github.io/blog/bai7-lap-trinh-mang-voi-udp-trong-java/</link>
+      <pubDate>Sat, 11 Oct 2025 00:00:00 +0000</pubDate>
+      <guid>https://yourusername.github.io/blog/bai7-lap-trinh-mang-voi-udp-trong-java/</guid>
+      <description>&lt;ul&gt;
+&lt;li&gt;Trong các bài trước, chúng ta đã làm quen với &lt;strong&gt;Socket TCP&lt;/strong&gt;, giúp tạo kết nối ổn định giữa Client và Server.&lt;/li&gt;
+&lt;li&gt;Tuy nhiên, trong nhiều ứng dụng như &lt;strong&gt;trò chơi trực tuyến, stream video/audio&lt;/strong&gt;, ta cần &lt;strong&gt;tốc độ cao hơn&lt;/strong&gt;, dù có thể &lt;strong&gt;mất một ít dữ liệu&lt;/strong&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Đó chính là lúc giao thức &lt;strong&gt;UDP (User Datagram Protocol)&lt;/strong&gt; được sử dụng ⚡&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;-1-tổng-quan-về-udp&#34;&gt;🧠 1. Tổng quan về UDP&lt;/h2&gt;
+&lt;table&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th&gt;Đặc điểm&lt;/th&gt;
+          &lt;th&gt;Mô tả&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;strong&gt;Không kết nối (Connectionless)&lt;/strong&gt;&lt;/td&gt;
+          &lt;td&gt;Không cần thiết lập kết nối giữa client &amp;amp; server&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;strong&gt;Nhanh hơn TCP&lt;/strong&gt;&lt;/td&gt;
+          &lt;td&gt;Không có xác nhận gói tin nên tốc độ cao hơn&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;strong&gt;Không đảm bảo dữ liệu đến&lt;/strong&gt;&lt;/td&gt;
+          &lt;td&gt;Gói tin có thể bị mất, trễ hoặc đến sai thứ tự&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;strong&gt;Ứng dụng phổ biến&lt;/strong&gt;&lt;/td&gt;
+          &lt;td&gt;Video call, voice chat, game online, livestream&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;📸 &lt;em&gt;Minh họa hoạt động UDP:&lt;/em&gt;
+&lt;img alt=&#34;Java UDP Diagram&#34; loading=&#34;lazy&#34; src=&#34;../images/java-udp-diagram.png&#34;&gt;&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

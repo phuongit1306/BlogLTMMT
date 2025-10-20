@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Đa Luồng on Blog Lập Trình - 2180607911 - Nguyễn Thanh Phương - 21DTHD3</title>
+    <link>https://yourusername.github.io/tags/%C4%91a-lu%E1%BB%93ng/</link>
+    <description>Recent content in Đa Luồng on Blog Lập Trình - 2180607911 - Nguyễn Thanh Phương - 21DTHD3</description>
+    <generator>Hugo -- 0.151.2</generator>
+    <language>vi</language>
+    <lastBuildDate>Thu, 09 Oct 2025 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://yourusername.github.io/tags/%C4%91a-lu%E1%BB%93ng/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Bài 5 - Giao tiếp hai chiều trong Java bằng Socket (Chat Realtime)</title>
+      <link>https://yourusername.github.io/blog/bai5-giao-tiep-hai-chieu-trong-java/</link>
+      <pubDate>Thu, 09 Oct 2025 00:00:00 +0000</pubDate>
+      <guid>https://yourusername.github.io/blog/bai5-giao-tiep-hai-chieu-trong-java/</guid>
+      <description>&lt;p&gt;Trong các bài trước, ta đã học cách:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Kết nối Client ↔ Server bằng Socket.&lt;/li&gt;
+&lt;li&gt;Gửi và nhận dữ liệu một chiều (Client gửi, Server nhận).&lt;/li&gt;
+&lt;li&gt;Truyền file qua mạng.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;👉 Trong bài này, chúng ta sẽ nâng cấp:&lt;br&gt;
+&lt;strong&gt;Cả hai bên đều có thể gửi &amp;amp; nhận tin nhắn cùng lúc&lt;/strong&gt; — tức là &lt;strong&gt;giao tiếp hai chiều (bidirectional communication)&lt;/strong&gt;, như một ứng dụng chat cơ bản.&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;-1-kiến-thức-nền-tảng&#34;&gt;🧩 1. Kiến thức nền tảng&lt;/h2&gt;
+&lt;h3 id=&#34;-mô-hình-hoạt-động&#34;&gt;⚙️ Mô hình hoạt động&lt;/h3&gt;
+&lt;table&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th&gt;Thành phần&lt;/th&gt;
+          &lt;th&gt;Mô tả&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;code&gt;ServerSocket&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;Server lắng nghe yêu cầu kết nối&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;code&gt;Socket&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;Cầu nối giữa 2 bên&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;code&gt;InputStream / OutputStream&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;Dùng để đọc &amp;amp; gửi dữ liệu&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;code&gt;Thread&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;Tạo luồng riêng cho việc &lt;strong&gt;nhận tin nhắn&lt;/strong&gt; để tránh bị chặn chương trình&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;📸 &lt;em&gt;Minh họa hoạt động chat song công:&lt;/em&gt;
+&lt;img alt=&#34;Java Chat Diagram&#34; loading=&#34;lazy&#34; src=&#34;../images/java-chat-diagram.png&#34;&gt;&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Bài 3 - Lập trình đa luồng trong Java (Multithreading)</title>
+      <link>https://yourusername.github.io/blog/bai3-lap-trinh-da-luong-trong-java/</link>
+      <pubDate>Tue, 07 Oct 2025 00:00:00 +0000</pubDate>
+      <guid>https://yourusername.github.io/blog/bai3-lap-trinh-da-luong-trong-java/</guid>
+      <description>&lt;ul&gt;
+&lt;li&gt;Trong các ứng dụng mạng hoặc hệ thống có nhiều tác vụ chạy song song, &lt;strong&gt;đa luồng (multithreading)&lt;/strong&gt; giúp chương trình hoạt động &lt;strong&gt;hiệu quả, nhanh chóng và mượt mà hơn&lt;/strong&gt;.&lt;/li&gt;
+&lt;li&gt;Java hỗ trợ lập trình đa luồng rất mạnh mẽ thông qua &lt;strong&gt;Thread class&lt;/strong&gt; và &lt;strong&gt;Runnable interface&lt;/strong&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;-1-giới-thiệu-về-luồng-thread&#34;&gt;⚙️ 1. Giới thiệu về luồng (Thread)&lt;/h2&gt;
+&lt;p&gt;Một &lt;strong&gt;thread (luồng)&lt;/strong&gt; là &lt;strong&gt;đơn vị thực thi nhỏ nhất&lt;/strong&gt; trong chương trình.&lt;br&gt;
+Khi chương trình có nhiều luồng, các luồng có thể chạy &lt;strong&gt;đồng thời (concurrently)&lt;/strong&gt;, chia sẻ tài nguyên chung như bộ nhớ hoặc dữ liệu.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

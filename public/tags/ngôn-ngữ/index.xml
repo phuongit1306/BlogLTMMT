@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Ngôn Ngữ on Blog Lập Trình</title>
+    <link>http://localhost:1313/tags/ng%C3%B4n-ng%E1%BB%AF/</link>
+    <description>Recent content in Ngôn Ngữ on Blog Lập Trình</description>
+    <generator>Hugo -- 0.151.2</generator>
+    <language>vi</language>
+    <lastBuildDate>Sun, 19 Oct 2025 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/ng%C3%B4n-ng%E1%BB%AF/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Giới thiệu về Java</title>
+      <link>http://localhost:1313/blog/bai1-gioi-thieu-ve-java/</link>
+      <pubDate>Sun, 19 Oct 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/blog/bai1-gioi-thieu-ve-java/</guid>
+      <description>&lt;p&gt;Java là một ngôn ngữ lập trình hướng đối tượng mạnh mẽ, được phát triển bởi &lt;strong&gt;Sun Microsystems&lt;/strong&gt; (nay thuộc Oracle).&lt;br&gt;
+Java nổi tiếng với khẩu hiệu &lt;strong&gt;“Write Once, Run Anywhere”&lt;/strong&gt;, nghĩa là chỉ cần viết một lần, có thể chạy trên mọi nền tảng.&lt;/p&gt;
+&lt;h3 id=&#34;ưu-điểm-chính&#34;&gt;Ưu điểm chính:&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Hỗ trợ &lt;strong&gt;đa nền tảng (cross-platform)&lt;/strong&gt; nhờ JVM.&lt;/li&gt;
+&lt;li&gt;Cú pháp &lt;strong&gt;tương tự C/C++&lt;/strong&gt;, dễ học.&lt;/li&gt;
+&lt;li&gt;Có &lt;strong&gt;thư viện mạng mạnh mẽ&lt;/strong&gt;: hỗ trợ TCP/IP, UDP, RMI, Socket,…&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;ứng-dụng&#34;&gt;Ứng dụng:&lt;/h3&gt;
+&lt;p&gt;Java được sử dụng trong:&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

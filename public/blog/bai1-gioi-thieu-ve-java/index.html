@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>Bài 1 - Giới thiệu về Java | Blog Lập Trình - 2180607911 - Nguyễn Thanh Phương - 21DTHD3</title>
+<meta name="keywords" content="Java, Lập trình mạng">
+<meta name="description" content="
+Java là một ngôn ngữ lập trình hướng đối tượng mạnh mẽ, được sử dụng rộng rãi trong phát triển ứng dụng mạng.
+Với Java, bạn có thể lập trình các ứng dụng server-client sử dụng Socket, RMI, và Multithreading.
+
+📸 Minh họa:
+
+
+Tương tự C&#43;&#43;, hướng đối tượng hoàn toàn
+Trong quá trình tạo ra một ngôn ngữ mới phục vụ cho mục đích chạy được trên nhiều nền tảng, các kỹ sư của Sun MicroSystem muốn tạo ra một ngôn ngữ dễ học và quen thuộc với đa số người lập trình. Vì vậy họ đã sử dụng lại các cú pháp của C và C&#43;&#43;.">
+<meta name="author" content="Nguyễn Thanh Phương">
+<link rel="canonical" href="https://yourusername.github.io/blog/bai1-gioi-thieu-ve-java/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.a482bf00fa5c046040ef7973ad5fdf5657890cacb596c93f1382f664ca542074.css" integrity="sha256-pIK/APpcBGBA73lzrV/fVleJDKy1lsk/E4L2ZMpUIHQ=" rel="preload stylesheet" as="style">
+<link rel="icon" href="https://yourusername.github.io/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="https://yourusername.github.io/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://yourusername.github.io/favicon-32x32.png">
+<link rel="apple-touch-icon" href="https://yourusername.github.io/apple-touch-icon.png">
+<link rel="mask-icon" href="https://yourusername.github.io/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="en" href="https://yourusername.github.io/blog/bai1-gioi-thieu-ve-java/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --code-block-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
+            }
+        }
+
+    </style>
+</noscript><meta property="og:url" content="https://yourusername.github.io/blog/bai1-gioi-thieu-ve-java/">
+  <meta property="og:site_name" content="Blog Lập Trình - 2180607911 - Nguyễn Thanh Phương - 21DTHD3">
+  <meta property="og:title" content="Bài 1 - Giới thiệu về Java">
+  <meta property="og:description" content=" Java là một ngôn ngữ lập trình hướng đối tượng mạnh mẽ, được sử dụng rộng rãi trong phát triển ứng dụng mạng. Với Java, bạn có thể lập trình các ứng dụng server-client sử dụng Socket, RMI, và Multithreading. 📸 Minh họa: Tương tự C&#43;&#43;, hướng đối tượng hoàn toàn Trong quá trình tạo ra một ngôn ngữ mới phục vụ cho mục đích chạy được trên nhiều nền tảng, các kỹ sư của Sun MicroSystem muốn tạo ra một ngôn ngữ dễ học và quen thuộc với đa số người lập trình. Vì vậy họ đã sử dụng lại các cú pháp của C và C&#43;&#43;.">
+  <meta property="og:locale" content="vi">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="blog">
+    <meta property="article:published_time" content="2025-10-05T00:00:00+00:00">
+    <meta property="article:modified_time" content="2025-10-05T00:00:00+00:00">
+    <meta property="article:tag" content="Java">
+    <meta property="article:tag" content="Lập Trình Mạng">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Bài 1 - Giới thiệu về Java">
+<meta name="twitter:description" content="
+Java là một ngôn ngữ lập trình hướng đối tượng mạnh mẽ, được sử dụng rộng rãi trong phát triển ứng dụng mạng.
+Với Java, bạn có thể lập trình các ứng dụng server-client sử dụng Socket, RMI, và Multithreading.
+
+📸 Minh họa:
+
+
+Tương tự C&#43;&#43;, hướng đối tượng hoàn toàn
+Trong quá trình tạo ra một ngôn ngữ mới phục vụ cho mục đích chạy được trên nhiều nền tảng, các kỹ sư của Sun MicroSystem muốn tạo ra một ngôn ngữ dễ học và quen thuộc với đa số người lập trình. Vì vậy họ đã sử dụng lại các cú pháp của C và C&#43;&#43;.">
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Blog - Lập trình mạng máy tính",
+      "item": "https://yourusername.github.io/blog/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "Bài 1 - Giới thiệu về Java",
+      "item": "https://yourusername.github.io/blog/bai1-gioi-thieu-ve-java/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Bài 1 - Giới thiệu về Java",
+  "name": "Bài 1 - Giới thiệu về Java",
+  "description": " Java là một ngôn ngữ lập trình hướng đối tượng mạnh mẽ, được sử dụng rộng rãi trong phát triển ứng dụng mạng. Với Java, bạn có thể lập trình các ứng dụng server-client sử dụng Socket, RMI, và Multithreading. 📸 Minh họa: Tương tự C++, hướng đối tượng hoàn toàn Trong quá trình tạo ra một ngôn ngữ mới phục vụ cho mục đích chạy được trên nhiều nền tảng, các kỹ sư của Sun MicroSystem muốn tạo ra một ngôn ngữ dễ học và quen thuộc với đa số người lập trình. Vì vậy họ đã sử dụng lại các cú pháp của C và C++.\n",
+  "keywords": [
+    "Java", "Lập trình mạng"
+  ],
+  "articleBody": " Java là một ngôn ngữ lập trình hướng đối tượng mạnh mẽ, được sử dụng rộng rãi trong phát triển ứng dụng mạng. Với Java, bạn có thể lập trình các ứng dụng server-client sử dụng Socket, RMI, và Multithreading. 📸 Minh họa: Tương tự C++, hướng đối tượng hoàn toàn Trong quá trình tạo ra một ngôn ngữ mới phục vụ cho mục đích chạy được trên nhiều nền tảng, các kỹ sư của Sun MicroSystem muốn tạo ra một ngôn ngữ dễ học và quen thuộc với đa số người lập trình. Vì vậy họ đã sử dụng lại các cú pháp của C và C++.\nTuy nhiên, trong Java thao tác với con trỏ bị lược bỏ nhằm đảo bảo tính an toàn và dễ sử dụng hơn. Các thao tác overload, goto hay các cấu trúc như struct và union cũng được loại bỏ khỏi Java.\nĐộc lập phần cứng và hệ điều hành Một chương trình viết bằng ngôn ngữ Java có thể chạy tốt ở nhiều môi trường khác nhau. Gọi là khả năng “cross-platform”. Khả năng độc lập phần cứng và hệ điều hành được thể hiện ở 2 cấp độ là cấp độ mã nguồn và cấp độ nhị phân.\nỞ cấp độ mã nguồn: Kiểu dữ liệu trong Java nhất quán cho tất cả các hệ điều hành và phần cứng khác nhau. Java có riêng một bộ thư viện để hỗ trợ vấn đề này. Chương trình viết bằng ngôn ngữ Java có thể biên dịch trên nhiều loại máy khác nhau mà không gặp lỗi.\nỞ cấp độ nhị phân: Một mã biên dịch có thể chạy trên nhiều nền tảng khác nhau mà không cần dịch lại mã nguồn. Tuy nhiên cần có Java Virtual Machine để thông dịch đoạn mã này.\n🧩 Một ví dụ về Socket Server: ServerSocket server = new ServerSocket(1234); Socket client = server.accept(); System.out.println(\"Client connected!\"); ✍️ Tác giả: Nguyễn Thanh Phương\n📅 Cập nhật: October 19, 2025\n",
+  "wordCount" : "334",
+  "inLanguage": "en",
+  "datePublished": "2025-10-05T00:00:00Z",
+  "dateModified": "2025-10-05T00:00:00Z",
+  "author":{
+    "@type": "Person",
+    "name": "Nguyễn Thanh Phương"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://yourusername.github.io/blog/bai1-gioi-thieu-ve-java/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Blog Lập Trình - 2180607911 - Nguyễn Thanh Phương - 21DTHD3",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://yourusername.github.io/favicon.ico"
+    }
+  }
+}
+</script>
+</head>
+
+<body class="" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+
+</script>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="https://yourusername.github.io/" accesskey="h" title="Blog Lập Trình - 2180607911 - Nguyễn Thanh Phương - 21DTHD3 (Alt + H)">Blog Lập Trình - 2180607911 - Nguyễn Thanh Phương - 21DTHD3</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)" aria-label="Toggle theme">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="https://yourusername.github.io/" title="Home">
+                    <span>Home</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://yourusername.github.io/blog" title="📝">
+                    <span>📝</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://yourusername.github.io/about" title="📩">
+                    <span>📩</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    <div class="breadcrumbs"><a href="https://yourusername.github.io/">Home</a>&nbsp;»&nbsp;<a href="https://yourusername.github.io/blog/">Blog - Lập trình mạng máy tính</a></div>
+    <h1 class="post-title entry-hint-parent">
+      Bài 1 - Giới thiệu về Java
+    </h1>
+    <div class="post-meta"><span title='2025-10-05 00:00:00 +0000 UTC'>October 5, 2025</span>&nbsp;·&nbsp;<span>2 min</span>&nbsp;·&nbsp;<span>Nguyễn Thanh Phương</span>
+
+</div>
+  </header> 
+  <div class="post-content"><ul>
+<li>Java là một ngôn ngữ lập trình hướng đối tượng mạnh mẽ, được sử dụng rộng rãi trong phát triển ứng dụng mạng.</li>
+<li>Với Java, bạn có thể lập trình các ứng dụng server-client sử dụng <strong>Socket</strong>, <strong>RMI</strong>, và <strong>Multithreading</strong>.</li>
+</ul>
+<p>📸 <em>Minh họa:</em>
+<img alt="Features of Java" loading="lazy" src="/images/dac-diem-cua-java.png"></p>
+<hr>
+<h2 id="tương-tự-c-hướng-đối-tượng-hoàn-toàn">Tương tự C++, hướng đối tượng hoàn toàn<a hidden class="anchor" aria-hidden="true" href="#tương-tự-c-hướng-đối-tượng-hoàn-toàn">#</a></h2>
+<p>Trong quá trình tạo ra một ngôn ngữ mới phục vụ cho mục đích chạy được trên nhiều nền tảng, các kỹ sư của Sun MicroSystem muốn tạo ra một ngôn ngữ dễ học và quen thuộc với đa số người lập trình. Vì vậy họ đã sử dụng lại các cú pháp của C và C++.</p>
+<p>Tuy nhiên, trong Java thao tác với con trỏ bị lược bỏ nhằm đảo bảo tính an toàn và dễ sử dụng hơn. Các thao tác overload, goto hay các cấu trúc như struct và union cũng được loại bỏ khỏi Java.</p>
+<h2 id="độc-lập-phần-cứng-và-hệ-điều-hành">Độc lập phần cứng và hệ điều hành<a hidden class="anchor" aria-hidden="true" href="#độc-lập-phần-cứng-và-hệ-điều-hành">#</a></h2>
+<p>Một chương trình viết bằng ngôn ngữ Java có thể chạy tốt ở nhiều môi trường khác nhau. Gọi là khả năng “cross-platform”. Khả năng độc lập phần cứng và hệ điều hành được thể hiện ở 2 cấp độ là cấp độ mã nguồn và cấp độ nhị phân.</p>
+<p>Ở cấp độ mã nguồn: Kiểu dữ liệu trong Java nhất quán cho tất cả các hệ điều hành và phần cứng khác nhau. Java có riêng một bộ thư viện để hỗ trợ vấn đề này. Chương trình viết bằng ngôn ngữ Java có thể biên dịch trên nhiều loại máy khác nhau mà không gặp lỗi.</p>
+<p>Ở cấp độ nhị phân: Một mã biên dịch có thể chạy trên nhiều nền tảng khác nhau mà không cần dịch lại mã nguồn. Tuy nhiên cần có Java Virtual Machine để thông dịch đoạn mã này.</p>
+<hr>
+<h3 id="-một-ví-dụ-về-socket-server">🧩 Một ví dụ về Socket Server:<a hidden class="anchor" aria-hidden="true" href="#-một-ví-dụ-về-socket-server">#</a></h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>ServerSocket server <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> ServerSocket(1234);
+</span></span><span style="display:flex;"><span>Socket client <span style="color:#f92672">=</span> server.<span style="color:#a6e22e">accept</span>();
+</span></span><span style="display:flex;"><span>System.<span style="color:#a6e22e">out</span>.<span style="color:#a6e22e">println</span>(<span style="color:#e6db74">&#34;Client connected!&#34;</span>);
+</span></span></code></pre></div><hr>
+<p>✍️ Tác giả: Nguyễn Thanh Phương</p>
+<p>📅 Cập nhật: October 19, 2025</p>
+<hr>
+
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+      <li><a href="https://yourusername.github.io/tags/java/">Java</a></li>
+      <li><a href="https://yourusername.github.io/tags/l%E1%BA%ADp-tr%C3%ACnh-m%E1%BA%A1ng/">Lập Trình Mạng</a></li>
+    </ul>
+<nav class="paginav">
+  <a class="prev" href="https://yourusername.github.io/blog/bai2-ket-noi-mang-trong-java-voi-socket/">
+    <span class="title">« Prev</span>
+    <br>
+    <span>Bài 2 - Kết nối mạng trong Java với Socket</span>
+  </a>
+</nav>
+
+  </footer>
+</article>
+    </main>
+    
+<footer class="footer">
+        <span>&copy; 2025 <a href="https://yourusername.github.io/">Blog Lập Trình - 2180607911 - Nguyễn Thanh Phương - 21DTHD3</a></span> · 
+
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerHTML = 'copy';
+
+        function copyingDone() {
+            copybutton.innerHTML = 'copied!';
+            setTimeout(() => {
+                copybutton.innerHTML = 'copy';
+            }, 2000);
+        }
+
+        copybutton.addEventListener('click', (cb) => {
+            if ('clipboard' in navigator) {
+                navigator.clipboard.writeText(codeblock.textContent);
+                copyingDone();
+                return;
+            }
+
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) { };
+            selection.removeRange(range);
+        });
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+        } else if (container.parentNode.firstChild == container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+        }
+    });
+</script>
+</body>
+
+</html>

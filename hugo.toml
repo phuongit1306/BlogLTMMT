@@ -1,0 +1,49 @@
+baseURL = "https://phuongit1306.github.io/BlogLTMMT/"
+languageCode = "vi"
+title = "Blog Lập Trình - 2180607911 - Nguyễn Thanh Phương - 21DTHD3"
+theme = "PaperMod"
+
+[pagination]
+  pagerSize = 10
+
+[params]
+  author = "Nguyễn Thanh Phương"
+  description = "Chia sẻ kiến thức, kinh nghiệm và dự án về Java, JavaScript, và lập trình mạng."
+  defaultTheme = "auto"
+  ShowReadingTime = true
+  ShowBreadCrumbs = true
+  ShowPostNavLinks = true
+  ShowCodeCopyButtons = true
+
+  [params.assets]
+    css = ["css/custom.css"]
+
+  [params.profileMode]
+    enabled = true
+    title = "Nguyễn Thanh Phương 👨‍💻"
+    subtitle = """
+    Lập trình viên yêu thích công nghệ Java & Web.  
+    Đây là nơi tôi chia sẻ các kiến thức, hướng dẫn, và kinh nghiệm thực chiến trong quá trình học và làm dự án.  
+    """
+    imageUrl = "images/avatar.jpg"
+    imageTitle = "Nguyễn Thanh Phương"
+    buttons = [
+      { name = "📝 Blog", url = "/blog" },
+      { name = "📩 Liên hệ", url = "/about" },
+      { name = "📂 GitHub", url = "https://github.com/phuongit1306" }
+    ]
+
+[[menu.main]]
+  name = "Home"
+  url = "/"
+  weight = 1
+
+[[menu.main]]
+  name = "📝"
+  url = "/blog"
+  weight = 2
+
+[[menu.main]]
+  name = "📩"
+  url = "/about"
+  weight = 3

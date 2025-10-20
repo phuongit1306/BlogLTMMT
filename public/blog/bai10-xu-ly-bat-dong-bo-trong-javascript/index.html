@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="noindex, nofollow">
+<title>Bài 10 - Xử lý Bất đồng bộ trong JavaScript – Hiểu rõ Callback, Promise và Async/Await | Blog Lập Trình</title>
+<meta name="keywords" content="JavaScript, Lập trình web, Bất đồng bộ, Async Await">
+<meta name="description" content="
+JavaScript là ngôn ngữ đơn luồng (single-threaded), nghĩa là nó chỉ thực hiện một tác vụ tại một thời điểm.
+Vậy làm sao JavaScript có thể xử lý được những tác vụ mất thời gian như tải dữ liệu từ server, đọc file, hay đợi người dùng thao tác mà không làm treo trình duyệt?
+
+👉 Câu trả lời nằm ở cơ chế xử lý bất đồng bộ (asynchronous programming).">
+<meta name="author" content="Nguyễn Thanh Phương">
+<link rel="canonical" href="http://localhost:1313/blog/bai10-xu-ly-bat-dong-bo-trong-javascript/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.a482bf00fa5c046040ef7973ad5fdf5657890cacb596c93f1382f664ca542074.css" integrity="sha256-pIK/APpcBGBA73lzrV/fVleJDKy1lsk/E4L2ZMpUIHQ=" rel="preload stylesheet" as="style">
+<link rel="icon" href="http://localhost:1313/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/favicon-32x32.png">
+<link rel="apple-touch-icon" href="http://localhost:1313/apple-touch-icon.png">
+<link rel="mask-icon" href="http://localhost:1313/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="en" href="http://localhost:1313/blog/bai10-xu-ly-bat-dong-bo-trong-javascript/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --code-block-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
+            }
+        }
+
+    </style>
+</noscript>
+</head>
+
+<body class="" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+
+</script>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="http://localhost:1313/" accesskey="h" title="Blog Lập Trình (Alt + H)">Blog Lập Trình</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)" aria-label="Toggle theme">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="http://localhost:1313/" title="Home">
+                    <span>Home</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    <div class="breadcrumbs"><a href="http://localhost:1313/">Home</a>&nbsp;»&nbsp;<a href="http://localhost:1313/blog/">Blog</a></div>
+    <h1 class="post-title entry-hint-parent">
+      Bài 10 - Xử lý Bất đồng bộ trong JavaScript – Hiểu rõ Callback, Promise và Async/Await
+    </h1>
+    <div class="post-meta"><span title='2025-10-20 00:00:00 +0000 UTC'>October 20, 2025</span>&nbsp;·&nbsp;<span>3 min</span>&nbsp;·&nbsp;<span>Nguyễn Thanh Phương</span>
+
+</div>
+  </header> 
+  <div class="post-content"><ul>
+<li>JavaScript là ngôn ngữ <strong>đơn luồng (single-threaded)</strong>, nghĩa là nó chỉ thực hiện <strong>một tác vụ tại một thời điểm</strong>.</li>
+<li>Vậy làm sao JavaScript có thể xử lý được những tác vụ <strong>mất thời gian</strong> như tải dữ liệu từ server, đọc file, hay đợi người dùng thao tác mà <strong>không làm treo trình duyệt</strong>?</li>
+</ul>
+<p>👉 Câu trả lời nằm ở <strong>cơ chế xử lý bất đồng bộ (asynchronous programming)</strong>.</p>
+<hr>
+<h2 id="-1-cơ-chế-event-loop">⚙️ 1. Cơ chế Event Loop<a hidden class="anchor" aria-hidden="true" href="#-1-cơ-chế-event-loop">#</a></h2>
+<ul>
+<li>Khi chạy JavaScript, các tác vụ được đưa vào <strong>Call Stack</strong>, và các công việc bất đồng bộ (như <code>setTimeout</code>, <code>fetch</code>, hay <code>event listener</code>) sẽ được <strong>Web APIs</strong> xử lý, sau đó đẩy về <strong>Callback Queue</strong> khi hoàn tất.</li>
+<li><strong>Event Loop</strong> liên tục kiểm tra xem Stack có rảnh không để đẩy callback vào thực thi.</li>
+</ul>
+<p>📸 <em>Minh họa cơ chế Event Loop:</em>
+<img alt="Event Loop JavaScript" loading="lazy" src="/images/js-event-loop.png"></p>
+<hr>
+<h2 id="-2-callback--cách-cổ-điển-để-xử-lý-bất-đồng-bộ">🧩 2. Callback – Cách cổ điển để xử lý bất đồng bộ<a hidden class="anchor" aria-hidden="true" href="#-2-callback--cách-cổ-điển-để-xử-lý-bất-đồng-bộ">#</a></h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#34;Bắt đầu tải dữ liệu...&#34;</span>);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">setTimeout</span>(() =&gt; {
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#34;✅ Dữ liệu đã được tải!&#34;</span>);
+</span></span><span style="display:flex;"><span>}, <span style="color:#ae81ff">2000</span>);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#34;Đang chờ dữ liệu...&#34;</span>);
+</span></span></code></pre></div><p>🧠 Kết quả:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>Bắt đầu tải dữ liệu...
+</span></span><span style="display:flex;"><span>Đang chờ dữ liệu...
+</span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">✅</span> Dữ liệu đã được tải<span style="color:#f92672">!</span>
+</span></span></code></pre></div><blockquote>
+<p>Callback giúp xử lý bất đồng bộ, nhưng nếu lồng nhiều callback sẽ dẫn đến callback hell.</p>
+</blockquote>
+<p>📉 Minh họa Callback Hell:
+<img alt="Event Loop JavaScript" loading="lazy" src="/images/call-back-hell.png"></p>
+<hr>
+<h2 id="-3-promise--giải-pháp-hiện-đại-hơn">🚀 3. Promise – Giải pháp hiện đại hơn<a hidden class="anchor" aria-hidden="true" href="#-3-promise--giải-pháp-hiện-đại-hơn">#</a></h2>
+<p>Promise đại diện cho một giá trị sẽ có trong tương lai (thành công hoặc thất bại).</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>function <span style="color:#a6e22e">fetchData</span>() {
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">new</span> Promise((resolve, reject) <span style="color:#f92672">=&gt;</span> {
+</span></span><span style="display:flex;"><span>    setTimeout(() <span style="color:#f92672">=&gt;</span> {
+</span></span><span style="display:flex;"><span>      resolve(<span style="color:#e6db74">&#34;✅ Dữ liệu tải thành công!&#34;</span>);
+</span></span><span style="display:flex;"><span>    }, 2000);
+</span></span><span style="display:flex;"><span>  });
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>console.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#34;Bắt đầu...&#34;</span>);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>fetchData()
+</span></span><span style="display:flex;"><span>  .<span style="color:#a6e22e">then</span>((result) <span style="color:#f92672">=&gt;</span> console.<span style="color:#a6e22e">log</span>(result))
+</span></span><span style="display:flex;"><span>  .<span style="color:#a6e22e">catch</span>((error) <span style="color:#f92672">=&gt;</span> console.<span style="color:#a6e22e">error</span>(<span style="color:#e6db74">&#34;Lỗi:&#34;</span>, error))
+</span></span><span style="display:flex;"><span>  .<span style="color:#a6e22e">finally</span>(() <span style="color:#f92672">=&gt;</span> console.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#34;Hoàn tất&#34;</span>));
+</span></span></code></pre></div><h4 id="-kết-quả">🧩 Kết quả:<a hidden class="anchor" aria-hidden="true" href="#-kết-quả">#</a></h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>Bắt đầu...
+</span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">✅</span> Dữ liệu tải thành công<span style="color:#f92672">!</span>
+</span></span><span style="display:flex;"><span>Hoàn tất
+</span></span></code></pre></div><hr>
+<h2 id="-4-async--await--cú-pháp-hiện-đại-dễ-đọc">⏳ 4. Async / Await – Cú pháp hiện đại, dễ đọc<a hidden class="anchor" aria-hidden="true" href="#-4-async--await--cú-pháp-hiện-đại-dễ-đọc">#</a></h2>
+<p>async và await giúp viết code bất đồng bộ trông như đồng bộ, dễ hiểu và dễ debug hơn.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>async function <span style="color:#a6e22e">getData</span>() {
+</span></span><span style="display:flex;"><span>  console.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#34;⏳ Đang tải...&#34;</span>);
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">const</span> data <span style="color:#f92672">=</span> await <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">Promise</span>((resolve) <span style="color:#f92672">=&gt;</span>
+</span></span><span style="display:flex;"><span>    setTimeout(() <span style="color:#f92672">=&gt;</span> resolve(<span style="color:#e6db74">&#34;✅ Tải xong dữ liệu!&#34;</span>), 2000)
+</span></span><span style="display:flex;"><span>  );
+</span></span><span style="display:flex;"><span>  console.<span style="color:#a6e22e">log</span>(data);
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>getData();
+</span></span><span style="display:flex;"><span>console.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#34;➡️ Hàm vẫn tiếp tục chạy...&#34;</span>);
+</span></span></code></pre></div><p>Kết quả:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">⏳</span> Đang tải...
+</span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">➡</span>️ Hàm vẫn tiếp tục chạy...
+</span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">✅</span> Tải xong dữ liệu<span style="color:#f92672">!</span>
+</span></span></code></pre></div><hr>
+<h2 id="-5-ví-dụ-thực-tế-gọi-api-từ-server">🌐 5. Ví dụ thực tế: Gọi API từ Server<a hidden class="anchor" aria-hidden="true" href="#-5-ví-dụ-thực-tế-gọi-api-từ-server">#</a></h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>async function <span style="color:#a6e22e">getUserData</span>() {
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">try</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">const</span> response <span style="color:#f92672">=</span> await <span style="color:#a6e22e">fetch</span>(<span style="color:#e6db74">&#34;https://jsonplaceholder.typicode.com/users/1&#34;</span>);
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">const</span> user <span style="color:#f92672">=</span> await response.<span style="color:#a6e22e">json</span>();
+</span></span><span style="display:flex;"><span>    console.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#34;👤 Tên người dùng:&#34;</span>, user.<span style="color:#a6e22e">name</span>);
+</span></span><span style="display:flex;"><span>  } <span style="color:#66d9ef">catch</span> (error) {
+</span></span><span style="display:flex;"><span>    console.<span style="color:#a6e22e">error</span>(<span style="color:#e6db74">&#34;⚠️ Lỗi:&#34;</span>, error);
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>getUserData();
+</span></span></code></pre></div><hr>
+<h2 id="-6-so-sánh-3-cách-tiếp-cận">🧠 6. So sánh 3 cách tiếp cận<a hidden class="anchor" aria-hidden="true" href="#-6-so-sánh-3-cách-tiếp-cận">#</a></h2>
+<table>
+  <thead>
+      <tr>
+          <th>Cách</th>
+          <th>Ưu điểm</th>
+          <th>Nhược điểm</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><strong>Callback</strong></td>
+          <td>Dễ hiểu, cơ bản</td>
+          <td>Gây “callback hell”</td>
+      </tr>
+      <tr>
+          <td><strong>Promise</strong></td>
+          <td>Dễ quản lý chuỗi công việc</td>
+          <td>Cú pháp <code>.then()</code> hơi rườm rà</td>
+      </tr>
+      <tr>
+          <td><strong>Async/Await</strong></td>
+          <td>Đọc dễ như code đồng bộ</td>
+          <td>Phải chạy trong hàm <code>async</code></td>
+      </tr>
+  </tbody>
+</table>
+<hr>
+<h2 id="-7-một-ví-dụ-kết-hợp-promise--asyncawait">⚙️ 7. Một ví dụ kết hợp: Promise + Async/Await<a hidden class="anchor" aria-hidden="true" href="#-7-một-ví-dụ-kết-hợp-promise--asyncawait">#</a></h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>function <span style="color:#a6e22e">downloadFile</span>(fileName) {
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">new</span> Promise((resolve) <span style="color:#f92672">=&gt;</span> {
+</span></span><span style="display:flex;"><span>    setTimeout(() <span style="color:#f92672">=&gt;</span> resolve(<span style="color:#960050;background-color:#1e0010">`📦</span> ${fileName} tải xong<span style="color:#f92672">!</span><span style="color:#960050;background-color:#1e0010">`</span>), 1500);
+</span></span><span style="display:flex;"><span>  });
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>async function <span style="color:#a6e22e">downloadAll</span>() {
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">const</span> files <span style="color:#f92672">=</span> <span style="color:#f92672">[</span><span style="color:#e6db74">&#34;data1.json&#34;</span>, <span style="color:#e6db74">&#34;data2.json&#34;</span>, <span style="color:#e6db74">&#34;data3.json&#34;</span><span style="color:#f92672">]</span>;
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">const</span> file of files) {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">const</span> msg <span style="color:#f92672">=</span> await <span style="color:#a6e22e">downloadFile</span>(file);
+</span></span><span style="display:flex;"><span>    console.<span style="color:#a6e22e">log</span>(msg);
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>  console.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#34;🎉 Tất cả file đã tải hoàn tất!&#34;</span>);
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>downloadAll();
+</span></span></code></pre></div><hr>
+<h2 id="-8-tổng-kết">💡 8. Tổng kết<a hidden class="anchor" aria-hidden="true" href="#-8-tổng-kết">#</a></h2>
+<ul>
+<li>
+<p>Callback là nền tảng cho mọi cơ chế bất đồng bộ.</p>
+</li>
+<li>
+<p>Promise giúp code gọn gàng hơn.</p>
+</li>
+<li>
+<p>Async/Await mang lại trải nghiệm gần như lập trình đồng bộ.</p>
+</li>
+<li>
+<p>Luôn sử dụng try&hellip;catch trong async để xử lý lỗi.</p>
+</li>
+</ul>
+<hr>
+<h2 id="-9-ứng-dụng-trong-thực-tế">🧭 9. Ứng dụng trong thực tế<a hidden class="anchor" aria-hidden="true" href="#-9-ứng-dụng-trong-thực-tế">#</a></h2>
+<table>
+  <thead>
+      <tr>
+          <th>Ứng dụng</th>
+          <th>Mô tả</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>🌐 Gọi API</td>
+          <td>Lấy dữ liệu từ backend</td>
+      </tr>
+      <tr>
+          <td>🎮 Game online</td>
+          <td>Chờ dữ liệu từ server hoặc đối thủ</td>
+      </tr>
+      <tr>
+          <td>📷 Ứng dụng camera</td>
+          <td>Chờ phản hồi từ thiết bị</td>
+      </tr>
+      <tr>
+          <td>📦 Tải dữ liệu lớn</td>
+          <td>Quản lý tiến trình tải file</td>
+      </tr>
+  </tbody>
+</table>
+<hr>
+<p>✍️ Tác giả: Nguyễn Thanh Phương</p>
+<p>📅 Cập nhật: October 20, 2025</p>
+<hr>
+
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+      <li><a href="http://localhost:1313/tags/javascript/">JavaScript</a></li>
+      <li><a href="http://localhost:1313/tags/l%E1%BA%ADp-tr%C3%ACnh-web/">Lập Trình Web</a></li>
+      <li><a href="http://localhost:1313/tags/b%E1%BA%A5t-%C4%91%E1%BB%93ng-b%E1%BB%99/">Bất Đồng Bộ</a></li>
+      <li><a href="http://localhost:1313/tags/async-await/">Async Await</a></li>
+    </ul>
+<nav class="paginav">
+  <a class="next" href="http://localhost:1313/blog/bai9-lap-trinh-mang-voi-rmi-trong-java/">
+    <span class="title">Next »</span>
+    <br>
+    <span>Bài 9 - Lập trình mạng trong Java với RMI (Remote Method Invocation)</span>
+  </a>
+</nav>
+
+  </footer>
+</article>
+    </main>
+    
+<footer class="footer">
+        <span>&copy; 2025 <a href="http://localhost:1313/">Blog Lập Trình</a></span> · 
+
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerHTML = 'copy';
+
+        function copyingDone() {
+            copybutton.innerHTML = 'copied!';
+            setTimeout(() => {
+                copybutton.innerHTML = 'copy';
+            }, 2000);
+        }
+
+        copybutton.addEventListener('click', (cb) => {
+            if ('clipboard' in navigator) {
+                navigator.clipboard.writeText(codeblock.textContent);
+                copyingDone();
+                return;
+            }
+
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) { };
+            selection.removeRange(range);
+        });
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+        } else if (container.parentNode.firstChild == container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+        }
+    });
+</script>
+</body>
+
+</html>
