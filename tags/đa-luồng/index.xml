@@ -36,7 +36,7 @@
 &lt;/tbody&gt;
 &lt;/table&gt;
 &lt;p&gt;📸 &lt;em&gt;Minh họa hoạt động chat song công:&lt;/em&gt;
-&lt;img alt="Java Chat Diagram" loading="lazy" src="../images/java-chat-diagram.png"&gt;&lt;/p&gt;</description></item><item><title>Bài 3 - Lập trình đa luồng trong Java (Multithreading)</title><link>https://phuongit1306.github.io/BlogLTMMT/blog/bai3-lap-trinh-da-luong-trong-java/</link><pubDate>Tue, 07 Oct 2025 00:00:00 +0000</pubDate><guid>https://phuongit1306.github.io/BlogLTMMT/blog/bai3-lap-trinh-da-luong-trong-java/</guid><description>&lt;ul&gt;
+&lt;img alt="Java Chat Diagram" loading="lazy" src="https://phuongit1306.github.io/BlogLTMMT/images/java-chat-diagram.png"&gt;&lt;/p&gt;</description></item><item><title>Bài 3 - Lập trình đa luồng trong Java (Multithreading)</title><link>https://phuongit1306.github.io/BlogLTMMT/blog/bai3-lap-trinh-da-luong-trong-java/</link><pubDate>Tue, 07 Oct 2025 00:00:00 +0000</pubDate><guid>https://phuongit1306.github.io/BlogLTMMT/blog/bai3-lap-trinh-da-luong-trong-java/</guid><description>&lt;ul&gt;
 &lt;li&gt;Trong các ứng dụng mạng hoặc hệ thống có nhiều tác vụ chạy song song, &lt;strong&gt;đa luồng (multithreading)&lt;/strong&gt; giúp chương trình hoạt động &lt;strong&gt;hiệu quả, nhanh chóng và mượt mà hơn&lt;/strong&gt;.&lt;/li&gt;
 &lt;li&gt;Java hỗ trợ lập trình đa luồng rất mạnh mẽ thông qua &lt;strong&gt;Thread class&lt;/strong&gt; và &lt;strong&gt;Runnable interface&lt;/strong&gt;.&lt;/li&gt;
 &lt;/ul&gt;

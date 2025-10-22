@@ -79,7 +79,7 @@
 &lt;/tbody&gt;
 &lt;/table&gt;
 &lt;p&gt;📸 &lt;em&gt;Minh họa hoạt động chat song công:&lt;/em&gt;
-&lt;img alt="Java Chat Diagram" loading="lazy" src="../images/java-chat-diagram.png"&gt;&lt;/p&gt;</description></item><item><title>Bài 4 - Truyền file qua mạng trong Java bằng Socket</title><link>https://phuongit1306.github.io/BlogLTMMT/blog/bai4-truyen-file-qua-mang-trong-java/</link><pubDate>Wed, 08 Oct 2025 00:00:00 +0000</pubDate><guid>https://phuongit1306.github.io/BlogLTMMT/blog/bai4-truyen-file-qua-mang-trong-java/</guid><description>&lt;ul&gt;
+&lt;img alt="Java Chat Diagram" loading="lazy" src="https://phuongit1306.github.io/BlogLTMMT/images/java-chat-diagram.png"&gt;&lt;/p&gt;</description></item><item><title>Bài 4 - Truyền file qua mạng trong Java bằng Socket</title><link>https://phuongit1306.github.io/BlogLTMMT/blog/bai4-truyen-file-qua-mang-trong-java/</link><pubDate>Wed, 08 Oct 2025 00:00:00 +0000</pubDate><guid>https://phuongit1306.github.io/BlogLTMMT/blog/bai4-truyen-file-qua-mang-trong-java/</guid><description>&lt;ul&gt;
 &lt;li&gt;Trong các ứng dụng mạng, việc &lt;strong&gt;truyền file (file transfer)&lt;/strong&gt; là một trong những chức năng quan trọng nhất.&lt;/li&gt;
 &lt;li&gt;Java hỗ trợ thao tác này rất tốt thông qua &lt;strong&gt;Socket&lt;/strong&gt;, giúp chúng ta gửi và nhận dữ liệu dạng nhị phân giữa &lt;strong&gt;Client và Server&lt;/strong&gt;.&lt;/li&gt;
 &lt;/ul&gt;
