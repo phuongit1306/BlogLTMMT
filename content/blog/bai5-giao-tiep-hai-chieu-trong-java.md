@@ -28,7 +28,7 @@ Trong các bài trước, ta đã học cách:
 | `Thread` | Tạo luồng riêng cho việc **nhận tin nhắn** để tránh bị chặn chương trình |
 
 📸 *Minh họa hoạt động chat song công:*
-![Java Chat Diagram](../images/java-chat-diagram.png)
+![Java Chat Diagram](/images/java-chat-diagram.png)
 
 ---
 
@@ -144,6 +144,6 @@ Nhờ có đa luồng, chương trình không bị "treo" khi chờ dữ liệu.
 ---
 ✍️ Tác giả: Nguyễn Thanh Phương
 
-📅 Cập nhật: October 19, 2025
+📅 Cập nhật: October 09, 2025
 
 ---

@@ -172,6 +172,6 @@ public class MultiClient {
 ---
 ✍️ Tác giả: Nguyễn Thanh Phương
 
-📅 Cập nhật: October 19, 2025
+📅 Cập nhật: October 07, 2025
 
 ---

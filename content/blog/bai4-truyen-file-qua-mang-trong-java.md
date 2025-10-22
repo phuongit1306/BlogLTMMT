@@ -20,7 +20,7 @@ Khi truyền file qua mạng bằng Socket:
 Quá trình này tương tự như **copy file giữa hai máy tính**, chỉ khác là sử dụng **giao thức TCP**.
 
 📸 *Minh họa luồng dữ liệu giữa Client và Server:*
-![File Transfer Diagram](../images/file-transfer-diagram.png)
+![File Transfer Diagram](/images/file-transfer-diagram.png)
 
 ---
 
@@ -130,6 +130,6 @@ public class FileSender {
 ---
 ✍️ Tác giả: Nguyễn Thanh Phương
 
-📅 Cập nhật: October 19, 2025
+📅 Cập nhật: October 08, 2025
 
 ---

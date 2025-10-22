@@ -232,6 +232,6 @@ Broadcast message để chia sẻ thông tin
 ---
 ✍️ Tác giả: Nguyễn Thanh Phương
 
-📅 Cập nhật: October 19, 2025
+📅 Cập nhật: October 10, 2025
 
 ---
