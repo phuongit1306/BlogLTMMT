@@ -21,7 +21,7 @@ Cụ thể:&lt;/p&gt;</description></item><item><title>Bài 1 - Giới thiệu v
 &lt;li&gt;Với Java, bạn có thể lập trình các ứng dụng server-client sử dụng &lt;strong&gt;Socket&lt;/strong&gt;, &lt;strong&gt;RMI&lt;/strong&gt;, và &lt;strong&gt;Multithreading&lt;/strong&gt;.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;📸 &lt;em&gt;Minh họa:&lt;/em&gt;
-&lt;img alt="Features of Java" loading="lazy" src="https://phuongit1306.github.io/BlogLTMMT/images/dac-diem-cua-java.png"&gt;&lt;/p&gt;
+&lt;img alt="Features of Java" loading="lazy" src="https://phuongit1306.github.io/BlogLTMMT/public/images/dac-diem-cua-java.png"&gt;&lt;/p&gt;
 &lt;hr&gt;
 &lt;h2 id="tương-tự-c-hướng-đối-tượng-hoàn-toàn"&gt;Tương tự C++, hướng đối tượng hoàn toàn&lt;/h2&gt;
 &lt;p&gt;Trong quá trình tạo ra một ngôn ngữ mới phục vụ cho mục đích chạy được trên nhiều nền tảng, các kỹ sư của Sun MicroSystem muốn tạo ra một ngôn ngữ dễ học và quen thuộc với đa số người lập trình. Vì vậy họ đã sử dụng lại các cú pháp của C và C++.&lt;/p&gt;</description></item></channel></rss>
