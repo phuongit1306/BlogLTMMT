@@ -43,7 +43,7 @@ Bắt đầu tải dữ liệu...
 > Callback giúp xử lý bất đồng bộ, nhưng nếu lồng nhiều callback sẽ dẫn đến callback hell.
 
 📉 Minh họa Callback Hell:
-![Event Loop JavaScript](/images/call-back-hell.png)
+![Call back hell](/images/call-back-hell.png)
 
 ---
 

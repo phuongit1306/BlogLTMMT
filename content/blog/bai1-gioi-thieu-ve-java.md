@@ -10,7 +10,7 @@ categories: ["Java"]
 - Với Java, bạn có thể lập trình các ứng dụng server-client sử dụng **Socket**, **RMI**, và **Multithreading**.
 
 📸 *Minh họa:*
-![Features of Java](/images/dac-diem-cua-java.png)
+![Features of Java](/public/images/dac-diem-cua-java.png) 
 
 ---
 
