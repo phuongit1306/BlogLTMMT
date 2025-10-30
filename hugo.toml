@@ -47,3 +47,8 @@ theme = "PaperMod"
   name = "📩"
   url = "/about"
   weight = 3
+  
+[[menu.main]]
+  name = "🎓"
+  url = "/certificates"
+  weight = 4

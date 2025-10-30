@@ -1,6 +1,6 @@
 ---
 title: "Bài 8 - Gửi và nhận file qua mạng trong Java (File Transfer)"
-date: 2025-10-14
+date: 2025-10-28
 draft: false
 tags: ["Java", "Socket", "File Transfer", "Networking"]
 categories: ["Java"]

@@ -1,6 +1,6 @@
 ---
 title: "Bài 9 - Lập trình mạng trong Java với RMI (Remote Method Invocation)"
-date: 2025-10-15
+date: 2025-10-30
 draft: false
 tags: ["Java", "RMI", "Distributed Systems", "Networking"]
 categories: ["Java"]

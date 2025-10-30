@@ -1,6 +1,6 @@
 ---
 title: "Bài 7 - Lập trình mạng với UDP trong Java"
-date: 2025-10-11
+date: 2025-10-23
 draft: false
 tags: ["Java", "UDP", "Datagram", "Networking"]
 categories: ["Java"]
