@@ -25,7 +25,7 @@ theme = "PaperMod"
     Lập trình viên yêu thích công nghệ Java & Web.  
     Đây là nơi tôi chia sẻ các kiến thức, hướng dẫn, và kinh nghiệm thực chiến trong quá trình học và làm dự án.  
     """
-    imageUrl = "images/avatar.jpg"
+    imageUrl = "images/Avatar2.jpg"
     imageTitle = "Nguyễn Thanh Phương"
     buttons = [
       { name = "📝 Blog", url = "blog/" },
