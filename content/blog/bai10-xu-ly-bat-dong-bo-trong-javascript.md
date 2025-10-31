@@ -1,6 +1,6 @@
 ---
 title: "Bài 10 - Xử lý Bất đồng bộ trong JavaScript – Hiểu rõ Callback, Promise và Async/Await"
-date: 2025-10-31
+date: 2025-10-30
 draft: false
 tags: ["JavaScript", "Lập trình web", "Bất đồng bộ", "Async Await"]
 categories: ["JavaScript"]

@@ -17,8 +17,21 @@
     gap: 10px;
 }
 
+/* 🌟 Tăng kích thước ảnh avatar */
 .profile img {
     border-radius: 50%;
+    width: 220px;         /* 👉 tăng kích thước ảnh, mặc định PaperMod khoảng 120px */
+    height: 220px;
+    object-fit: cover;    /* giúp ảnh không bị méo */
+    border: 3px solid var(--primary); /* thêm viền nhẹ để nổi bật ảnh */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); /* hiệu ứng bóng mờ */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* 🧠 Thêm hiệu ứng hover */
+.profile img:hover {
+    transform: scale(1.08);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.3);
 }
 
 .buttons {
